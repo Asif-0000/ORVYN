@@ -10,22 +10,23 @@
   
   <style>
     :root {
-      --bg: #F8F9FA;
+      --bg: #FDFBF7;           /* Warm Cream */
       --card-bg: #FFFFFF;
       --primary: #7C3AED;      /* Royal Violet */
       --primary-hover: #6D28D9;
       --primary-light: #F5F3FF;
-      --text: #1E1B4B;
+      --text: #1E1B4B;         /* Deep Violet Tint Black */
       --muted: #64748B;
-      --border: #E2E8F0;
-      --price-color: #E11D48;  /* Highlight Red Price */
-      --radius: 12px;
+      --border: #EFECE6;       /* Warm Cream Border */
+      --accent-green: #059669;
+      --accent-red: #E11D48;
+      --radius: 16px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Hind Siliguri', sans-serif; }
     body { background: var(--bg); color: var(--text); padding-bottom: 90px; -webkit-font-smoothing: antialiased; }
     
-    /* Top Bar */
+    /* Top Announcement Bar */
     .top-bar {
       background: var(--primary);
       color: #fff;
@@ -33,9 +34,15 @@
       padding: 7px 12px;
       text-align: center;
       font-weight: 500;
+      letter-spacing: 0.2px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
-    /* Navbar */
+    /* Main Navigation Header */
     nav {
       max-width: 1140px;
       margin: 0 auto;
@@ -55,6 +62,7 @@
       height: 44px;
       border-radius: 50%;
       object-fit: cover;
+      box-shadow: 0 2px 10px rgba(124, 58, 237, 0.15);
     }
     .brand-text h1 {
       font-family: 'Outfit', sans-serif;
@@ -71,6 +79,13 @@
       font-weight: 700;
       text-transform: uppercase;
     }
+
+    /* Header Contact / WhatsApp */
+    .header-contact {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
     .wa-btn {
       display: inline-flex;
       align-items: center;
@@ -83,15 +98,90 @@
       font-size: 0.9rem;
       font-weight: 600;
       text-decoration: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
       transition: all 0.2s ease;
     }
-    .wa-btn:hover { border-color: #22C55E; color: #15803D; }
-    .wa-dot { width: 8px; height: 8px; background: #22C55E; border-radius: 50%; display: inline-block; }
+    .wa-btn:hover {
+      border-color: #22C55E;
+      color: #15803D;
+      box-shadow: 0 4px 12px rgba(34, 197, 94, 0.15);
+    }
+    .wa-dot {
+      width: 8px;
+      height: 8px;
+      background: #22C55E;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* Hero Banner Box */
+    .hero-container {
+      max-width: 1100px;
+      margin: 10px auto 30px;
+      padding: 0 16px;
+    }
+    .hero-card {
+      background: linear-gradient(180deg, #F5F3FF 0%, #FAF8F5 100%);
+      border: 1px solid #DDD6FE;
+      border-radius: 24px;
+      padding: 42px 20px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(124, 58, 237, 0.04);
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #FFFFFF;
+      color: var(--primary);
+      border: 1px solid #DDD6FE;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .hero-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    .hero-title span {
+      color: var(--primary);
+    }
+    .hero-sub {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 620px;
+      margin: 0 auto 24px;
+      line-height: 1.6;
+    }
+    .trust-badges {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .trust-pill {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
 
     /* Category Navigation & Search Bar */
     .controls-wrapper {
       max-width: 1100px;
-      margin: 20px auto 25px;
+      margin: 0 auto 28px;
       padding: 0 16px;
     }
     .category-scroll {
@@ -106,11 +196,14 @@
       background: #FFFFFF;
       border: 1px solid var(--border);
       color: var(--text);
-      padding: 8px 18px;
+      padding: 9px 20px;
       border-radius: 999px;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       font-weight: 600;
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       white-space: nowrap;
       transition: all 0.2s ease;
     }
@@ -118,6 +211,17 @@
       background: var(--primary);
       color: #FFFFFF;
       border-color: var(--primary);
+      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.25);
+    }
+    .cat-count {
+      background: rgba(0,0,0,0.06);
+      font-size: 0.75rem;
+      padding: 1px 7px;
+      border-radius: 999px;
+    }
+    .cat-btn.active .cat-count {
+      background: rgba(255,255,255,0.25);
+      color: #fff;
     }
 
     .section-header {
@@ -129,8 +233,19 @@
       gap: 14px;
     }
     .section-title {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .total-badge {
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
     }
     .search-input-wrap {
       position: relative;
@@ -140,138 +255,163 @@
       width: 100%;
       background: #FFFFFF;
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 8px 14px 8px 36px;
-      font-size: 0.9rem;
+      border-radius: 12px;
+      padding: 9px 14px 9px 38px;
+      font-size: 0.92rem;
       outline: none;
+      transition: border-color 0.2s ease;
     }
-    .search-input:focus { border-color: var(--primary); }
+    .search-input:focus {
+      border-color: var(--primary);
+    }
     .search-icon {
       position: absolute;
       left: 12px;
       top: 50%;
       transform: translateY(-50%);
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.95rem;
     }
 
     /* Product Grid */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 22px;
       max-width: 1100px;
       margin: 0 auto;
       padding: 0 16px;
     }
-
-    /* Clean Card Design */
     .card {
       background: var(--card-bg);
       border-radius: var(--radius);
       border: 1px solid var(--border);
+      overflow: hidden;
       display: flex;
       flex-direction: column;
-      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.03);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(124, 58, 237, 0.08);
     }
 
-    /* Single Clean Image Box */
-    .img-box {
+    /* Single Clean Product Image */
+    .card-img-box {
       width: 100%;
-      height: 240px;
-      background: #FAFAFA;
+      height: 250px;
+      background: #F9F8F5;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 16px;
+      overflow: hidden;
+      padding: 14px;
       border-bottom: 1px solid var(--border);
     }
-    .img-box img {
+    .card-img-box img {
       max-width: 100%;
       max-height: 100%;
       object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+    .card:hover .card-img-box img {
+      transform: scale(1.03);
     }
 
     /* Card Details */
     .card-body {
-      padding: 16px;
+      padding: 18px;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
       justify-content: space-between;
     }
     .product-title {
-      font-size: 1.05rem;
+      font-size: 1.15rem;
       font-weight: 700;
-      color: var(--text);
       margin-bottom: 12px;
       line-height: 1.35;
+      color: var(--text);
     }
 
-    /* Key Features / Bullet points */
+    /* Feature/Specs Bullet Points */
     .spec-list {
       list-style-type: disc;
       padding-left: 18px;
       margin-bottom: 16px;
       color: #475569;
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       line-height: 1.6;
     }
     .spec-list li {
       margin-bottom: 4px;
     }
 
-    .divider {
+    .card-divider {
       border: 0;
       height: 1px;
       background: var(--border);
-      margin: 10px 0 14px;
+      margin: 12px 0;
     }
 
-    /* Price Section */
-    .price-center {
-      text-align: center;
-      margin-bottom: 12px;
+    /* Pricing Section */
+    .price-box {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 14px;
     }
     .offer-price {
       font-size: 1.45rem;
       font-weight: 800;
-      color: var(--price-color);
+      color: var(--primary); /* ব্র্যান্ডের রয়্যাল ভায়োলেট কালার */
     }
     .regular-price {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       text-decoration: line-through;
       color: var(--muted);
-      margin-left: 6px;
       font-weight: 500;
     }
+    .save-badge {
+      background: #F5F3FF;
+      color: var(--primary);
+      border: 1px solid #DDD6FE;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
 
-    /* Single Buy Now Button */
-    .btn-buy-now {
+    /* Single Landing Link Button */
+    .btn-order-direct {
+      background: var(--primary);
+      color: #FFFFFF;
+      text-decoration: none;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      background: #F1F5F9;
-      color: #2563EB;
-      border: 1px solid #DBEAFE;
-      text-decoration: none;
-      padding: 10px;
-      border-radius: 8px;
+      padding: 12px 16px;
+      border-radius: 10px;
       font-weight: 700;
       font-size: 0.95rem;
+      width: 100%;
+      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.2);
       transition: all 0.2s ease;
-      cursor: pointer;
     }
-    .btn-buy-now:hover {
-      background: var(--primary);
-      color: #FFFFFF;
-      border-color: var(--primary);
+    .btn-order-direct:hover {
+      background: var(--primary-hover);
+      box-shadow: 0 6px 18px rgba(124, 58, 237, 0.3);
+      transform: translateY(-1px);
+    }
+
+    .loading-spinner {
+      text-align: center;
+      grid-column: 1 / -1;
+      padding: 60px 0;
+      color: var(--muted);
+      font-size: 1.1rem;
     }
   </style>
 </head>
@@ -279,7 +419,8 @@
 
   <!-- Top Announcement Bar -->
   <div class="top-bar">
-    ⚡ সারা বাংলাদেশে ফ্রি হোম ডেলিভারি ও ক্যাশ অন ডেলিভারি সুবিধা!
+    <span>⚡ সারা বাংলাদেশে ফ্রি হোম ডেলিভারি ও ক্যাশ অন ডেলিভারি সুবিধা!</span>
+    <span>🛡️ ৭ দিনের রিপ্লেসমেন্ট গ্যারান্টি</span>
   </div>
 
   <!-- Header Navigation -->
@@ -292,18 +433,39 @@
       </div>
     </a>
     
-    <a href="https://wa.me/8801805529344" target="_blank" class="wa-btn">
-      <span class="wa-dot"></span>
-      <span>01805-529344</span>
-    </a>
+    <div class="header-contact">
+      <a href="https://wa.me/8801805529344" target="_blank" class="wa-btn">
+        <span class="wa-dot"></span>
+        <span>01805-529344</span>
+      </a>
+    </div>
   </nav>
+
+  <!-- Hero Highlight Section -->
+  <div class="hero-container">
+    <div class="hero-card">
+      <div class="hero-tag">⚡ প্রিমিয়াম ইলেকট্রিক গ্যাজেট ও অ্যাক্সেসরিজ</div>
+      <h2 class="hero-title">জেনুইন টেক ডিভাইসের বিশ্বস্ত শপ <span>ORVYN</span></h2>
+      <p class="hero-sub">কোন অগ্রিম পেমেন্ট ছাড়াই অর্ডার করুন ক্যাশ অন ডেলিভারিতে। হাতে পেয়ে চেক করে সম্পূর্ণ মূল্য পরিশোধ করুন।</p>
+      
+      <div class="trust-badges">
+        <span class="trust-pill">🛡️ ১০০% অফিশিয়াল অথেনটিক</span>
+        <span class="trust-pill">⚡ সুপার ফাস্ট ডেলিভারি</span>
+        <span class="trust-pill">💵 ক্যাশ অন ডেলিভারি (COD)</span>
+      </div>
+    </div>
+  </div>
 
   <!-- Controls: Category Filters & Search -->
   <div class="controls-wrapper">
     <div class="category-scroll" id="category-tabs"></div>
 
     <div class="section-header">
-      <div class="section-title">পণ্য তালিকা</div>
+      <div class="section-title">
+        <span>সকল প্রোডাক্ট</span>
+        <span class="total-badge" id="product-summary-badge">০টি পণ্য</span>
+      </div>
+
       <div class="search-input-wrap">
         <span class="search-icon">🔍</span>
         <input type="text" id="search-input" class="search-input" placeholder="প্রোডাক্ট খুঁজুন..." oninput="handleSearch()" />
@@ -316,7 +478,7 @@
 
   <script>
     /* =====================================================================
-       এখানে শুধু প্রোডাক্টের তথ্য ও স্পেসিফিকেশন অ্যাড করবেন
+       এখানে প্রোডাক্টের তথ্য ও স্পেসিফিকেশন অ্যাড করুন
        ===================================================================== */
     const PRODUCTS = [
       {
@@ -325,12 +487,12 @@
         category: "Powerbank",
         offerPrice: 2450,
         regularPrice: 2700,
-        link: "products/Powerbank22.5.html", // আপনার তৈরি করা প্রোডাক্ট ল্যান্ডিং পেজের লিঙ্ক
+        link: "products/Powerbank22.5.html", // আপনার প্রোডাক্ট ল্যান্ডিং পেজের লিঙ্ক
         image: "https://resellkori.com/wp-content/uploads/2026/07/product-3-8-768x768.webp",
         specs: [
-          "Capacity: 20000mAh / 3.7V (74Wh)",
-          "Input: Type-C & Micro USB 18W",
-          "Output: 22.5W Super Fast Charging",
+          "Battery Capacity: 20000mAh / 3.7V (74Wh)",
+          "Type-C / Micro Input: 18W Fast Charging",
+          "Dual USB Output: 22.5W Super Charge",
           "Digital Battery Percentage Display"
         ]
       },
@@ -344,9 +506,9 @@
         image: "https://via.placeholder.com/400x400?text=Jiayou+Powerbank",
         specs: [
           "Type-C/Micro Input: DC 5V (5V/2.5A)",
-          "USB Output1/2: DC 5V-2.5A / 5V-2.4A",
+          "USB Output1/2: DC 5V-2.5A / DC 5V-2.4A",
           "Dual USB Output Support",
-          "Battery Capacity: 20000mAh (74Wh)"
+          "Battery Capacity: 20000mAh (74Wh/3.7V)"
         ]
       }
     ];
@@ -360,21 +522,25 @@
 
     function setupCategoryTabs() {
       const tabsContainer = document.getElementById("category-tabs");
-      const categories = [...new Set(PRODUCTS.map(p => p.category))];
+      const categoryCounts = {};
+
+      PRODUCTS.forEach(p => {
+        categoryCounts[p.category] = (categoryCounts[p.category] || 0) + 1;
+      });
 
       let html = `
         <button class="cat-btn ${currentCategory === 'all' ? 'active' : ''}" onclick="filterByCategory('all')">
-          সকল পণ্য
+          সকল পণ্য <span class="cat-count">${PRODUCTS.length}</span>
         </button>
       `;
 
-      categories.forEach(cat => {
+      for (const [catName, count] of Object.entries(categoryCounts)) {
         html += `
-          <button class="cat-btn ${currentCategory === cat ? 'active' : ''}" onclick="filterByCategory('${cat}')">
-            ${cat}
+          <button class="cat-btn ${currentCategory === catName ? 'active' : ''}" onclick="filterByCategory('${catName.replace(/'/g, "\\'")}')">
+            ${catName} <span class="cat-count">${count}</span>
           </button>
         `;
-      });
+      }
 
       tabsContainer.innerHTML = html;
     }
@@ -399,22 +565,26 @@
         return matchesCategory && matchesSearch;
       });
 
+      document.getElementById("product-summary-badge").innerText = `${filtered.length}টি পণ্য`;
+
       if (filtered.length === 0) {
-        container.innerHTML = "<p style='grid-column: 1/-1; text-align: center; color: #64748B; padding: 40px;'>কোনো প্রোডাক্ট পাওয়া যায়নি।</p>";
+        container.innerHTML = "<p class='loading-spinner'>কোনো প্রোডাক্ট পাওয়া যায়নি।</p>";
         return;
       }
 
       container.innerHTML = "";
 
       filtered.forEach(p => {
-        const specsHtml = p.specs && p.specs.length > 0 
-          ? `<ul class="spec-list">${p.specs.map(s => `<li>${s}</li>`).join("")}</ul>` 
+        const discount = p.regularPrice > p.offerPrice ? (p.regularPrice - p.offerPrice) : 0;
+        
+        const specsHtml = (p.specs && p.specs.length > 0)
+          ? `<ul class="spec-list">${p.specs.map(s => `<li>${s}</li>`).join("")}</ul>`
           : "";
 
         const card = document.createElement("div");
         card.className = "card";
         card.innerHTML = `
-          <div class="img-box">
+          <div class="card-img-box">
             <img src="${p.image}" alt="${p.name}" />
           </div>
 
@@ -425,15 +595,16 @@
             </div>
 
             <div>
-              <hr class="divider" />
-              <div class="price-center">
-                <span class="offer-price">${p.offerPrice}৳</span>
-                ${p.regularPrice > p.offerPrice ? `<span class="regular-price">${p.regularPrice}৳</span>` : ""}
+              <hr class="card-divider" />
+              <div class="price-box">
+                <span class="offer-price">${p.offerPrice} ৳</span>
+                ${p.regularPrice > p.offerPrice ? `<span class="regular-price">${p.regularPrice} ৳</span>` : ""}
+                ${discount > 0 ? `<span class="save-badge">${discount} ৳ ছাড়</span>` : ""}
               </div>
 
-              <!-- সিঙ্গেল বাটন: সরাসরি ল্যান্ডিং পেজে নিয়ে যাবে -->
-              <a href="${p.link}" class="btn-buy-now">
-                🛒 Buy Now
+              <!-- সরাসরি আপনার ল্যান্ডিং পেজে যাওয়ার সিঙ্গেল বাটন -->
+              <a href="${p.link}" class="btn-order-direct">
+                🛒 অর্ডার করুন
               </a>
             </div>
           </div>
