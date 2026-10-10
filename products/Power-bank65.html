@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ORVYN - Baseus 20000mAh Power Bank</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1f6ec2;
+      --primary-dark: #1f6ec2;
+      --secondary: #0f172a;
+      --accent: #f59e0b;
+      --bg-light: #f8fafc;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --white: #ffffff;
+      --border: #e2e8f0;
+      --success: #16a34a;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Hind Siliguri', sans-serif;
+    }
+    body {
+      background-color: var(--bg-light);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .top-notice {
+      background: var(--secondary);
+      color: var(--white);
+      text-align: center;
+      padding: 10px 14px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .top-notice span {
+      color: #38bdf8;
+      font-weight: 700;
+    }
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      background: var(--white);
+      min-height: 100vh;
+      box-shadow: 0 0 25px rgba(0,0,0,0.06);
+    }
+    .header {
+      text-align: center;
+      padding: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .brand-name {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .hero-section {
+      padding: 20px;
+      text-align: center;
+    }
+    .main-headline {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .badge {
+      display: inline-block;
+      background: #dcfce7;
+      color: #15803d;
+      font-weight: 700;
+      padding: 5px 15px;
+      border-radius: 50px;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    /* Swipeable Image Slider Styles */
+    .slider-wrapper {
+      position: relative;
+      margin: 15px 0;
+    }
+    .product-slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #fafafa;
+      scrollbar-width: none; /* Firefox */
+    }
+    .product-slider::-webkit-scrollbar {
+      display: none; /* Chrome, Safari */
+    }
+    .slide {
+      flex: 0 0 100%;
+      width: 100%;
+      scroll-snap-align: start;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+    }
+    .slide img {
+      width: 100%;
+      max-height: 380px;
+      object-fit: contain;
+      border-radius: 8px;
+      display: block;
+      user-select: none;
+    }
+    .slider-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #cbd5e1;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .dot.active {
+      background: var(--primary);
+      transform: scale(1.2);
+    }
+    .swipe-hint {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    .price-tag {
+      background: #fef2f2;
+      border: 2px dashed var(--primary);
+      border-radius: 10px;
+      padding: 12px;
+      margin: 15px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+    }
+    .regular-price {
+      font-size: 18px;
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+    .offer-price {
+      font-size: 26px;
+      color: var(--primary);
+      font-weight: 700;
+    }
+    .cta-btn {
+      display: block;
+      width: 100%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      text-align: center;
+      padding: 14px 20px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(3, 111, 252, 0.35);
+      border: none;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+    .cta-btn:active {
+      transform: scale(0.98);
+    }
+    .features-list {
+      padding: 20px;
+      background: #fff;
+    }
+    .features-title {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 15px;
+      border-left: 4px solid var(--primary);
+      padding-left: 10px;
+    }
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 15px;
+    }
+    .feature-icon {
+      color: var(--success);
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .guarantee-box {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .guarantee-box .icon {
+      font-size: 28px;
+    }
+    .guarantee-box h4 {
+      color: #15803d;
+      font-size: 16px;
+      margin-bottom: 2px;
+    }
+    .guarantee-box p {
+      font-size: 13px;
+      color: #166534;
+    }
+    .order-section {
+      background: #f8fafc;
+      padding: 25px 20px;
+      border-top: 2px solid var(--border);
+    }
+    .order-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .order-header h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--secondary);
+    }
+    .order-header p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--secondary);
+    }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 15px;
+      background: var(--white);
+    }
+    .form-group input:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    .free-delivery-badge-box {
+      background: #f0fdf4;
+      border: 1.5px dashed #22c55e;
+      border-radius: 8px;
+      padding: 12px 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .free-delivery-badge-box span {
+      font-size: 15px;
+      font-weight: 600;
+      color: #15803d;
+    }
+    .order-summary {
+      background: var(--white);
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      margin: 20px 0;
+    }
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      padding: 6px 0;
+    }
+    .summary-row .free-tag {
+      color: #15803d;
+      font-weight: 700;
+    }
+    .summary-row.total {
+      border-top: 1px solid var(--border);
+      margin-top: 6px;
+      padding-top: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .whatsapp-btn {
+      display: block;
+      background: #25d366;
+      color: white;
+      text-align: center;
+      padding: 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 14px;
+      font-size: 15px;
+    }
+    .success-card {
+      display: none;
+      background: #ecfdf5;
+      border: 2px solid #10b981;
+      padding: 25px;
+      border-radius: 10px;
+      text-align: center;
+      margin-top: 15px;
+    }
+    .success-card h3 {
+      color: #065f46;
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+    .success-card p {
+      color: #047857;
+      font-size: 14px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-notice">
+    🎁 ধামাকা অফার: সারা বাংলাদেশে <span>ফ্রি হোম ডেলিভারি</span> ও ক্যাশ অন ডেলিভারি সুবিধা!
+  </div>
+
+  <div class="container">
+    <div class="header">
+      <div class="brand-name">ORVYN</div>
+    </div>
+
+    <div class="hero-section">
+      <span class="badge">🚚 সারা বাংলাদেশে ডেলিভারি সম্পূর্ণ ফ্রি!</span>
+      <h1 class="main-headline">
+        Baseus 20000mAh (65W) Metal Digital Display ফাস্ট চার্জিং পাওয়ার ব্যাংক!
+      </h1>
+
+      <!-- Swipeable Product Slider -->
+      <div class="slider-wrapper">
+        <div class="product-slider" id="productSlider">
+          <div class="slide">
+            <img src="https://resellkori.com/wp-content/uploads/2025/11/61w9eU-h0lL._AC_UF10001000_QL80_-768x703.jpg" alt="Baseus Power Bank 1">
+          </div>
+          <div class="slide">
+            <img src="https://resellkori.com/wp-content/uploads/2025/11/baseus-adaman-65w-digital-display-quick-charge-power-bank-20000mah-5-600x600-1.jpg" alt="Baseus Power Bank 2">
+          </div>
+          <div class="slide">
+            <img src="https://resellkori.com/wp-content/uploads/2025/11/07bc6477c4bf98153079650f544eff074812bd9d616374b9b00d0e231261396c.jpg" alt="Baseus Power Bank 3">
+          </div>
+        </div>
+        <div class="slider-dots" id="sliderDots">
+          <div class="dot active" onclick="goToSlide(0)"></div>
+          <div class="dot" onclick="goToSlide(1)"></div>
+          <div class="dot" onclick="goToSlide(2)"></div>
+        </div>
+        <div class="swipe-hint">👈 ছবি দেখতে ডানে বা বামে সোয়াইপ করুন 👉</div>
+      </div>
+
+      <div class="price-tag">
+        <span class="regular-price">রেগুলার: 4700 টাকা</span>
+        <span class="offer-price">অফার মূল্য: 3990 টাকা</span>
+      </div>
+
+      <a href="#order-form" class="cta-btn">অর্ডার করতে এখানে ক্লিক করুন 🛒</a>
+    </div>
+
+    <div class="features-list">
+      <h2 class="features-title">প্রোডাক্টের বিশেষ সুবিধাসমূহ:</h2>
+      <div class="feature-item">
+        <span class="feature-icon">✔</span>
+        <span><strong>৬৫ ওয়াট টু-ওয়ে ফাস্ট চার্জিং (PD 3.0 + QC 3.0):</strong> এটি দিয়ে ফোন যেমন দ্রুত চার্জ করা যায় (আইফোনের জন্য ১৮W এবং হুয়াওয়ের জন্য ৬৫W পর্যন্ত), তেমনি পাওয়ার ব্যাংক নিজেও খুব দ্রুত চার্জ হয়ে যায়।</span>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">✔</span>
+        <span><strong>একসাথে ৩টি ডিভাইস চার্জের সুবিধা (Three inputs / Three outputs):</strong> একাধিক পোর্ট থাকায় একই সময়ে ৩টি ডিভাইস একসাথে চার্জ করা সম্ভব, ফলে একাধিক গ্যাজেট থাকলে আলাদা করে চার্জ দেওয়ার ঝামেলা থাকে না।</span>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">✔</span>
+        <span><strong>স্মার্ট এলইডি ডিজিটাল ডিসপ্লে:</strong> সাধারণ ডট লাইটের মতো আন্দাজে চার্জ বুঝতে হয় না; স্ক্রিনে সরাসরি ব্যাটারির অবশিষ্ট চার্জের সঠিক পার্সেন্টেজ ও চার্জিং স্ট্যাটাস দেখা যায়।</span>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">✔</span>
+        <span><strong>নিরাপদ ও প্রিমিয়াম মেটাল বডি:</strong> স্টাইলিশ মেটালিক ফিনিশের কারণে দেখতে যেমন প্রিমিয়াম এবং টেকসই, তেমনি বিল্ট-ইন ওভারচার্জ প্রটেকশন থাকায় ফোনের ব্যাটারি নষ্ট হওয়া বা অতিরিক্ত চার্জিংয়ের ঝুঁকি থাকে না।</span>
+      </div>
+    </div>
+
+    <div class="guarantee-box">
+      <div class="icon">🛡️</div>
+      <div>
+        <h4>১০০% ক্যাশ অন ডেলিভারি (জিরো অগ্রিম পেমেন্ট)</h4>
+        <p>ডেলিভারি ম্যানের সামনে প্রোডাক্ট চেক করে ভালো লাগলে টাকা পরিশোধ করবেন। কোনো অগ্রিম ফি দিতে হবে না!</p>
+      </div>
+    </div>
+
+    <div class="order-section" id="order-form">
+      <div class="order-header">
+        <h3>ক্যাশ অন ডেলিভারিতে অর্ডার করুন</h3>
+        <p>অর্ডার কনফার্ম করতে নিচের তথ্যগুলো সঠিকভাবে পূরণ করুন</p>
+      </div>
+
+      <form id="orderForm" onsubmit="submitOrder(event)">
+        <div class="form-group">
+          <label>আপনার সম্পূর্ণ নাম *</label>
+          <input type="text" id="name" placeholder="যেমন: মো: আরিফুল ইসলাম" required>
+        </div>
+
+        <div class="form-group">
+          <label>সচল মোবাইল নম্বর *</label>
+          <input type="tel" id="phone" placeholder="যেমন: 017xxxxxxxx" required>
+        </div>
+
+        <div class="form-group">
+          <label>সম্পূর্ণ ঠিকানা (বাসা/রোড, থানা, জেলা) *</label>
+          <textarea id="address" rows="2" placeholder="যেমন: বাড়ি ১২, রোড ৪, মিরপুর-১০, ঢাকা (অথবা আপনার থানা ও জেলা)" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>ডেলিভারি চার্জ</label>
+          <div class="free-delivery-badge-box">
+            <span>✅ সারা বাংলাদেশে হোম ডেলিভারি সম্পূর্ণ ফ্রি! (০ টাকা)</span>
+          </div>
+        </div>
+
+        <div class="order-summary">
+          <div class="summary-row">
+            <span>প্রোডাক্ট মূল্য</span>
+            <span>৩৯৯০ টাকা</span>
+          </div>
+          <div class="summary-row">
+            <span>ডেলিভারি চার্জ</span>
+            <span class="free-tag">০ টাকা (ফ্রি)</span>
+          </div>
+          <div class="summary-row total">
+            <span>সর্বমোট পরিশোধ করতে হবে</span>
+            <span>৩৯৯০ টাকা</span>
+          </div>
+        </div>
+
+        <button type="submit" id="submitBtn" class="cta-btn">অর্ডার কনফার্ম করুন (ক্যাশ অন ডেলিভারি - ৩৯৯০ ৳)</button>
+      </form>
+
+      <div id="successCard" class="success-card">
+        <h3>🎉 আপনার অর্ডারটি সফলভাবে গ্রহণ করা হয়েছে!</h3>
+        <p id="successDetails"></p>
+        <p style="margin-top: 8px; font-weight: 600;">আমাদের প্রতিনিধি দ্রুত আপনার নম্বরে কল করে অর্ডার নিশ্চিত করবেন।</p>
+      </div>
+
+      <a href="https://wa.me/8801805529344?text=Hello,%20ami%20Baseus%20Power%20Bank%20Free%20Delivery-te%20order%20korte%20chai" target="_blank" class="whatsapp-btn">
+        💬 সরাসরি হোয়াটসঅ্যাপে অর্ডার করুন
+      </a>
+    </div>
+
+    <footer>
+      <p>© 2026 ORVYN. All Rights Reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Slider Swipe Tracking & Dots Logic
+    const slider = document.getElementById('productSlider');
+    const dots = document.querySelectorAll('.slider-dots .dot');
+
+    slider.addEventListener('scroll', () => {
+      const slideWidth = slider.clientWidth;
+      const activeIndex = Math.round(slider.scrollLeft / slideWidth);
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === activeIndex);
+      });
+    });
+
+    function goToSlide(index) {
+      const slideWidth = slider.clientWidth;
+      slider.scrollTo({
+        left: slideWidth * index,
+        behavior: 'smooth'
+      });
+    }
+
+    // Google Sheets Submission Logic
+    const GOOGLE_SHEET_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxIK72Cnf4IPBck3656hjTqBlfUZvbZYIlXhGRP4bDnwD63ilj7tDZ5Mdy--6puGSKrsw/exec";
+    const productPrice = 3990;
+
+    async function submitOrder(e) {
+      e.preventDefault();
+      
+      const submitBtn = document.getElementById('submitBtn');
+      const originalText = submitBtn.innerText;
+      submitBtn.disabled = true;
+      submitBtn.innerText = "অর্ডার প্রসেসিং হচ্ছে... অনুগ্রহ করে অপেক্ষা করুন";
+
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const deliveryChoice = "ফ্রি ডেলিভারি (০ টাকা)";
+      const total = productPrice;
+
+      const orderPayload = {
+        product: "Baseus 20000mAh Power Bank",
+        name: name,
+        phone: phone,
+        address: address,
+        delivery: deliveryChoice,
+        total: total
+      };
+
+      try {
+        if (GOOGLE_SHEET_WEB_APP_URL) {
+          await fetch(GOOGLE_SHEET_WEB_APP_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(orderPayload)
+          });
+        }
+
+        document.getElementById('orderForm').style.display = 'none';
+        const successCard = document.getElementById('successCard');
+        document.getElementById('successDetails').innerText = 
+          "ধন্যবাদ " + name + "! ফ্রি ডেলিভারিতে আপনার অর্ডার গ্রহণ করা হয়েছে। সর্বমোট বিল: " + total + " টাকা (ক্যাশ অন ডেলিভারি)।";
+        successCard.style.display = 'block';
+
+      } catch (err) {
+        alert("অর্ডার সাবমিট করতে সাময়িক সমস্যা হয়েছে। সরাসরি হোয়াটসঅ্যাপে মেসেজ দিন।");
+        submitBtn.disabled = false;
+        submitBtn.innerText = originalText;
+      }
+    }
+  </script>
+</body>
+</html>
