@@ -10,23 +10,22 @@
   
   <style>
     :root {
-      --bg: #FDFBF7;           /* Warm Cream */
+      --bg: #F8F9FA;
       --card-bg: #FFFFFF;
       --primary: #7C3AED;      /* Royal Violet */
       --primary-hover: #6D28D9;
       --primary-light: #F5F3FF;
-      --text: #1E1B4B;         /* Deep Violet Tint Black */
+      --text: #1E1B4B;
       --muted: #64748B;
-      --border: #EFECE6;
-      --accent-green: #059669;
-      --accent-red: #E11D48;
-      --radius: 16px;
+      --border: #E2E8F0;
+      --price-color: #E11D48;  /* Highlight Red Price */
+      --radius: 12px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Hind Siliguri', sans-serif; }
     body { background: var(--bg); color: var(--text); padding-bottom: 90px; -webkit-font-smoothing: antialiased; }
     
-    /* Top Announcement Bar */
+    /* Top Bar */
     .top-bar {
       background: var(--primary);
       color: #fff;
@@ -34,15 +33,9 @@
       padding: 7px 12px;
       text-align: center;
       font-weight: 500;
-      letter-spacing: 0.2px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
     }
 
-    /* Main Navigation Header */
+    /* Navbar */
     nav {
       max-width: 1140px;
       margin: 0 auto;
@@ -62,7 +55,6 @@
       height: 44px;
       border-radius: 50%;
       object-fit: cover;
-      box-shadow: 0 2px 10px rgba(124, 58, 237, 0.15);
     }
     .brand-text h1 {
       font-family: 'Outfit', sans-serif;
@@ -79,13 +71,6 @@
       font-weight: 700;
       text-transform: uppercase;
     }
-
-    /* Header Contact / WhatsApp */
-    .header-contact {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
     .wa-btn {
       display: inline-flex;
       align-items: center;
@@ -98,90 +83,15 @@
       font-size: 0.9rem;
       font-weight: 600;
       text-decoration: none;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
       transition: all 0.2s ease;
     }
-    .wa-btn:hover {
-      border-color: #22C55E;
-      color: #15803D;
-      box-shadow: 0 4px 12px rgba(34, 197, 94, 0.15);
-    }
-    .wa-dot {
-      width: 8px;
-      height: 8px;
-      background: #22C55E;
-      border-radius: 50%;
-      display: inline-block;
-    }
-
-    /* Hero Banner Box */
-    .hero-container {
-      max-width: 1100px;
-      margin: 10px auto 30px;
-      padding: 0 16px;
-    }
-    .hero-card {
-      background: linear-gradient(180deg, #F5F3FF 0%, #FAF8F5 100%);
-      border: 1px solid #DDD6FE;
-      border-radius: 24px;
-      padding: 42px 20px;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(124, 58, 237, 0.04);
-    }
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: #FFFFFF;
-      color: var(--primary);
-      border: 1px solid #DDD6FE;
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-    .hero-title {
-      font-size: 2.2rem;
-      font-weight: 800;
-      color: var(--text);
-      line-height: 1.3;
-      margin-bottom: 12px;
-    }
-    .hero-title span {
-      color: var(--primary);
-    }
-    .hero-sub {
-      color: var(--muted);
-      font-size: 1.05rem;
-      max-width: 620px;
-      margin: 0 auto 24px;
-      line-height: 1.6;
-    }
-    .trust-badges {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .trust-pill {
-      background: #FFFFFF;
-      border: 1px solid var(--border);
-      padding: 6px 14px;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
+    .wa-btn:hover { border-color: #22C55E; color: #15803D; }
+    .wa-dot { width: 8px; height: 8px; background: #22C55E; border-radius: 50%; display: inline-block; }
 
     /* Category Navigation & Search Bar */
     .controls-wrapper {
       max-width: 1100px;
-      margin: 0 auto 28px;
+      margin: 20px auto 25px;
       padding: 0 16px;
     }
     .category-scroll {
@@ -196,14 +106,11 @@
       background: #FFFFFF;
       border: 1px solid var(--border);
       color: var(--text);
-      padding: 9px 20px;
+      padding: 8px 18px;
       border-radius: 999px;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 600;
       cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
       white-space: nowrap;
       transition: all 0.2s ease;
     }
@@ -211,17 +118,6 @@
       background: var(--primary);
       color: #FFFFFF;
       border-color: var(--primary);
-      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.25);
-    }
-    .cat-count {
-      background: rgba(0,0,0,0.06);
-      font-size: 0.75rem;
-      padding: 1px 7px;
-      border-radius: 999px;
-    }
-    .cat-btn.active .cat-count {
-      background: rgba(255,255,255,0.25);
-      color: #fff;
     }
 
     .section-header {
@@ -233,19 +129,8 @@
       gap: 14px;
     }
     .section-title {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .total-badge {
-      background: var(--primary-light);
-      color: var(--primary);
-      font-size: 0.8rem;
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 999px;
     }
     .search-input-wrap {
       position: relative;
@@ -255,116 +140,64 @@
       width: 100%;
       background: #FFFFFF;
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 9px 14px 9px 38px;
-      font-size: 0.92rem;
+      border-radius: 10px;
+      padding: 8px 14px 8px 36px;
+      font-size: 0.9rem;
       outline: none;
-      transition: border-color 0.2s ease;
     }
-    .search-input:focus {
-      border-color: var(--primary);
-    }
+    .search-input:focus { border-color: var(--primary); }
     .search-icon {
       position: absolute;
       left: 12px;
       top: 50%;
       transform: translateY(-50%);
       color: var(--muted);
-      font-size: 0.95rem;
+      font-size: 0.9rem;
     }
 
     /* Product Grid */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 22px;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
       max-width: 1100px;
       margin: 0 auto;
       padding: 0 16px;
     }
+
+    /* Clean Card Design */
     .card {
       background: var(--card-bg);
       border-radius: var(--radius);
       border: 1px solid var(--border);
-      overflow: hidden;
       display: flex;
       flex-direction: column;
-      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.03);
+      overflow: hidden;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 24px rgba(124, 58, 237, 0.08);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
     }
 
-    /* Multi-Image Gallery */
-    .gallery-container {
-      position: relative;
+    /* Single Clean Image Box */
+    .img-box {
       width: 100%;
-      height: 250px;
-      background: #F9F8F5;
+      height: 240px;
+      background: #FAFAFA;
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
-    }
-    .gallery-main-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .nav-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(30, 27, 75, 0.65);
-      color: #fff;
-      border: none;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: 0.15s;
-      z-index: 2;
-    }
-    .nav-arrow:hover {
-      background: var(--primary);
-    }
-    .nav-arrow.prev { left: 8px; }
-    .nav-arrow.next { right: 8px; }
-
-    .thumbnail-row {
-      display: flex;
-      gap: 6px;
-      padding: 8px 12px;
-      overflow-x: auto;
-      background: #FFFFFF;
+      padding: 16px;
       border-bottom: 1px solid var(--border);
-      scrollbar-width: none;
     }
-    .thumbnail-row::-webkit-scrollbar { display: none; }
-    .thumbnail {
-      width: 42px;
-      height: 42px;
-      border-radius: 6px;
-      object-fit: cover;
-      cursor: pointer;
-      border: 2px solid transparent;
-      opacity: 0.65;
-      transition: 0.15s;
-      flex-shrink: 0;
-    }
-    .thumbnail:hover, .thumbnail.active {
-      opacity: 1;
-      border-color: var(--primary);
+    .img-box img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
     }
 
-    /* Card Body */
+    /* Card Details */
     .card-body {
       padding: 16px;
       display: flex;
@@ -373,211 +206,72 @@
       justify-content: space-between;
     }
     .product-title {
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       font-weight: 700;
-      margin-bottom: 8px;
-      line-height: 1.35;
       color: var(--text);
+      margin-bottom: 12px;
+      line-height: 1.35;
     }
-    .price-box {
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
-      margin-bottom: 10px;
+
+    /* Key Features / Bullet points */
+    .spec-list {
+      list-style-type: disc;
+      padding-left: 18px;
+      margin-bottom: 16px;
+      color: #475569;
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+    .spec-list li {
+      margin-bottom: 4px;
+    }
+
+    .divider {
+      border: 0;
+      height: 1px;
+      background: var(--border);
+      margin: 10px 0 14px;
+    }
+
+    /* Price Section */
+    .price-center {
+      text-align: center;
+      margin-bottom: 12px;
     }
     .offer-price {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--primary);
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--price-color);
     }
     .regular-price {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       text-decoration: line-through;
       color: var(--muted);
+      margin-left: 6px;
       font-weight: 500;
     }
-    .save-badge {
-      background: #FFE4E6;
-      color: var(--accent-red);
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 2px 7px;
-      border-radius: 4px;
-    }
-    .stock-tag {
-      font-size: 0.82rem;
-      color: var(--muted);
-      display: block;
-      margin-bottom: 14px;
-    }
 
-    /* Action Buttons in Card */
-    .card-actions {
+    /* Single Buy Now Button */
+    .btn-buy-now {
       display: flex;
+      align-items: center;
+      justify-content: center;
       gap: 8px;
-    }
-    .btn-outline {
-      flex: 1;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+      background: #F1F5F9;
+      color: #2563EB;
+      border: 1px solid #DBEAFE;
       text-decoration: none;
-      background: transparent;
-      color: var(--primary);
-      border: 1.5px solid var(--primary);
       padding: 10px;
-      border-radius: 10px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      text-align: center;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
       transition: all 0.2s ease;
+      cursor: pointer;
     }
-    .btn-outline:hover {
-      background: var(--primary-light);
-    }
-    .btn-buy {
-      flex: 1.2;
+    .btn-buy-now:hover {
       background: var(--primary);
-      color: #fff;
-      border: none;
-      padding: 10px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: background 0.15s;
-    }
-    .btn-buy:hover {
-      background: var(--primary-hover);
-    }
-
-    /* Modals */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(30, 27, 75, 0.65);
-      backdrop-filter: blur(5px);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-      padding: 16px;
-    }
-    .modal-box {
-      background: #FFFFFF;
-      border-radius: 20px;
-      padding: 26px;
-      max-width: 440px;
-      width: 100%;
-      box-shadow: 0 25px 50px rgba(30, 27, 75, 0.25);
-      animation: popup 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    @keyframes popup {
-      from { transform: scale(0.92); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 16px;
-    }
-    .modal-header h3 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--text);
-    }
-    .close-icon {
-      background: transparent;
-      border: none;
-      font-size: 1.5rem;
-      color: var(--muted);
-      cursor: pointer;
-    }
-
-    .form-group {
-      margin-bottom: 14px;
-    }
-    .form-group label {
-      display: block;
-      font-size: 0.88rem;
-      font-weight: 600;
-      margin-bottom: 5px;
-      color: var(--text);
-    }
-    .form-group input, .form-group textarea {
-      width: 100%;
-      padding: 11px 14px;
-      border: 1.5px solid var(--border);
-      border-radius: 10px;
-      font-size: 0.95rem;
-      outline: none;
-      background: #FAFAFC;
-    }
-    .form-group input:focus, .form-group textarea:focus {
+      color: #FFFFFF;
       border-color: var(--primary);
-      background: #fff;
-    }
-
-    /* Surprise Card Modal */
-    .surprise-card {
-      text-align: center;
-      padding: 10px 4px 6px;
-    }
-    .surprise-icon {
-      font-size: 3.5rem;
-      margin-bottom: 10px;
-      animation: bounce 0.6s infinite alternate;
-    }
-    @keyframes bounce {
-      from { transform: translateY(0); }
-      to { transform: translateY(-8px); }
-    }
-    .surprise-card h2 {
-      font-size: 1.55rem;
-      color: var(--primary);
-      margin-bottom: 10px;
-      font-weight: 700;
-    }
-    .surprise-offer-box {
-      background: #FEF3C7;
-      border: 2px dashed #F59E0B;
-      border-radius: 12px;
-      padding: 14px;
-      margin: 16px 0;
-      color: #92400E;
-    }
-    .surprise-offer-box b {
-      font-size: 1.15rem;
-      display: block;
-      margin-bottom: 4px;
-      color: #B45309;
-    }
-    .surprise-desc {
-      color: #475569;
-      font-size: 0.95rem;
-      line-height: 1.55;
-      margin-bottom: 20px;
-    }
-    .btn-done {
-      background: var(--primary);
-      color: #fff;
-      border: none;
-      padding: 12px;
-      border-radius: 10px;
-      font-weight: 600;
-      width: 100%;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-
-    .loading-spinner {
-      text-align: center;
-      grid-column: 1 / -1;
-      padding: 60px 0;
-      color: var(--muted);
-      font-size: 1.1rem;
     }
   </style>
 </head>
@@ -585,8 +279,7 @@
 
   <!-- Top Announcement Bar -->
   <div class="top-bar">
-    <span>⚡ সারা বাংলাদেশে ফ্রি হোম ডেলিভারি ও ক্যাশ অন ডেলিভারি সুবিধা!</span>
-    <span>🛡️ ৭ দিনের রিপ্লেসমেন্ট গ্যারান্টি</span>
+    ⚡ সারা বাংলাদেশে ফ্রি হোম ডেলিভারি ও ক্যাশ অন ডেলিভারি সুবিধা!
   </div>
 
   <!-- Header Navigation -->
@@ -599,41 +292,18 @@
       </div>
     </a>
     
-    <div class="header-contact">
-      <a href="https://wa.me/8801805529344" target="_blank" class="wa-btn">
-        <span class="wa-dot"></span>
-        <span>01805-529344</span>
-      </a>
-    </div>
+    <a href="https://wa.me/8801805529344" target="_blank" class="wa-btn">
+      <span class="wa-dot"></span>
+      <span>01805-529344</span>
+    </a>
   </nav>
-
-  <!-- Hero Highlight Section -->
-  <div class="hero-container">
-    <div class="hero-card">
-      <div class="hero-tag">⚡ প্রিমিয়াম ইলেকট্রিক গ্যাজেট ও অ্যাক্সেসরিজ</div>
-      <h2 class="hero-title">জেনুইন টেক ডিভাইসের বিশ্বস্ত শপ <span>ORVYN</span></h2>
-      <p class="hero-sub">কোন অগ্রিম পেমেন্ট ছাড়াই অর্ডার করুন ক্যাশ অন ডেলিভারিতে। হাতে পেয়ে চেক করে সম্পূর্ণ মূল্য পরিশোধ করুন।</p>
-      
-      <div class="trust-badges">
-        <span class="trust-pill">🛡️ ১০০% অফিশিয়াল অথেনটিক</span>
-        <span class="trust-pill">⚡ সুপার ফাস্ট ডেলিভারি</span>
-        <span class="trust-pill">💵 ক্যাশ অন ডেলিভারি (COD)</span>
-      </div>
-    </div>
-  </div>
 
   <!-- Controls: Category Filters & Search -->
   <div class="controls-wrapper">
-    <div class="category-scroll" id="category-tabs">
-      <!-- ক্যাটাগরি বাটন স্বয়ংক্রিয়ভাবে তৈরি হবে -->
-    </div>
+    <div class="category-scroll" id="category-tabs"></div>
 
     <div class="section-header">
-      <div class="section-title">
-        <span>সকল প্রোডাক্ট</span>
-        <span class="total-badge" id="product-summary-badge">০টি পণ্য</span>
-      </div>
-
+      <div class="section-title">পণ্য তালিকা</div>
       <div class="search-input-wrap">
         <span class="search-icon">🔍</span>
         <input type="text" id="search-input" class="search-input" placeholder="প্রোডাক্ট খুঁজুন..." oninput="handleSearch()" />
@@ -644,56 +314,9 @@
   <!-- Product Grid -->
   <div id="product-grid" class="grid"></div>
 
-  <!-- 1. Order Input Form Modal -->
-  <div id="order-modal" class="modal-overlay">
-    <div class="modal-box">
-      <div class="modal-header">
-        <h3 id="modal-product-title">অর্ডার ফর্ম</h3>
-        <button class="close-icon" onclick="closeOrderModal()">✕</button>
-      </div>
-
-      <form id="order-form" onsubmit="processOrder(event)">
-        <div class="form-group">
-          <label>আপনার সম্পূর্ণ নাম *</label>
-          <input type="text" id="cust-name" placeholder="যেমন: আরিফুল ইসলাম" required />
-        </div>
-        <div class="form-group">
-          <label>মোবাইল নম্বর *</label>
-          <input type="tel" id="cust-phone" placeholder="যেমন: 017XXXXXXXX" required />
-        </div>
-        <div class="form-group">
-          <label>সম্পূর্ণ ঠিকানা *</label>
-          <textarea id="cust-address" placeholder="বাসা/রোড নম্বর, থানা, জেলা" rows="3" required></textarea>
-        </div>
-        <button type="submit" class="btn-buy" id="submit-btn" style="width: 100%; padding: 12px; margin-top: 10px;">অর্ডার কনফার্ম করুন</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- 2. Success Modal -->
-  <div id="success-modal" class="modal-overlay">
-    <div class="modal-box">
-      <div class="surprise-card">
-        <div class="surprise-icon">🎁</div>
-        <h2>অভিনন্দন!</h2>
-        
-        <div class="surprise-offer-box">
-          <b>🎉 আপনি ফ্রি ডেলিভারি অফার পেয়েছেন!</b>
-          <span>ডেলিভারি চার্জ: <s style="opacity: 0.7;">১০০ ৳</s> <strong style="color: #059669;">০ ৳ (সম্পূর্ণ ফ্রি)</strong></span>
-        </div>
-
-        <p class="surprise-desc">
-          আপনার অর্ডারটি <b>ORVYN</b> সিস্টেমে গ্রহণ করা হয়েছে। অর্ডারটি কনফার্ম করার জন্য আমাদের টিম থেকে খুব দ্রুত <b>আপনার নম্বরে কল দিয়ে যোগাযোগ করা হবে</b>।
-        </p>
-
-        <button class="btn-done" onclick="closeSuccessModal()">ঠিক আছে, ধন্যবাদ</button>
-      </div>
-    </div>
-  </div>
-
   <script>
     /* =====================================================================
-       ১. এখানে প্রোডাক্ট যোগ/সম্পাদনা করুন (সবচেয়ে সহজ উপায়)
+       এখানে শুধু প্রোডাক্টের তথ্য ও স্পেসিফিকেশন অ্যাড করবেন
        ===================================================================== */
     const PRODUCTS = [
       {
@@ -702,22 +325,33 @@
         category: "Powerbank",
         offerPrice: 2450,
         regularPrice: 2700,
-        stock: 90,
         link: "products/Powerbank22.5.html", // আপনার তৈরি করা প্রোডাক্ট ল্যান্ডিং পেজের লিঙ্ক
-        images: [
-          "https://resellkori.com/wp-content/uploads/2026/07/product-3-8-768x768.webp",
-          "https://resellkori.com/wp-content/uploads/2026/07/product-1-6-768x767.webp"
+        image: "https://resellkori.com/wp-content/uploads/2026/07/product-3-8-768x768.webp",
+        specs: [
+          "Capacity: 20000mAh / 3.7V (74Wh)",
+          "Input: Type-C & Micro USB 18W",
+          "Output: 22.5W Super Fast Charging",
+          "Digital Battery Percentage Display"
         ]
       },
-     
-      // নতুন প্রোডাক্ট যোগ করতে উপরের একটি ব্লক কপি করে নিচে পেস্ট করুন
+      {
+        id: "P-102",
+        name: "Jiayou Thunder 6 20000mAh Power Bank",
+        category: "Powerbank",
+        offerPrice: 1190,
+        regularPrice: 1500,
+        link: "products/Powerbank22.5.html",
+        image: "https://via.placeholder.com/400x400?text=Jiayou+Powerbank",
+        specs: [
+          "Type-C/Micro Input: DC 5V (5V/2.5A)",
+          "USB Output1/2: DC 5V-2.5A / 5V-2.4A",
+          "Dual USB Output Support",
+          "Battery Capacity: 20000mAh (74Wh)"
+        ]
+      }
     ];
 
-    /* আপনার দেওয়া গুগল অ্যাপস স্ক্রিপ্ট লিঙ্ক */
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzwj1gvayLQyWsQwzs9ABHldFSKP1nD1JrKvY9Ta6Z8ePPYLnRldqLLoR61dfMLipyQ/exec";
-
     let currentCategory = "all";
-    let activeItem = null;
 
     function initStore() {
       setupCategoryTabs();
@@ -726,25 +360,21 @@
 
     function setupCategoryTabs() {
       const tabsContainer = document.getElementById("category-tabs");
-      const categoryCounts = {};
-
-      PRODUCTS.forEach(p => {
-        categoryCounts[p.category] = (categoryCounts[p.category] || 0) + 1;
-      });
+      const categories = [...new Set(PRODUCTS.map(p => p.category))];
 
       let html = `
         <button class="cat-btn ${currentCategory === 'all' ? 'active' : ''}" onclick="filterByCategory('all')">
-          সকল পণ্য <span class="cat-count">${PRODUCTS.length}</span>
+          সকল পণ্য
         </button>
       `;
 
-      for (const [catName, count] of Object.entries(categoryCounts)) {
+      categories.forEach(cat => {
         html += `
-          <button class="cat-btn ${currentCategory === catName ? 'active' : ''}" onclick="filterByCategory('${catName.replace(/'/g, "\\'")}')">
-            ${catName} <span class="cat-count">${count}</span>
+          <button class="cat-btn ${currentCategory === cat ? 'active' : ''}" onclick="filterByCategory('${cat}')">
+            ${cat}
           </button>
         `;
-      }
+      });
 
       tabsContainer.innerHTML = html;
     }
@@ -769,134 +399,49 @@
         return matchesCategory && matchesSearch;
       });
 
-      document.getElementById("product-summary-badge").innerText = `${filtered.length}টি পণ্য`;
-
       if (filtered.length === 0) {
-        container.innerHTML = "<p class='loading-spinner'>কোনো প্রোডাক্ট পাওয়া যায়নি।</p>";
+        container.innerHTML = "<p style='grid-column: 1/-1; text-align: center; color: #64748B; padding: 40px;'>কোনো প্রোডাক্ট পাওয়া যায়নি।</p>";
         return;
       }
 
       container.innerHTML = "";
 
-      filtered.forEach((p, idx) => {
-        const discount = p.regularPrice > p.offerPrice ? (p.regularPrice - p.offerPrice) : 0;
+      filtered.forEach(p => {
+        const specsHtml = p.specs && p.specs.length > 0 
+          ? `<ul class="spec-list">${p.specs.map(s => `<li>${s}</li>`).join("")}</ul>` 
+          : "";
 
         const card = document.createElement("div");
         card.className = "card";
         card.innerHTML = `
-          <div class="gallery-container" id="gallery-${idx}">
-            <img src="${p.images[0]}" class="gallery-main-img" id="main-img-${idx}" alt="${p.name}" />
-            ${p.images.length > 1 ? `
-              <button class="nav-arrow prev" onclick="slideImg(${idx}, -1)">‹</button>
-              <button class="nav-arrow next" onclick="slideImg(${idx}, 1)">›</button>
-            ` : ""}
+          <div class="img-box">
+            <img src="${p.image}" alt="${p.name}" />
           </div>
-
-          ${p.images.length > 1 ? `
-            <div class="thumbnail-row" id="thumbs-${idx}">
-              ${p.images.map((img, i) => `
-                <img src="${img}" class="thumbnail ${i === 0 ? 'active' : ''}" onclick="selectThumb(${idx}, ${i})" />
-              `).join("")}
-            </div>
-          ` : ""}
 
           <div class="card-body">
             <div>
               <h3 class="product-title">${p.name}</h3>
-              <div class="price-box">
-                <span class="offer-price">${p.offerPrice} ৳</span>
-                ${p.regularPrice > p.offerPrice ? `<span class="regular-price">${p.regularPrice} ৳</span>` : ""}
-                ${discount > 0 ? `<span class="save-badge">${discount} ৳ ছাড়</span>` : ""}
-              </div>
-              <span class="stock-tag">মজুদ: ${p.stock} টি</span>
+              ${specsHtml}
             </div>
 
-            <div class="card-actions">
-              <a href="${p.link}" class="btn-outline">বিস্তারিত দেখুন</a>
-              <button class="btn-buy" onclick="openOrderModal('${p.id}', '${p.name.replace(/'/g, "\\'")}', ${p.offerPrice})">
-                অর্ডার করুন
-              </button>
+            <div>
+              <hr class="divider" />
+              <div class="price-center">
+                <span class="offer-price">${p.offerPrice}৳</span>
+                ${p.regularPrice > p.offerPrice ? `<span class="regular-price">${p.regularPrice}৳</span>` : ""}
+              </div>
+
+              <!-- সিঙ্গেল বাটন: সরাসরি ল্যান্ডিং পেজে নিয়ে যাবে -->
+              <a href="${p.link}" class="btn-buy-now">
+                🛒 Buy Now
+              </a>
             </div>
           </div>
         `;
-
-        card.dataset.images = JSON.stringify(p.images);
-        card.dataset.imgIndex = "0";
         container.appendChild(card);
       });
     }
 
-    function selectThumb(cardIdx, targetIdx) {
-      const card = document.getElementById(`gallery-${cardIdx}`).parentElement;
-      const images = JSON.parse(card.dataset.images);
-      card.dataset.imgIndex = targetIdx;
-      document.getElementById(`main-img-${cardIdx}`).src = images[targetIdx];
-      const thumbs = document.querySelectorAll(`#thumbs-${cardIdx} .thumbnail`);
-      thumbs.forEach((t, i) => t.classList.toggle("active", i === targetIdx));
-    }
-
-    function slideImg(cardIdx, step) {
-      const card = document.getElementById(`gallery-${cardIdx}`).parentElement;
-      const images = JSON.parse(card.dataset.images);
-      let curr = parseInt(card.dataset.imgIndex);
-      curr = (curr + step + images.length) % images.length;
-      selectThumb(cardIdx, curr);
-    }
-
-    function openOrderModal(id, name, price) {
-      activeItem = { id, name, price };
-      document.getElementById("modal-product-title").innerText = `${name} (${price} ৳)`;
-      document.getElementById("order-modal").style.display = "flex";
-    }
-
-    function closeOrderModal() {
-      document.getElementById("order-modal").style.display = "none";
-      document.getElementById("order-form").reset();
-    }
-
-    function closeSuccessModal() {
-      document.getElementById("success-modal").style.display = "none";
-    }
-
-    /* অর্ডার সাবমিশন ও গুগল অ্যাপস স্ক্রিপ্টে ডাটা পাঠানো */
-    async function processOrder(e) {
-      e.preventDefault();
-      const btn = document.getElementById("submit-btn");
-      btn.innerText = "অর্ডার প্রসেস হচ্ছে...";
-      btn.disabled = true;
-
-      const orderData = {
-        action: "createOrder",
-        orderId: "ORD-" + Math.floor(100000 + Math.random() * 900000),
-        name: document.getElementById("cust-name").value.trim(),
-        phone: document.getElementById("cust-phone").value.trim(),
-        address: document.getElementById("cust-address").value.trim(),
-        item: activeItem.name,
-        total: activeItem.price,
-        date: new Date().toLocaleString()
-      };
-
-      try {
-        await fetch(SCRIPT_URL, {
-          method: "POST",
-          mode: "no-cors",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(orderData)
-        });
-
-        closeOrderModal();
-        document.getElementById("success-modal").style.display = "flex";
-      } catch (err) {
-        console.error("Order submit error:", err);
-        closeOrderModal();
-        document.getElementById("success-modal").style.display = "flex";
-      } finally {
-        btn.innerText = "অর্ডার কনফার্ম করুন";
-        btn.disabled = false;
-      }
-    }
-
-    // ওয়েবসাইট লোড হলে চালু হবে
     initStore();
   </script>
 </body>
