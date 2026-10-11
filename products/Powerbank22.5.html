@@ -84,10 +84,10 @@
       margin-bottom: 12px;
     }
     
-    /* Swipeable Image Slider Styles */
+    /* Swipeable Image Slider & Thumbnail Gallery */
     .slider-wrapper {
       position: relative;
-      margin: 15px 0;
+      margin: 15px 0 20px 0;
     }
     .product-slider {
       display: flex;
@@ -120,28 +120,50 @@
       display: block;
       user-select: none;
     }
-    .slider-dots {
+
+    /* Thumbnails Container */
+    .thumbnail-row {
       display: flex;
       justify-content: center;
-      gap: 8px;
-      margin-top: 10px;
+      gap: 10px;
+      margin-top: 12px;
+      overflow-x: auto;
+      padding: 4px;
+      scrollbar-width: none;
     }
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #cbd5e1;
+    .thumbnail-row::-webkit-scrollbar {
+      display: none;
+    }
+    .thumb-item {
+      width: 65px;
+      height: 65px;
+      border-radius: 8px;
+      border: 2px solid var(--border);
+      overflow: hidden;
       cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s ease;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+      background: #fafafa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .dot.active {
-      background: var(--primary);
-      transform: scale(1.2);
+    .thumb-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
     }
+    .thumb-item.active {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(31, 110, 194, 0.25);
+      transform: scale(1.04);
+    }
+
     .swipe-hint {
-      font-size: 12px;
+      font-size: 13px;
       color: var(--text-muted);
-      margin-top: 6px;
+      margin-top: 8px;
     }
 
     .price-tag {
@@ -176,7 +198,7 @@
       font-size: 18px;
       font-weight: 700;
       text-decoration: none;
-      box-shadow: 0 4px 14px rgba(225, 29, 72, 0.35);
+      box-shadow: 0 4px 14px rgba(31, 110, 194, 0.35);
       border: none;
       cursor: pointer;
       transition: 0.2s ease;
@@ -366,36 +388,52 @@
         Baseus 20000mAh (22.5W) Metal Digital Display ফাস্ট চার্জিং পাওয়ার ব্যাংক!
       </h1>
 
-      <!-- Swipeable Product Slider -->
+      <!-- Swipeable Product Slider with Thumbnails -->
       <div class="slider-wrapper">
+        <!-- Main Large Images Slider -->
         <div class="product-slider" id="productSlider">
           <div class="slide">
-            <img src="https://resellkori.com/wp-content/uploads/2026/07/product-3-8-768x768.webp" alt="Baseus Power Bank 2">
+            <img src="https://resellkori.com/wp-content/uploads/2026/07/product-3-8-768x768.webp" alt="Baseus Power Bank 1">
           </div>
           <div class="slide">
-            <img src="https://resellkori.com/wp-content/uploads/2026/07/product-1-6-768x767.webp" alt="Baseus Power Bank 1">
+            <img src="https://resellkori.com/wp-content/uploads/2026/07/product-1-6-768x767.webp" alt="Baseus Power Bank 2">
           </div>
           <div class="slide">
             <img src="https://resellkori.com/wp-content/uploads/2026/07/product-4-9-768x768.webp" alt="Baseus Power Bank 3">
           </div>
           <div class="slide">
-            <img src="https://resellkori.com/wp-content/uploads/2026/09/1000038645.jpg" alt="Baseus Power Bank 3">
+            <img src="https://resellkori.com/wp-content/uploads/2026/09/1000038645.jpg" alt="Baseus Power Bank 4">
           </div>
           <div class="slide">
-            <img src="https://resellkori.com/wp-content/uploads/2026/09/1000038644.jpg" alt="Baseus Power Bank 3">
+            <img src="https://resellkori.com/wp-content/uploads/2026/09/1000038644.jpg" alt="Baseus Power Bank 5">
           </div>
         </div>
-        <div class="slider-dots" id="sliderDots">
-          <div class="dot active" onclick="goToSlide(0)"></div>
-          <div class="dot" onclick="goToSlide(1)"></div>
-          <div class="dot" onclick="goToSlide(2)"></div>
+
+        <!-- Clickable Small Thumbnails -->
+        <div class="thumbnail-row" id="thumbnailRow">
+          <div class="thumb-item active" onclick="goToSlide(0)">
+            <img src="https://resellkori.com/wp-content/uploads/2026/07/product-3-8-768x768.webp" alt="Thumbnail 1">
+          </div>
+          <div class="thumb-item" onclick="goToSlide(1)">
+            <img src="https://resellkori.com/wp-content/uploads/2026/07/product-1-6-768x767.webp" alt="Thumbnail 2">
+          </div>
+          <div class="thumb-item" onclick="goToSlide(2)">
+            <img src="https://resellkori.com/wp-content/uploads/2026/07/product-4-9-768x768.webp" alt="Thumbnail 3">
+          </div>
+          <div class="thumb-item" onclick="goToSlide(3)">
+            <img src="https://resellkori.com/wp-content/uploads/2026/09/1000038645.jpg" alt="Thumbnail 4">
+          </div>
+          <div class="thumb-item" onclick="goToSlide(4)">
+            <img src="https://resellkori.com/wp-content/uploads/2026/09/1000038644.jpg" alt="Thumbnail 5">
+          </div>
         </div>
-        <div class="swipe-hint">👈 ছবি দেখতে ডানে বা বামে সোয়াইপ করুন 👉</div>
+
+        <div class="swipe-hint">👈 সোয়াইপ করুন বা ছবিতে ক্লিক করুন 👉</div>
       </div>
 
       <div class="price-tag">
         <span class="regular-price">রেগুলার: ২৭০০ টাকা</span>
-        <span class="offer-price">অফার মূল্য: ২৪৫০ টাকা</span>
+        <span class="offer-price">অফার মূল্য: ২২৫০ টাকা</span>
       </div>
 
       <a href="#order-form" class="cta-btn">অর্ডার করতে এখানে ক্লিক করুন 🛒</a>
@@ -461,7 +499,7 @@
         <div class="order-summary">
           <div class="summary-row">
             <span>প্রোডাক্ট মূল্য</span>
-            <span>২৪৫০ টাকা</span>
+            <span>২২৫০ টাকা</span>
           </div>
           <div class="summary-row">
             <span>ডেলিভারি চার্জ</span>
@@ -469,11 +507,11 @@
           </div>
           <div class="summary-row total">
             <span>সর্বমোট পরিশোধ করতে হবে</span>
-            <span>২৪৫০ টাকা</span>
+            <span>২২৫০ টাকা</span>
           </div>
         </div>
 
-        <button type="submit" id="submitBtn" class="cta-btn">অর্ডার কনফার্ম করুন (ক্যাশ অন ডেলিভারি - ২৪৫০ ৳)</button>
+        <button type="submit" id="submitBtn" class="cta-btn">অর্ডার কনফার্ম করুন (ক্যাশ অন ডেলিভারি - ২২৫০ ৳)</button>
       </form>
 
       <div id="successCard" class="success-card">
@@ -493,15 +531,15 @@
   </div>
 
   <script>
-    // Slider Swipe Tracking & Dots Logic
+    // Slider Swipe & Thumbnail Sync Logic
     const slider = document.getElementById('productSlider');
-    const dots = document.querySelectorAll('.slider-dots .dot');
+    const thumbs = document.querySelectorAll('.thumbnail-row .thumb-item');
 
     slider.addEventListener('scroll', () => {
       const slideWidth = slider.clientWidth;
       const activeIndex = Math.round(slider.scrollLeft / slideWidth);
-      dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === activeIndex);
+      thumbs.forEach((thumb, index) => {
+        thumb.classList.toggle('active', index === activeIndex);
       });
     });
 
@@ -511,11 +549,14 @@
         left: slideWidth * index,
         behavior: 'smooth'
       });
+      thumbs.forEach((thumb, i) => {
+        thumb.classList.toggle('active', i === index);
+      });
     }
 
     // Google Sheets Submission Logic
     const GOOGLE_SHEET_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzwj1gvayLQyWsQwzs9ABHldFSKP1nD1JrKvY9Ta6Z8ePPYLnRldqLLoR61dfMLipyQ/exec";
-    const productPrice = 2450;
+    const productPrice = 2250;
 
     async function submitOrder(e) {
       e.preventDefault();
