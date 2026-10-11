@@ -112,10 +112,10 @@
       line-height: 1.45;
     }
 
-    /* Product Slider */
+    /* Swipeable Product Slider + Thumbnails */
     .slider-wrapper {
       position: relative;
-      margin: 18px 0;
+      margin: 18px 0 20px 0;
     }
 
     .product-slider {
@@ -151,31 +151,57 @@
       object-fit: contain;
       border-radius: 12px;
       display: block;
+      user-select: none;
     }
 
-    .slider-dots {
+    /* Thumbnails Selection Grid */
+    .thumbnail-gallery {
       display: flex;
       justify-content: center;
-      gap: 8px;
-      margin-top: 12px;
+      gap: 10px;
+      margin-top: 14px;
+      overflow-x: auto;
+      padding: 4px;
+      scrollbar-width: none;
     }
 
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #DDD6FE;
+    .thumbnail-gallery::-webkit-scrollbar {
+      display: none;
+    }
+
+    .thumb-item {
+      width: 65px;
+      height: 65px;
+      border-radius: 10px;
+      border: 2px solid var(--violet-light);
       cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s ease;
+      background: #FAF8F5;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 2px;
     }
 
-    .dot.active {
-      background: var(--primary-violet);
-      transform: scale(1.3);
+    .thumb-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .thumb-item.active {
+      border-color: var(--primary-violet);
+      box-shadow: 0 0 0 2px rgba(109, 40, 217, 0.25);
+      transform: scale(1.05);
+      background: #FFFFFF;
     }
 
     .swipe-hint {
-      font-size: 12px;
+      font-size: 13px;
       color: var(--text-muted);
       margin-top: 8px;
       font-weight: 500;
@@ -462,7 +488,7 @@
     <!-- Brand Header -->
     <div class="header">
       <div class="brand-name">⚡ ORVYN</div>
-      <div class="brand-tagline">স্মার্ট গ্যাজেটস ও প্রিমিয়াম অডিও সমাধান</div>
+      <div class="brand-tagline">স্মার্ট গ্যাজেটস ও প্রিমিয়াম অডিও সমাধান</div>
     </div>
 
     <!-- Hero Section -->
@@ -472,7 +498,7 @@
         SX9 Dual Wireless Microphone Set – ক্রিস্টাল ক্লিয়ার প্রফেশনাল সাউন্ড ও স্ট্রিমিং সল্যুশন!
       </h1>
 
-      <!-- Product Swipe Slider -->
+      <!-- Product Swipe Slider + Clickable Thumbnails -->
       <div class="slider-wrapper">
         <div class="product-slider" id="productSlider">
           <div class="slide">
@@ -485,12 +511,21 @@
             <img src="https://resellkori.com/wp-content/uploads/2025/07/certificate-5_2.jpg" alt="SX9 Wireless Mic Preview 3">
           </div>
         </div>
-        <div class="slider-dots" id="sliderDots">
-          <div class="dot active" onclick="goToSlide(0)"></div>
-          <div class="dot" onclick="goToSlide(1)"></div>
-          <div class="dot" onclick="goToSlide(2)"></div>
+
+        <!-- Thumbnail Gallery -->
+        <div class="thumbnail-gallery" id="thumbnailGallery">
+          <div class="thumb-item active" onclick="goToSlide(0)">
+            <img src="https://resellkori.com/wp-content/uploads/2025/07/certificate-5_1.jpg" alt="Thumb 1">
+          </div>
+          <div class="thumb-item" onclick="goToSlide(1)">
+            <img src="https://resellkori.com/wp-content/uploads/2025/07/certificate-5.jpg" alt="Thumb 2">
+          </div>
+          <div class="thumb-item" onclick="goToSlide(2)">
+            <img src="https://resellkori.com/wp-content/uploads/2025/07/certificate-5_2.jpg" alt="Thumb 3">
+          </div>
         </div>
-        <div class="swipe-hint">👈 ছবিগুলো দেখতে সোয়াইপ করুন 👉</div>
+
+        <div class="swipe-hint">👈 ছবি দেখতে সোয়াইপ করুন অথবা নিচের ছবিতে ক্লিক করুন 👉</div>
       </div>
 
       <!-- Pricing Box -->
@@ -508,11 +543,11 @@
       
       <div class="feature-item">
         <span class="feature-icon">⭐</span>
-        <span><strong>2.4GHz ওয়্যারলেস কানেকশন:</strong> সুপার লো লেটেন্সি এবং আল্ট্রা-স্টেবল সিগনাল, যা দূর থেকেও দেয় ক্রিস্টাল ক্লিয়ার অডিও।</span>
+        <span><strong>2.4GHz ওয়্যারলেস কানেকশন:</strong> সুপার লো লেটেন্সি এবং আল্ট্রা-স্টেবল সিগনাল, যা দূর থেকেও দেয় ক্রিস্টাল ক্লিয়ার অডিও।</span>
       </div>
       <div class="feature-item">
         <span class="feature-icon">⭐</span>
-        <span><strong>ডুয়েল ট্রান্সমিটার (Dual TX):</strong> একই সাথে দুই জনের স্পষ্ট ভয়েস পৃথকভাবে কোনো নয়েজ ছাড়া রেকর্ড করার সুবিধা।</span>
+        <span><strong>ডুয়েল ট্রান্সমিটার (Dual TX):</strong> একই সাথে দুই জনের স্পষ্ট ভয়েস পৃথকভাবে কোনো নয়েজ ছাড়া রেকর্ড করার সুবিধা।</span>
       </div>
       <div class="feature-item">
         <span class="feature-icon">⭐</span>
@@ -524,11 +559,11 @@
       </div>
       <div class="feature-item">
         <span class="feature-icon">⭐</span>
-        <span><strong>মাল্টি-ডিভাইস কম্প্যাটিবিলিটি:</strong> অ্যান্ড্রয়েড মোবাইল, আইফোন, ডিএসএলআর ক্যামেরা ও ল্যাপটপে অনায়াসে ব্যবহার উপযোগী।</span>
+        <span><strong>মাল্টি-ডিভাইস কম্প্যাটিবিলিটি:</strong> অ্যান্ড্রয়েড মোবাইল, আইফোন, ডিএসএলআর ক্যামেরা ও ল্যাপটপে অনায়াসে ব্যবহার উপযোগী।</span>
       </div>
 
       <!-- Use Cases Grid -->
-      <h3 style="font-size: 17px; margin: 20px 0 10px; color: var(--text-dark);">✅ যাদের জন্য পারফেক্ট চয়েস:</h3>
+      <h3 style="font-size: 17px; margin: 20px 0 10px; color: var(--text-dark);">✅ যাদের জন্য পারফেক্ট চয়েস:</h3>
       <div class="box-grid">
         <div class="box-item">🎥 ফেসবুক ও ইউটিউব লাইভ</div>
         <div class="box-item">🎤 পডকাস্ট ও ইন্টারভিউ</div>
@@ -542,7 +577,7 @@
         <div class="box-item">✔️ 1x রিসিভার (RX)</div>
         <div class="box-item">✔️ 2x ট্রান্সমিটার (TX)</div>
         <div class="box-item">✔️ চার্জিং ও কানেকশন কেবল</div>
-        <div class="box-item">✔️ ইউজার গাইড ম্যানুয়াল</div>
+        <div class="box-item">✔️ ইউজার গাইড ম্যানুয়াল</div>
       </div>
     </div>
 
@@ -559,7 +594,7 @@
     <div class="order-section" id="order-form">
       <div class="order-header">
         <h3>ক্যাশ অন ডেলিভারিতে অর্ডার করুন</h3>
-        <p>অর্ডারটি দ্রুত নিশ্চিত করতে নিচের সঠিক তথ্যগুলো দিয়ে ফরম পূরণ করুন</p>
+        <p>অর্ডারটি দ্রুত নিশ্চিত করতে নিচের সঠিক তথ্যগুলো দিয়ে ফরম পূরণ করুন</p>
       </div>
 
       <form id="orderForm" onsubmit="submitOrder(event)">
@@ -575,7 +610,7 @@
 
         <div class="form-group">
           <label>সম্পূর্ণ ঠিকানা (বাসা/রোড, থানা, জেলা) *</label>
-          <textarea id="address" rows="2" placeholder="যেমন: বাড়ি ১২, রোড ৪, সেক্টর ৭, উত্তরা, ঢাকা (অথবা আপনার থানা ও জেলা)" required></textarea>
+          <textarea id="address" rows="2" placeholder="যেমন: বাড়ি ১২, রোড ৪, সেক্টর ৭, উত্তরা, ঢাকা (অথবা আপনার থানা ও জেলা)" required></textarea>
         </div>
 
         <div class="form-group">
@@ -608,11 +643,11 @@
       <div id="successCard" class="success-card">
         <h3>🎉 অভিনন্দন! আপনার অর্ডারটি সফলভাবে গ্রহণ করা হয়েছে!</h3>
         <p id="successDetails"></p>
-        <p style="margin-top: 10px; font-weight: 600;">ORVYN-এর কাস্টমার কেয়ার প্রতিনিধি দ্রুত কল দিয়ে আপনার অর্ডারটি কনফার্ম করবেন।</p>
+        <p style="margin-top: 10px; font-weight: 600;">ORVYN-এর কাস্টমার কেয়ার প্রতিনিধি দ্রুত কল দিয়ে আপনার অর্ডারটি কনফার্ম করবেন।</p>
       </div>
 
       <a href="https://wa.me/8801805529344?text=Hello%20ORVYN,%20ami%20SX9%20Wireless%20Microphone%20order%20korte%20chai" target="_blank" class="whatsapp-btn">
-        💬 সরাসরি হোয়াটসঅ্যাপে যোগাযোগ / অর্ডার করুন
+        💬 সরাসরি হোয়াটসঅ্যাপে যোগাযোগ / অর্ডার করুন
       </a>
     </div>
 
@@ -623,23 +658,31 @@
   </div>
 
   <script>
-    // Product Slider Control
     const slider = document.getElementById('productSlider');
-    const dots = document.querySelectorAll('.slider-dots .dot');
+    const thumbnails = document.querySelectorAll('.thumbnail-gallery .thumb-item');
 
+    // সোয়াইপ করলে থাম্বনেইল অ্যাক্টিভ ও অটো-স্ক্রোল হবে
     slider.addEventListener('scroll', () => {
       const slideWidth = slider.clientWidth;
       const activeIndex = Math.round(slider.scrollLeft / slideWidth);
-      dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === activeIndex);
+      thumbnails.forEach((thumb, index) => {
+        const isActive = index === activeIndex;
+        thumb.classList.toggle('active', isActive);
+        if (isActive) {
+          thumb.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }
       });
     });
 
+    // থাম্বনেইলে ক্লিক করলে মেইন স্লাইডারে ছবি পাল্টাবে
     function goToSlide(index) {
       const slideWidth = slider.clientWidth;
       slider.scrollTo({
         left: slideWidth * index,
         behavior: 'smooth'
+      });
+      thumbnails.forEach((thumb, i) => {
+        thumb.classList.toggle('active', i === index);
       });
     }
 
@@ -685,11 +728,11 @@
         document.getElementById('orderForm').style.display = 'none';
         const successCard = document.getElementById('successCard');
         document.getElementById('successDetails').innerText = 
-          "ধন্যবাদ " + name + "! ফ্রি হোম ডেলিভারিতে আপনার অর্ডারটি নথিভুক্ত হয়েছে। সর্বমোট ক্যাশ অন ডেলিভারি বিল: " + total + " টাকা।";
+          "ধন্যবাদ " + name + "! ফ্রি হোম ডেলিভারিতে আপনার অর্ডারটি নথিভুক্ত হয়েছে। সর্বমোট ক্যাশ অন ডেলিভারি বিল: " + total + " টাকা।";
         successCard.style.display = 'block';
 
       } catch (err) {
-        alert("অর্ডার সাবমিট করতে সাময়িক সমস্যা হয়েছে। অনুগ্রহ করে হোয়াটসঅ্যাপে মেসেজ দিন।");
+        alert("অর্ডার সাবমিট করতে সাময়িক সমস্যা হয়েছে। অনুগ্রহ করে হোয়াটসঅ্যাপে মেসেজ দিন।");
         submitBtn.disabled = false;
         submitBtn.innerText = originalText;
       }
