@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ORVYN - Baseus 20000mAh Power Bank</title>
+  <title>ORVYN - Baseus 20000mAh (65W) Power Bank</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #1f6ec2;
-      --primary-dark: #1f6ec2;
+      --primary-dark: #165290;
       --secondary: #0f172a;
       --accent: #f59e0b;
       --bg-light: #f8fafc;
@@ -84,10 +84,10 @@
       margin-bottom: 12px;
     }
 
-    /* Swipeable Image Slider Styles */
+    /* Swipeable Image Slider with Thumbnails */
     .slider-wrapper {
       position: relative;
-      margin: 15px 0;
+      margin: 15px 0 10px 0;
     }
     .product-slider {
       display: flex;
@@ -98,10 +98,10 @@
       border-radius: 12px;
       border: 1px solid var(--border);
       background: #fafafa;
-      scrollbar-width: none; /* Firefox */
+      scrollbar-width: none;
     }
     .product-slider::-webkit-scrollbar {
-      display: none; /* Chrome, Safari */
+      display: none;
     }
     .slide {
       flex: 0 0 100%;
@@ -120,28 +120,47 @@
       display: block;
       user-select: none;
     }
-    .slider-dots {
+
+    /* Thumbnails Selection Grid */
+    .thumbnail-gallery {
       display: flex;
       justify-content: center;
-      gap: 8px;
-      margin-top: 10px;
+      gap: 10px;
+      margin-top: 12px;
+      overflow-x: auto;
+      padding: 4px;
+      scrollbar-width: none;
     }
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #cbd5e1;
+    .thumbnail-gallery::-webkit-scrollbar {
+      display: none;
+    }
+    .thumb-item {
+      width: 65px;
+      height: 65px;
+      border-radius: 8px;
+      border: 2px solid transparent;
+      padding: 2px;
       cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s ease;
+      background: #f8fafc;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
     }
-    .dot.active {
-      background: var(--primary);
-      transform: scale(1.2);
+    .thumb-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 6px;
+      display: block;
+    }
+    .thumb-item.active {
+      border-color: var(--primary);
+      box-shadow: 0 2px 8px rgba(31, 110, 194, 0.25);
+      transform: scale(1.05);
     }
     .swipe-hint {
       font-size: 12px;
       color: var(--text-muted);
-      margin-top: 6px;
+      margin-top: 8px;
     }
 
     .price-tag {
@@ -176,7 +195,7 @@
       font-size: 18px;
       font-weight: 700;
       text-decoration: none;
-      box-shadow: 0 4px 14px rgba(3, 111, 252, 0.35);
+      box-shadow: 0 4px 14px rgba(31, 110, 194, 0.35);
       border: none;
       cursor: pointer;
       transition: 0.2s ease;
@@ -352,21 +371,21 @@
 <body>
 
   <div class="top-notice">
-    🎁 ধামাকা অফার: সারা বাংলাদেশে <span>ফ্রি হোম ডেলিভারি</span> ও ক্যাশ অন ডেলিভারি সুবিধা!
+    🎁 ধামাকা অফার: সারা বাংলাদেশে <span>ফ্রি হোম ডেলিভারি</span> ও ক্যাশ অন ডেলিভারি সুবিধা![cite: 1]
   </div>
 
   <div class="container">
     <div class="header">
-      <div class="brand-name">ORVYN</div>
+      <div class="brand-name">ORVYN</div>[cite: 1]
     </div>
 
     <div class="hero-section">
-      <span class="badge">🚚 সারা বাংলাদেশে ডেলিভারি সম্পূর্ণ ফ্রি!</span>
+      <span class="badge">🚚 সারা বাংলাদেশে ডেলিভারি সম্পূর্ণ ফ্রি!</span>[cite: 1]
       <h1 class="main-headline">
         Baseus 20000mAh (65W) Metal Digital Display ফাস্ট চার্জিং পাওয়ার ব্যাংক!
       </h1>
 
-      <!-- Swipeable Product Slider -->
+      <!-- Swipeable Product Slider + Clickable Thumbnails -->
       <div class="slider-wrapper">
         <div class="product-slider" id="productSlider">
           <div class="slide">
@@ -379,54 +398,63 @@
             <img src="https://resellkori.com/wp-content/uploads/2025/11/07bc6477c4bf98153079650f544eff074812bd9d616374b9b00d0e231261396c.jpg" alt="Baseus Power Bank 3">
           </div>
         </div>
-        <div class="slider-dots" id="sliderDots">
-          <div class="dot active" onclick="goToSlide(0)"></div>
-          <div class="dot" onclick="goToSlide(1)"></div>
-          <div class="dot" onclick="goToSlide(2)"></div>
+
+        <!-- Thumbnail Gallery -->
+        <div class="thumbnail-gallery" id="thumbnailGallery">
+          <div class="thumb-item active" onclick="goToSlide(0)">
+            <img src="https://resellkori.com/wp-content/uploads/2025/11/61w9eU-h0lL._AC_UF10001000_QL80_-768x703.jpg" alt="Thumb 1">
+          </div>
+          <div class="thumb-item" onclick="goToSlide(1)">
+            <img src="https://resellkori.com/wp-content/uploads/2025/11/baseus-adaman-65w-digital-display-quick-charge-power-bank-20000mah-5-600x600-1.jpg" alt="Thumb 2">
+          </div>
+          <div class="thumb-item" onclick="goToSlide(2)">
+            <img src="https://resellkori.com/wp-content/uploads/2025/11/07bc6477c4bf98153079650f544eff074812bd9d616374b9b00d0e231261396c.jpg" alt="Thumb 3">
+          </div>
         </div>
-        <div class="swipe-hint">👈 ছবি দেখতে ডানে বা বামে সোয়াইপ করুন 👉</div>
+
+        <div class="swipe-hint">👈 ছবি দেখতে সোয়াইপ করুন অথবা নিচের ছবিতে ক্লিক করুন 👉</div>
       </div>
 
       <div class="price-tag">
-        <span class="regular-price">রেগুলার: 4700 টাকা</span>
-        <span class="offer-price">অফার মূল্য: 3990 টাকা</span>
+        <span class="regular-price">রেগুলার: ৪৭০০ টাকা</span>
+        <span class="offer-price">অফার মূল্য: ৩৯৯০ টাকা</span>
       </div>
 
-      <a href="#order-form" class="cta-btn">অর্ডার করতে এখানে ক্লিক করুন 🛒</a>
+      <a href="#order-form" class="cta-btn">অর্ডার করতে এখানে ক্লিক করুন 🛒</a>[cite: 1]
     </div>
 
     <div class="features-list">
       <h2 class="features-title">প্রোডাক্টের বিশেষ সুবিধাসমূহ:</h2>
       <div class="feature-item">
         <span class="feature-icon">✔</span>
-        <span><strong>৬৫ ওয়াট টু-ওয়ে ফাস্ট চার্জিং (PD 3.0 + QC 3.0):</strong> এটি দিয়ে ফোন যেমন দ্রুত চার্জ করা যায় (আইফোনের জন্য ১৮W এবং হুয়াওয়ের জন্য ৬৫W পর্যন্ত), তেমনি পাওয়ার ব্যাংক নিজেও খুব দ্রুত চার্জ হয়ে যায়।</span>
+        <span><strong>৬৫ ওয়াট টু-ওয়ে ফাস্ট চার্জিং (PD 3.0 + QC 3.0):</strong> এটি দিয়ে ল্যাপটপ ও ফোন খুব দ্রুত চার্জ করা যায় (ম্যাকবুক, আইপ্যাড, আইফোন ও স্যামসাং/হুয়াওয়ে), এবং পাওয়ার ব্যাংক নিজেও দ্রুত চার্জ হয়ে যায়।</span>
       </div>
       <div class="feature-item">
         <span class="feature-icon">✔</span>
-        <span><strong>একসাথে ৩টি ডিভাইস চার্জের সুবিধা (Three inputs / Three outputs):</strong> একাধিক পোর্ট থাকায় একই সময়ে ৩টি ডিভাইস একসাথে চার্জ করা সম্ভব, ফলে একাধিক গ্যাজেট থাকলে আলাদা করে চার্জ দেওয়ার ঝামেলা থাকে না।</span>
+        <span><strong>একসাথে ৩টি ডিভাইস চার্জের সুবিধা (Three inputs / Three outputs):</strong> একাধিক পোর্ট থাকায় একই সময়ে ৩টি ডিভাইস একসাথে চার্জ করা সম্ভব, ফলে একাধিক গ্যাজেট থাকলে আলাদা চার্জারের ঝামেলা থাকে না।</span>
       </div>
       <div class="feature-item">
         <span class="feature-icon">✔</span>
-        <span><strong>স্মার্ট এলইডি ডিজিটাল ডিসপ্লে:</strong> সাধারণ ডট লাইটের মতো আন্দাজে চার্জ বুঝতে হয় না; স্ক্রিনে সরাসরি ব্যাটারির অবশিষ্ট চার্জের সঠিক পার্সেন্টেজ ও চার্জিং স্ট্যাটাস দেখা যায়।</span>
+        <span><strong>স্মার্ট এলইডি ডিজিটাল ডিসপ্লে:</strong> সাধারণ ডট লাইটের মতো আন্দাজে চার্জ বুঝতে হয় না; স্ক্রিনে সরাসরি ব্যাটারির অবশিষ্ট চার্জের সঠিক পার্সেন্টেজ ও কারেন্ট/ভোল্টেজ স্ট্যাটাস দেখা যায়।</span>
       </div>
       <div class="feature-item">
         <span class="feature-icon">✔</span>
-        <span><strong>নিরাপদ ও প্রিমিয়াম মেটাল বডি:</strong> স্টাইলিশ মেটালিক ফিনিশের কারণে দেখতে যেমন প্রিমিয়াম এবং টেকসই, তেমনি বিল্ট-ইন ওভারচার্জ প্রটেকশন থাকায় ফোনের ব্যাটারি নষ্ট হওয়া বা অতিরিক্ত চার্জিংয়ের ঝুঁকি থাকে না।</span>
+        <span><strong>নিরাপদ ও প্রিমিয়াম মেটাল বডি:</strong> অ্যালুমিনিয়াম অ্যালয় মেটালিক ফিনিশের কারণে দেখতে প্রিমিয়াম ও দীর্ঘস্থায়ী, সাথে ৯ লেয়ারের স্মার্ট ওভারচার্জ ও হিট প্রটেকশন।</span>
       </div>
     </div>
 
     <div class="guarantee-box">
       <div class="icon">🛡️</div>
       <div>
-        <h4>১০০% ক্যাশ অন ডেলিভারি (জিরো অগ্রিম পেমেন্ট)</h4>
-        <p>ডেলিভারি ম্যানের সামনে প্রোডাক্ট চেক করে ভালো লাগলে টাকা পরিশোধ করবেন। কোনো অগ্রিম ফি দিতে হবে না!</p>
+        <h4>১০০% ক্যাশ অন ডেলিভারি (জিরো অগ্রিম পেমেন্ট)</h4>[cite: 1]
+        <p>ডেলিভারি ম্যানের সামনে প্রোডাক্ট চেক করে ভালো লাগলে টাকা পরিশোধ করবেন। কোনো অগ্রিম ফি দিতে হবে না!</p>[cite: 1]
       </div>
     </div>
 
     <div class="order-section" id="order-form">
       <div class="order-header">
-        <h3>ক্যাশ অন ডেলিভারিতে অর্ডার করুন</h3>
-        <p>অর্ডার কনফার্ম করতে নিচের তথ্যগুলো সঠিকভাবে পূরণ করুন</p>
+        <h3>ক্যাশ অন ডেলিভারিতে অর্ডার করুন</h3>[cite: 1]
+        <p>অর্ডার কনফার্ম করতে নিচের তথ্যগুলো সঠিকভাবে পূরণ করুন</p>[cite: 1]
       </div>
 
       <form id="orderForm" onsubmit="submitOrder(event)">
@@ -442,13 +470,13 @@
 
         <div class="form-group">
           <label>সম্পূর্ণ ঠিকানা (বাসা/রোড, থানা, জেলা) *</label>
-          <textarea id="address" rows="2" placeholder="যেমন: বাড়ি ১২, রোড ৪, মিরপুর-১০, ঢাকা (অথবা আপনার থানা ও জেলা)" required></textarea>
+          <textarea id="address" rows="2" placeholder="যেমন: বাড়ি ১২, রোড ৪, মিরপুর-১০, ঢাকা (অথবা আপনার থানা ও জেলা)" required></textarea>
         </div>
 
         <div class="form-group">
-          <label>ডেলিভারি চার্জ</label>
+          <label>ডেলিভারি চার্জ</label>[cite: 1]
           <div class="free-delivery-badge-box">
-            <span>✅ সারা বাংলাদেশে হোম ডেলিভারি সম্পূর্ণ ফ্রি! (০ টাকা)</span>
+            <span>✅ সারা বাংলাদেশে হোম ডেলিভারি সম্পূর্ণ ফ্রি! (০ টাকা)</span>[cite: 1]
           </div>
         </div>
 
@@ -458,11 +486,11 @@
             <span>৩৯৯০ টাকা</span>
           </div>
           <div class="summary-row">
-            <span>ডেলিভারি চার্জ</span>
-            <span class="free-tag">০ টাকা (ফ্রি)</span>
+            <span>ডেলিভারি চার্জ</span>[cite: 1]
+            <span class="free-tag">০ টাকা (ফ্রি)</span>[cite: 1]
           </div>
           <div class="summary-row total">
-            <span>সর্বমোট পরিশোধ করতে হবে</span>
+            <span>সর্বমোট পরিশোধ করতে হবে</span>[cite: 1]
             <span>৩৯৯০ টাকা</span>
           </div>
         </div>
@@ -471,34 +499,35 @@
       </form>
 
       <div id="successCard" class="success-card">
-        <h3>🎉 আপনার অর্ডারটি সফলভাবে গ্রহণ করা হয়েছে!</h3>
+        <h3>🎉 আপনার অর্ডারটি সফলভাবে গ্রহণ করা হয়েছে!</h3>[cite: 1]
         <p id="successDetails"></p>
-        <p style="margin-top: 8px; font-weight: 600;">আমাদের প্রতিনিধি দ্রুত আপনার নম্বরে কল করে অর্ডার নিশ্চিত করবেন।</p>
+        <p style="margin-top: 8px; font-weight: 600;">আমাদের প্রতিনিধি দ্রুত আপনার নম্বরে কল করে অর্ডার নিশ্চিত করবেন।</p>[cite: 1]
       </div>
 
-      <a href="https://wa.me/8801805529344?text=Hello,%20ami%20Baseus%20Power%20Bank%20Free%20Delivery-te%20order%20korte%20chai" target="_blank" class="whatsapp-btn">
-        💬 সরাসরি হোয়াটসঅ্যাপে অর্ডার করুন
+      <a href="https://wa.me/8801805529344?text=Hello,%20ami%20Baseus%2065W%20Power%20Bank%20Free%20Delivery-te%20order%20korte%20chai" target="_blank" class="whatsapp-btn">
+        💬 সরাসরি হোয়াটসঅ্যাপে অর্ডার করুন
       </a>
     </div>
 
     <footer>
-      <p>© 2026 ORVYN. All Rights Reserved.</p>
+      <p>© 2026 ORVYN. All Rights Reserved.</p>[cite: 1]
     </footer>
   </div>
 
   <script>
-    // Slider Swipe Tracking & Dots Logic
     const slider = document.getElementById('productSlider');
-    const dots = document.querySelectorAll('.slider-dots .dot');
+    const thumbnails = document.querySelectorAll('.thumbnail-gallery .thumb-item');
 
+    // সোয়াইপ করলে নিচের থাম্বনেইলে একটিভ স্টেট সিলেক্ট হবে
     slider.addEventListener('scroll', () => {
       const slideWidth = slider.clientWidth;
       const activeIndex = Math.round(slider.scrollLeft / slideWidth);
-      dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === activeIndex);
+      thumbnails.forEach((thumb, index) => {
+        thumb.classList.toggle('active', index === activeIndex);
       });
     });
 
+    // থাম্বনেইলে ক্লিক করলে মেইন স্লাইডারে সেই ছবি দেখাবে
     function goToSlide(index) {
       const slideWidth = slider.clientWidth;
       slider.scrollTo({
@@ -517,16 +546,16 @@
       const submitBtn = document.getElementById('submitBtn');
       const originalText = submitBtn.innerText;
       submitBtn.disabled = true;
-      submitBtn.innerText = "অর্ডার প্রসেসিং হচ্ছে... অনুগ্রহ করে অপেক্ষা করুন";
+      submitBtn.innerText = "অর্ডার প্রসেসিং হচ্ছে... অনুগ্রহ করে অপেক্ষা করুন";[cite: 1]
 
-      const name = document.getElementById('name').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const address = document.getElementById('address').value.trim();
-      const deliveryChoice = "ফ্রি ডেলিভারি (০ টাকা)";
+      const name = document.getElementById('name').value.trim();[cite: 1]
+      const phone = document.getElementById('phone').value.trim();[cite: 1]
+      const address = document.getElementById('address').value.trim();[cite: 1]
+      const deliveryChoice = "ফ্রি ডেলিভারি (০ টাকা)";[cite: 1]
       const total = productPrice;
 
       const orderPayload = {
-        product: "Baseus 20000mAh Power Bank",
+        product: "Baseus 20000mAh (65W) Power Bank",
         name: name,
         phone: phone,
         address: address,
@@ -541,17 +570,17 @@
             mode: 'no-cors',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(orderPayload)
-          });
+          });[cite: 1]
         }
 
-        document.getElementById('orderForm').style.display = 'none';
-        const successCard = document.getElementById('successCard');
+        document.getElementById('orderForm').style.display = 'none';[cite: 1]
+        const successCard = document.getElementById('successCard');[cite: 1]
         document.getElementById('successDetails').innerText = 
-          "ধন্যবাদ " + name + "! ফ্রি ডেলিভারিতে আপনার অর্ডার গ্রহণ করা হয়েছে। সর্বমোট বিল: " + total + " টাকা (ক্যাশ অন ডেলিভারি)।";
-        successCard.style.display = 'block';
+          "ধন্যবাদ " + name + "! ফ্রি ডেলিভারিতে আপনার অর্ডার গ্রহণ করা হয়েছে। সর্বমোট বিল: " + total + " টাকা (ক্যাশ অন ডেলিভারি)।";[cite: 1]
+        successCard.style.display = 'block';[cite: 1]
 
       } catch (err) {
-        alert("অর্ডার সাবমিট করতে সাময়িক সমস্যা হয়েছে। সরাসরি হোয়াটসঅ্যাপে মেসেজ দিন।");
+        alert("অর্ডার সাবমিট করতে সাময়িক সমস্যা হয়েছে। সরাসরি হোয়াটসঅ্যাপে মেসেজ দিন।");
         submitBtn.disabled = false;
         submitBtn.innerText = originalText;
       }
