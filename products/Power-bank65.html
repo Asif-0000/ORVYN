@@ -87,7 +87,7 @@
     /* Swipeable Image Slider with Thumbnails */
     .slider-wrapper {
       position: relative;
-      margin: 15px 0 10px 0;
+      margin: 15px 0 20px 0;
     }
     .product-slider {
       display: flex;
@@ -138,27 +138,31 @@
       width: 65px;
       height: 65px;
       border-radius: 8px;
-      border: 2px solid transparent;
-      padding: 2px;
+      border: 2px solid var(--border);
       cursor: pointer;
-      background: #f8fafc;
+      background: #fafafa;
       transition: all 0.2s ease;
       flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 2px;
     }
     .thumb-item img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       border-radius: 6px;
       display: block;
     }
     .thumb-item.active {
       border-color: var(--primary);
-      box-shadow: 0 2px 8px rgba(31, 110, 194, 0.25);
+      box-shadow: 0 0 0 2px rgba(31, 110, 194, 0.25);
       transform: scale(1.05);
     }
     .swipe-hint {
-      font-size: 12px;
+      font-size: 13px;
       color: var(--text-muted);
       margin-top: 8px;
     }
@@ -371,16 +375,16 @@
 <body>
 
   <div class="top-notice">
-    🎁 ধামাকা অফার: সারা বাংলাদেশে <span>ফ্রি হোম ডেলিভারি</span> ও ক্যাশ অন ডেলিভারি সুবিধা![cite: 1]
+    🎁 ধামাকা অফার: সারা বাংলাদেশে <span>ফ্রি হোম ডেলিভারি</span> ও ক্যাশ অন ডেলিভারি সুবিধা!
   </div>
 
   <div class="container">
     <div class="header">
-      <div class="brand-name">ORVYN</div>[cite: 1]
+      <div class="brand-name">ORVYN</div>
     </div>
 
     <div class="hero-section">
-      <span class="badge">🚚 সারা বাংলাদেশে ডেলিভারি সম্পূর্ণ ফ্রি!</span>[cite: 1]
+      <span class="badge">🚚 সারা বাংলাদেশে ডেলিভারি সম্পূর্ণ ফ্রি!</span>
       <h1 class="main-headline">
         Baseus 20000mAh (65W) Metal Digital Display ফাস্ট চার্জিং পাওয়ার ব্যাংক!
       </h1>
@@ -412,7 +416,7 @@
           </div>
         </div>
 
-        <div class="swipe-hint">👈 ছবি দেখতে সোয়াইপ করুন অথবা নিচের ছবিতে ক্লিক করুন 👉</div>
+        <div class="swipe-hint">👈 ছবি দেখতে সোয়াইপ করুন অথবা নিচের ছবিতে ক্লিক করুন 👉</div>
       </div>
 
       <div class="price-tag">
@@ -420,7 +424,7 @@
         <span class="offer-price">অফার মূল্য: ৩৯৯০ টাকা</span>
       </div>
 
-      <a href="#order-form" class="cta-btn">অর্ডার করতে এখানে ক্লিক করুন 🛒</a>[cite: 1]
+      <a href="#order-form" class="cta-btn">অর্ডার করতে এখানে ক্লিক করুন 🛒</a>
     </div>
 
     <div class="features-list">
@@ -446,15 +450,15 @@
     <div class="guarantee-box">
       <div class="icon">🛡️</div>
       <div>
-        <h4>১০০% ক্যাশ অন ডেলিভারি (জিরো অগ্রিম পেমেন্ট)</h4>[cite: 1]
-        <p>ডেলিভারি ম্যানের সামনে প্রোডাক্ট চেক করে ভালো লাগলে টাকা পরিশোধ করবেন। কোনো অগ্রিম ফি দিতে হবে না!</p>[cite: 1]
+        <h4>১০০% ক্যাশ অন ডেলিভারি (জিরো অগ্রিম পেমেন্ট)</h4>
+        <p>ডেলিভারি ম্যানের সামনে প্রোডাক্ট চেক করে ভালো লাগলে টাকা পরিশোধ করবেন। কোনো অগ্রিম ফি দিতে হবে না!</p>
       </div>
     </div>
 
     <div class="order-section" id="order-form">
       <div class="order-header">
-        <h3>ক্যাশ অন ডেলিভারিতে অর্ডার করুন</h3>[cite: 1]
-        <p>অর্ডার কনফার্ম করতে নিচের তথ্যগুলো সঠিকভাবে পূরণ করুন</p>[cite: 1]
+        <h3>ক্যাশ অন ডেলিভারিতে অর্ডার করুন</h3>
+        <p>অর্ডার কনফার্ম করতে নিচের তথ্যগুলো সঠিকভাবে পূরণ করুন</p>
       </div>
 
       <form id="orderForm" onsubmit="submitOrder(event)">
@@ -474,9 +478,9 @@
         </div>
 
         <div class="form-group">
-          <label>ডেলিভারি চার্জ</label>[cite: 1]
+          <label>ডেলিভারি চার্জ</label>
           <div class="free-delivery-badge-box">
-            <span>✅ সারা বাংলাদেশে হোম ডেলিভারি সম্পূর্ণ ফ্রি! (০ টাকা)</span>[cite: 1]
+            <span>✅ সারা বাংলাদেশে হোম ডেলিভারি সম্পূর্ণ ফ্রি! (০ টাকা)</span>
           </div>
         </div>
 
@@ -486,11 +490,11 @@
             <span>৩৯৯০ টাকা</span>
           </div>
           <div class="summary-row">
-            <span>ডেলিভারি চার্জ</span>[cite: 1]
-            <span class="free-tag">০ টাকা (ফ্রি)</span>[cite: 1]
+            <span>ডেলিভারি চার্জ</span>
+            <span class="free-tag">০ টাকা (ফ্রি)</span>
           </div>
           <div class="summary-row total">
-            <span>সর্বমোট পরিশোধ করতে হবে</span>[cite: 1]
+            <span>সর্বমোট পরিশোধ করতে হবে</span>
             <span>৩৯৯০ টাকা</span>
           </div>
         </div>
@@ -499,9 +503,9 @@
       </form>
 
       <div id="successCard" class="success-card">
-        <h3>🎉 আপনার অর্ডারটি সফলভাবে গ্রহণ করা হয়েছে!</h3>[cite: 1]
+        <h3>🎉 আপনার অর্ডারটি সফলভাবে গ্রহণ করা হয়েছে!</h3>
         <p id="successDetails"></p>
-        <p style="margin-top: 8px; font-weight: 600;">আমাদের প্রতিনিধি দ্রুত আপনার নম্বরে কল করে অর্ডার নিশ্চিত করবেন।</p>[cite: 1]
+        <p style="margin-top: 8px; font-weight: 600;">আমাদের প্রতিনিধি দ্রুত আপনার নম্বরে কল করে অর্ডার নিশ্চিত করবেন।</p>
       </div>
 
       <a href="https://wa.me/8801805529344?text=Hello,%20ami%20Baseus%2065W%20Power%20Bank%20Free%20Delivery-te%20order%20korte%20chai" target="_blank" class="whatsapp-btn">
@@ -510,7 +514,7 @@
     </div>
 
     <footer>
-      <p>© 2026 ORVYN. All Rights Reserved.</p>[cite: 1]
+      <p>© 2026 ORVYN. All Rights Reserved.</p>
     </footer>
   </div>
 
@@ -518,21 +522,28 @@
     const slider = document.getElementById('productSlider');
     const thumbnails = document.querySelectorAll('.thumbnail-gallery .thumb-item');
 
-    // সোয়াইপ করলে নিচের থাম্বনেইলে একটিভ স্টেট সিলেক্ট হবে
+    // সোয়াইপ করলে নিচের থাম্বনেইলে অ্যাক্টিভ স্টেট ও অটো-স্ক্রোল হবে
     slider.addEventListener('scroll', () => {
       const slideWidth = slider.clientWidth;
       const activeIndex = Math.round(slider.scrollLeft / slideWidth);
       thumbnails.forEach((thumb, index) => {
-        thumb.classList.toggle('active', index === activeIndex);
+        const isActive = index === activeIndex;
+        thumb.classList.toggle('active', isActive);
+        if (isActive) {
+          thumb.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }
       });
     });
 
-    // থাম্বনেইলে ক্লিক করলে মেইন স্লাইডারে সেই ছবি দেখাবে
+    // থাম্বনেইলে ক্লিক করলে মেইন স্লাইডারে সেই ছবি দেখাবে এবং সাথে সাথে থাম্বনেইল অ্যাক্টিভ হবে
     function goToSlide(index) {
       const slideWidth = slider.clientWidth;
       slider.scrollTo({
         left: slideWidth * index,
         behavior: 'smooth'
+      });
+      thumbnails.forEach((thumb, i) => {
+        thumb.classList.toggle('active', i === index);
       });
     }
 
@@ -546,12 +557,12 @@
       const submitBtn = document.getElementById('submitBtn');
       const originalText = submitBtn.innerText;
       submitBtn.disabled = true;
-      submitBtn.innerText = "অর্ডার প্রসেসিং হচ্ছে... অনুগ্রহ করে অপেক্ষা করুন";[cite: 1]
+      submitBtn.innerText = "অর্ডার প্রসেসিং হচ্ছে... অনুগ্রহ করে অপেক্ষা করুন";
 
-      const name = document.getElementById('name').value.trim();[cite: 1]
-      const phone = document.getElementById('phone').value.trim();[cite: 1]
-      const address = document.getElementById('address').value.trim();[cite: 1]
-      const deliveryChoice = "ফ্রি ডেলিভারি (০ টাকা)";[cite: 1]
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const deliveryChoice = "ফ্রি ডেলিভারি (০ টাকা)";
       const total = productPrice;
 
       const orderPayload = {
@@ -570,14 +581,14 @@
             mode: 'no-cors',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(orderPayload)
-          });[cite: 1]
+          });
         }
 
-        document.getElementById('orderForm').style.display = 'none';[cite: 1]
-        const successCard = document.getElementById('successCard');[cite: 1]
+        document.getElementById('orderForm').style.display = 'none';
+        const successCard = document.getElementById('successCard');
         document.getElementById('successDetails').innerText = 
-          "ধন্যবাদ " + name + "! ফ্রি ডেলিভারিতে আপনার অর্ডার গ্রহণ করা হয়েছে। সর্বমোট বিল: " + total + " টাকা (ক্যাশ অন ডেলিভারি)।";[cite: 1]
-        successCard.style.display = 'block';[cite: 1]
+          "ধন্যবাদ " + name + "! ফ্রি ডেলিভারিতে আপনার অর্ডার গ্রহণ করা হয়েছে। সর্বমোট বিল: " + total + " টাকা (ক্যাশ অন ডেলিভারি)।";
+        successCard.style.display = 'block';
 
       } catch (err) {
         alert("অর্ডার সাবমিট করতে সাময়িক সমস্যা হয়েছে। সরাসরি হোয়াটসঅ্যাপে মেসেজ দিন।");
