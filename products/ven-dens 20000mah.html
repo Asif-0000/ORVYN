@@ -112,10 +112,10 @@
       line-height: 1.45;
     }
 
-    /* Product Slider */
+    /* Swipeable Product Slider + Thumbnails */
     .slider-wrapper {
       position: relative;
-      margin: 18px 0;
+      margin: 18px 0 20px 0;
     }
 
     .product-slider {
@@ -151,31 +151,57 @@
       object-fit: contain;
       border-radius: 12px;
       display: block;
+      user-select: none;
     }
 
-    .slider-dots {
+    /* Thumbnails Selection Grid */
+    .thumbnail-gallery {
       display: flex;
       justify-content: center;
-      gap: 8px;
-      margin-top: 12px;
+      gap: 10px;
+      margin-top: 14px;
+      overflow-x: auto;
+      padding: 4px;
+      scrollbar-width: none;
     }
 
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #DDD6FE;
+    .thumbnail-gallery::-webkit-scrollbar {
+      display: none;
+    }
+
+    .thumb-item {
+      width: 65px;
+      height: 65px;
+      border-radius: 10px;
+      border: 2px solid var(--violet-light);
       cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s ease;
+      background: #FAF8F5;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 2px;
     }
 
-    .dot.active {
-      background: var(--primary-violet);
-      transform: scale(1.3);
+    .thumb-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .thumb-item.active {
+      border-color: var(--primary-violet);
+      box-shadow: 0 0 0 2px rgba(109, 40, 217, 0.25);
+      transform: scale(1.05);
+      background: #FFFFFF;
     }
 
     .swipe-hint {
-      font-size: 12px;
+      font-size: 13px;
       color: var(--text-muted);
       margin-top: 8px;
       font-weight: 500;
@@ -462,7 +488,7 @@
     <!-- Brand Header -->
     <div class="header">
       <div class="brand-name">⚡ ORVYN</div>
-      <div class="brand-tagline">স্মার্ট গ্যাজেটস ও প্রিমিয়াম অডিও/পাওয়ার সমাধান</div>
+      <div class="brand-tagline">স্মার্ট গ্যাজেটস ও প্রিমিয়াম অডিও/পাওয়ার সমাধান</div>
     </div>
 
     <!-- Hero Section -->
@@ -472,7 +498,7 @@
         Ven-Dens VD-PB061 20000mAh 22.5W Fast Charging High Quality Powerbank (বিল্ট-ইন ২ টি ক্যাবল সহ)
       </h1>
 
-      <!-- Product Swipe Slider -->
+      <!-- Product Swipe Slider + Clickable Thumbnails -->
       <div class="slider-wrapper">
         <div class="product-slider" id="productSlider">
           <div class="slide">
@@ -485,12 +511,21 @@
             <img src="https://resellkori.com/wp-content/uploads/2026/09/product_image_8003-768x768.jpg" alt="Ven-Dens Power Bank Image 3">
           </div>
         </div>
-        <div class="slider-dots" id="sliderDots">
-          <div class="dot active" onclick="goToSlide(0)"></div>
-          <div class="dot" onclick="goToSlide(1)"></div>
-          <div class="dot" onclick="goToSlide(2)"></div>
+
+        <!-- Thumbnail Gallery -->
+        <div class="thumbnail-gallery" id="thumbnailGallery">
+          <div class="thumb-item active" onclick="goToSlide(0)">
+            <img src="https://resellkori.com/wp-content/uploads/2026/09/product_image_32273.jpg-768x768.png" alt="Thumb 1">
+          </div>
+          <div class="thumb-item" onclick="goToSlide(1)">
+            <img src="https://resellkori.com/wp-content/uploads/2026/09/product_image_32274-768x768.jpg" alt="Thumb 2">
+          </div>
+          <div class="thumb-item" onclick="goToSlide(2)">
+            <img src="https://resellkori.com/wp-content/uploads/2026/09/product_image_8003-768x768.jpg" alt="Thumb 3">
+          </div>
         </div>
-        <div class="swipe-hint">👈 ছবি দেখতে সোয়াইপ করুন 👉</div>
+
+        <div class="swipe-hint">👈 ছবি দেখতে সোয়াইপ করুন অথবা নিচের ছবিতে ক্লিক করুন 👉</div>
       </div>
 
       <!-- Price Box -->
@@ -508,32 +543,32 @@
 
       <div class="feature-item">
         <span class="feature-icon">⚡</span>
-        <span><strong>বিশাল ক্যাপাসিটি (20,000 mAh / 74Wh):</strong> একটি সাধারণ স্মার্টফোনকে প্রায় ৩ থেকে ৪ বার ফুল চার্জ করার দারুণ ক্ষমতা।</span>
+        <span><strong>বিশাল ক্যাপাসিটি (20,000 mAh / 74Wh):</strong> একটি সাধারণ স্মার্টফোনকে প্রায় ৩ থেকে ৪ বার ফুল চার্জ করার দারুণ ক্ষমতা।</span>
       </div>
 
       <div class="feature-item">
         <span class="feature-icon">🔌</span>
-        <span><strong>বিল্ট-ইন ২ টি ক্যাবল:</strong> আলাদা ক্যাবল সাথে ঘোরার কোনো ঝামেলা নেই! এতে সরাসরি যুক্ত আছে Type-C ক্যাবল (অ্যান্ড্রয়েডের জন্য) এবং Lightning ক্যাবল (iPhone/iPad এর জন্য)।</span>
+        <span><strong>বিল্ট-ইন ২ টি ক্যাবল:</strong> আলাদা ক্যাবল সাথে ঘোরার কোনো ঝামেলা নেই! এতে সরাসরি যুক্ত আছে Type-C ক্যাবল (অ্যান্ড্রয়েডের জন্য) এবং Lightning ক্যাবল (iPhone/iPad এর জন্য)।</span>
       </div>
 
       <div class="feature-item">
         <span class="feature-icon">🚀</span>
-        <span><strong>২২.৫W ম্যাক্স ফাস্ট চার্জিং:</strong> PD ও QC ফাস্ট চার্জিং সাপোর্টের কারণে ফোন চার্জ হবে ঝড়ের গতিতে (Type-C Output ২০W-২২.৫W এবং USB-A Output ২২.৫W পর্যন্ত)।</span>
+        <span><strong>২২.৫W ম্যাক্স ফাস্ট চার্জিং:</strong> PD ও QC ফাস্ট চার্জিং সাপোর্টের কারণে ফোন চার্জ হবে ঝড়ের গতিতে (Type-C Output ২০W-২২.৫W এবং USB-A Output ২২.৫W পর্যন্ত)।</span>
       </div>
 
       <div class="feature-item">
         <span class="feature-icon">📊</span>
-        <span><strong>স্মার্ট LED ডিজিটাল ডিসপ্লে:</strong> পাওয়ার ব্যাংকে কত শতাংশ (%) চার্জ বাকি আছে তা নিখুঁত সংখ্যার মাধ্যমে সরাসরি ডিসপ্লেতে দেখা যায়।</span>
+        <span><strong>স্মার্ট LED ডিজিটাল ডিসপ্লে:</strong> পাওয়ার ব্যাংকে কত শতাংশ (%) চার্জ বাকি আছে তা নিখুঁত সংখ্যার মাধ্যমে সরাসরি ডিসপ্লেতে দেখা যায়।</span>
       </div>
 
       <div class="feature-item">
         <span class="feature-icon">✈️</span>
-        <span><strong>ফ্লাইট ও ট্রাভেল ফ্রেন্ডলি:</strong> ব্যাটারি সাইজ ৭৪Wh হওয়ায় আন্তর্জাতিক এয়ারলাইন্স নিয়মের (১০০Wh) মধ্যে থাকে, ফলে নিশ্চিন্তে বিমানে বহন করা সম্ভব।</span>
+        <span><strong>ফ্লাইট ও ট্রাভেল ফ্রেন্ডলি:</strong> ব্যাটারি সাইজ ৭৪Wh হওয়ায় আন্তর্জাতিক এয়ারলাইন্স নিয়মের (১০০Wh) মধ্যে থাকে, ফলে নিশ্চিন্তে বিমানে বহন করা সম্ভব।</span>
       </div>
 
       <div class="feature-item">
         <span class="feature-icon">🛡️</span>
-        <span><strong>সম্পূর্ণ নিরাপদ ও সুরক্ষিত:</strong> রয়েছে Over-heating protection, Short-circuit protection এবং Over-charging protection যা আপনার মূল্যবান ডিভাইসের ব্যাটারিকে রাখে নিরাপদ।</span>
+        <span><strong>সম্পূর্ণ নিরাপদ ও সুরক্ষিত:</strong> রয়েছে Over-heating protection, Short-circuit protection এবং Over-charging protection যা আপনার মূল্যবান ডিভাইসের ব্যাটারিকে রাখে নিরাপদ।</span>
       </div>
 
       <!-- Quick Specs Grid -->
@@ -575,7 +610,7 @@
 
         <div class="form-group">
           <label>সম্পূর্ণ ঠিকানা (বাসা/রোড, থানা, জেলা) *</label>
-          <textarea id="address" rows="2" placeholder="যেমন: বাড়ি ১২, রোড ৪, মিরপুর-১০, ঢাকা (অথবা আপনার থানা ও জেলা)" required></textarea>
+          <textarea id="address" rows="2" placeholder="যেমন: বাড়ি ১২, রোড ৪, মিরপুর-১০, ঢাকা (অথবা আপনার থানা ও জেলা)" required></textarea>
         </div>
 
         <div class="form-group">
@@ -606,13 +641,13 @@
 
       <!-- Success Screen -->
       <div id="successCard" class="success-card">
-        <h3>🎉 আপনার অর্ডারটি সফলভাবে গ্রহণ করা হয়েছে!</h3>
+        <h3>🎉 আপনার অর্ডারটি সফলভাবে গ্রহণ করা হয়েছে!</h3>
         <p id="successDetails"></p>
         <p style="margin-top: 10px; font-weight: 600;">ORVYN-এর প্রতিনিধি দ্রুত কল করে আপনার অর্ডারটি কনফার্ম করবেন।</p>
       </div>
 
       <a href="https://wa.me/8801805529344?text=Hello%20ORVYN,%20ami%20Ven-Dens%2020000mAh%20Power%20Bank%20Free%20Delivery-te%20order%20korte%20chai" target="_blank" class="whatsapp-btn">
-        💬 সরাসরি হোয়াটসঅ্যাপে অর্ডার করুন
+        💬 সরাসরি হোয়াটসঅ্যাপে অর্ডার করুন
       </a>
     </div>
 
@@ -623,23 +658,31 @@
   </div>
 
   <script>
-    // Slider Control
     const slider = document.getElementById('productSlider');
-    const dots = document.querySelectorAll('.slider-dots .dot');
+    const thumbnails = document.querySelectorAll('.thumbnail-gallery .thumb-item');
 
+    // সোয়াইপ করলে নিচের থাম্বনেইলে অ্যাক্টিভ স্টেট ও অটো-স্ক্রোল হবে
     slider.addEventListener('scroll', () => {
       const slideWidth = slider.clientWidth;
       const activeIndex = Math.round(slider.scrollLeft / slideWidth);
-      dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === activeIndex);
+      thumbnails.forEach((thumb, index) => {
+        const isActive = index === activeIndex;
+        thumb.classList.toggle('active', isActive);
+        if (isActive) {
+          thumb.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }
       });
     });
 
+    // থাম্বনেইলে ক্লিক করলে মেইন স্লাইডারে ছবি পাল্টাবে এবং থাম্বনেইল অ্যাক্টিভ হবে
     function goToSlide(index) {
       const slideWidth = slider.clientWidth;
       slider.scrollTo({
         left: slideWidth * index,
         behavior: 'smooth'
+      });
+      thumbnails.forEach((thumb, i) => {
+        thumb.classList.toggle('active', i === index);
       });
     }
 
@@ -684,11 +727,11 @@
         document.getElementById('orderForm').style.display = 'none';
         const successCard = document.getElementById('successCard');
         document.getElementById('successDetails').innerText = 
-          "ধন্যবাদ " + name + "! ফ্রি হোম ডেলিভারিতে আপনার অর্ডার গ্রহণ করা হয়েছে। সর্বমোট ক্যাশ অন ডেলিভারি বিল: " + total + " টাকা।";
+          "ধন্যবাদ " + name + "! ফ্রি হোম ডেলিভারিতে আপনার অর্ডার গ্রহণ করা হয়েছে। সর্বমোট ক্যাশ অন ডেলিভারি বিল: " + total + " টাকা।";
         successCard.style.display = 'block';
 
       } catch (err) {
-        alert("অর্ডার সাবমিট করতে সাময়িক সমস্যা হয়েছে। সরাসরি হোয়াটসঅ্যাপে মেসেজ দিন।");
+        alert("অর্ডার সাবমিট করতে সাময়িক সমস্যা হয়েছে। সরাসরি হোয়াটসঅ্যাপে মেসেজ দিন।");
         submitBtn.disabled = false;
         submitBtn.innerText = originalText;
       }
