@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ORVYN - Ven-Dens VD-PB061 20000mAh 22.5W Power Bank</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Cream & Violet Theme */
+      --brand-cream: #FAF7F2;
+      --brand-cream-card: #FFFFFF;
+      --brand-cream-border: #EFE8DE;
+      --primary-violet: #6D28D9;
+      --primary-violet-dark: #5B21B6;
+      --violet-light: #EDE9FE;
+      --accent-gold: #F59E0B;
+      --text-dark: #1E1B4B;
+      --text-muted: #5B5875;
+      --success-green: #15803D;
+      --success-bg: #DCFCE7;
+      --border: #E5E1D8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Hind Siliguri', sans-serif;
+    }
+
+    body {
+      background-color: var(--brand-cream);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .top-notice {
+      background: linear-gradient(90deg, #4C1D95, #6D28D9);
+      color: #ffffff;
+      text-align: center;
+      padding: 10px 14px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .top-notice span {
+      color: #FDE047;
+      font-weight: 700;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      background: var(--brand-cream-card);
+      min-height: 100vh;
+      box-shadow: 0 4px 30px rgba(109, 40, 217, 0.08);
+      border-left: 1px solid var(--brand-cream-border);
+      border-right: 1px solid var(--brand-cream-border);
+    }
+
+    .header {
+      text-align: center;
+      padding: 22px 20px;
+      background: #FFFFFF;
+      border-bottom: 2px solid var(--violet-light);
+    }
+
+    .brand-name {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--primary-violet);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .brand-tagline {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-top: -2px;
+    }
+
+    .hero-section {
+      padding: 22px 20px;
+      text-align: center;
+      background: linear-gradient(180deg, #FFFFFF 0%, #FAF8F5 100%);
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--violet-light);
+      color: var(--primary-violet);
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 13px;
+      margin-bottom: 12px;
+      border: 1px solid #DDD6FE;
+    }
+
+    .main-headline {
+      font-size: 23px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+      line-height: 1.45;
+    }
+
+    /* Product Slider */
+    .slider-wrapper {
+      position: relative;
+      margin: 18px 0;
+    }
+
+    .product-slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 16px;
+      border: 2px solid var(--violet-light);
+      background: #FFFFFF;
+      scrollbar-width: none;
+    }
+
+    .product-slider::-webkit-scrollbar {
+      display: none;
+    }
+
+    .slide {
+      flex: 0 0 100%;
+      width: 100%;
+      scroll-snap-align: start;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      background: #FFFFFF;
+    }
+
+    .slide img {
+      width: 100%;
+      max-height: 380px;
+      object-fit: contain;
+      border-radius: 12px;
+      display: block;
+    }
+
+    .slider-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #DDD6FE;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .dot.active {
+      background: var(--primary-violet);
+      transform: scale(1.3);
+    }
+
+    .swipe-hint {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 8px;
+      font-weight: 500;
+    }
+
+    .price-tag {
+      background: #FAF5FF;
+      border: 2px dashed var(--primary-violet);
+      border-radius: 12px;
+      padding: 14px;
+      margin: 18px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .regular-price {
+      font-size: 18px;
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+
+    .offer-price {
+      font-size: 26px;
+      color: var(--primary-violet);
+      font-weight: 800;
+    }
+
+    .cta-btn {
+      display: block;
+      width: 100%;
+      background: linear-gradient(135deg, var(--primary-violet), var(--primary-violet-dark));
+      color: #FFFFFF;
+      text-align: center;
+      padding: 15px 20px;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 6px 18px rgba(109, 40, 217, 0.35);
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .cta-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* Content & Details Section */
+    .features-list {
+      padding: 24px 20px;
+      background: #FFFFFF;
+      border-top: 1px solid var(--brand-cream-border);
+    }
+
+    .features-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 16px;
+      border-left: 5px solid var(--primary-violet);
+      padding-left: 10px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+      font-size: 15px;
+      background: #FCFBF9;
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid #F3EEE7;
+    }
+
+    .feature-icon {
+      color: var(--primary-violet);
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .box-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin: 16px 0;
+    }
+
+    .box-item {
+      background: var(--violet-light);
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary-violet-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .guarantee-box {
+      background: #F5F3FF;
+      border: 1.5px solid #DDD6FE;
+      padding: 16px;
+      border-radius: 12px;
+      margin: 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .guarantee-box .icon {
+      font-size: 32px;
+    }
+
+    .guarantee-box h4 {
+      color: var(--primary-violet-dark);
+      font-size: 16px;
+      margin-bottom: 2px;
+      font-weight: 700;
+    }
+
+    .guarantee-box p {
+      font-size: 13px;
+      color: #6D28D9;
+    }
+
+    /* Order Section */
+    .order-section {
+      background: var(--brand-cream);
+      padding: 28px 20px;
+      border-top: 2px solid var(--violet-light);
+    }
+
+    .order-header {
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    .order-header h3 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--primary-violet-dark);
+    }
+
+    .order-header p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text-dark);
+    }
+
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1.5px solid #DDD6FE;
+      border-radius: 8px;
+      font-size: 15px;
+      background: #FFFFFF;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary-violet);
+      box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.15);
+    }
+
+    .free-delivery-badge-box {
+      background: #ECFDF5;
+      border: 1.5px dashed var(--success-green);
+      border-radius: 8px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .free-delivery-badge-box span {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--success-green);
+    }
+
+    .order-summary {
+      background: #FFFFFF;
+      padding: 16px;
+      border-radius: 10px;
+      border: 1.5px solid var(--brand-cream-border);
+      margin: 20px 0;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      padding: 6px 0;
+    }
+
+    .summary-row .free-tag {
+      color: var(--success-green);
+      font-weight: 700;
+    }
+
+    .summary-row.total {
+      border-top: 1.5px solid var(--violet-light);
+      margin-top: 6px;
+      padding-top: 10px;
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--primary-violet-dark);
+    }
+
+    .whatsapp-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #22C55E;
+      color: white;
+      padding: 13px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      margin-top: 15px;
+      font-size: 15px;
+      box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25);
+    }
+
+    .success-card {
+      display: none;
+      background: #ECFDF5;
+      border: 2px solid var(--success-green);
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .success-card h3 {
+      color: #065F46;
+      font-size: 21px;
+      margin-bottom: 8px;
+    }
+
+    .success-card p {
+      color: #047857;
+      font-size: 14.5px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 13px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--brand-cream-border);
+      background: #FFFFFF;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Notice Bar -->
+  <div class="top-notice">
+    🎁 ধামাকা অফার: সারা বাংলাদেশে <span>ফ্রি হোম ডেলিভারি</span> ও সম্পূর্ণ ক্যাশ অন ডেলিভারি!
+  </div>
+
+  <div class="container">
+    <!-- Brand Header -->
+    <div class="header">
+      <div class="brand-name">⚡ ORVYN</div>
+      <div class="brand-tagline">স্মার্ট গ্যাজেটস ও প্রিমিয়াম অডিও/পাওয়ার সমাধান</div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <span class="badge">🚚 সারা বাংলাদেশে ডেলিভারি সম্পূর্ণ ফ্রি!</span>
+      <h1 class="main-headline">
+        Ven-Dens VD-PB061 20000mAh 22.5W Fast Charging High Quality Powerbank (বিল্ট-ইন ২ টি ক্যাবল সহ)
+      </h1>
+
+      <!-- Product Swipe Slider -->
+      <div class="slider-wrapper">
+        <div class="product-slider" id="productSlider">
+          <div class="slide">
+            <img src="https://resellkori.com/wp-content/uploads/2026/09/product_image_32273.jpg-768x768.png" alt="Ven-Dens Power Bank Image 1">
+          </div>
+          <div class="slide">
+            <img src="https://resellkori.com/wp-content/uploads/2026/09/product_image_32274-768x768.jpg" alt="Ven-Dens Power Bank Image 2">
+          </div>
+          <div class="slide">
+            <img src="https://resellkori.com/wp-content/uploads/2026/09/product_image_8003-768x768.jpg" alt="Ven-Dens Power Bank Image 3">
+          </div>
+        </div>
+        <div class="slider-dots" id="sliderDots">
+          <div class="dot active" onclick="goToSlide(0)"></div>
+          <div class="dot" onclick="goToSlide(1)"></div>
+          <div class="dot" onclick="goToSlide(2)"></div>
+        </div>
+        <div class="swipe-hint">👈 ছবি দেখতে সোয়াইপ করুন 👉</div>
+      </div>
+
+      <!-- Price Box -->
+      <div class="price-tag">
+        <span class="regular-price">রেগুলার: ২৪৫০ ৳</span>
+        <span class="offer-price">অফার মূল্য: ২০০০ টাকা</span>
+      </div>
+
+      <a href="#order-form" class="cta-btn">অর্ডার করতে এখানে ক্লিক করুন 🛒</a>
+    </div>
+
+    <!-- Product Features -->
+    <div class="features-list">
+      <h2 class="features-title">পাওয়ার ব্যাংকের বিশেষ সুবিধাসমূহ:</h2>
+
+      <div class="feature-item">
+        <span class="feature-icon">⚡</span>
+        <span><strong>বিশাল ক্যাপাসিটি (20,000 mAh / 74Wh):</strong> একটি সাধারণ স্মার্টফোনকে প্রায় ৩ থেকে ৪ বার ফুল চার্জ করার দারুণ ক্ষমতা।</span>
+      </div>
+
+      <div class="feature-item">
+        <span class="feature-icon">🔌</span>
+        <span><strong>বিল্ট-ইন ২ টি ক্যাবল:</strong> আলাদা ক্যাবল সাথে ঘোরার কোনো ঝামেলা নেই! এতে সরাসরি যুক্ত আছে Type-C ক্যাবল (অ্যান্ড্রয়েডের জন্য) এবং Lightning ক্যাবল (iPhone/iPad এর জন্য)।</span>
+      </div>
+
+      <div class="feature-item">
+        <span class="feature-icon">🚀</span>
+        <span><strong>২২.৫W ম্যাক্স ফাস্ট চার্জিং:</strong> PD ও QC ফাস্ট চার্জিং সাপোর্টের কারণে ফোন চার্জ হবে ঝড়ের গতিতে (Type-C Output ২০W-২২.৫W এবং USB-A Output ২২.৫W পর্যন্ত)।</span>
+      </div>
+
+      <div class="feature-item">
+        <span class="feature-icon">📊</span>
+        <span><strong>স্মার্ট LED ডিজিটাল ডিসপ্লে:</strong> পাওয়ার ব্যাংকে কত শতাংশ (%) চার্জ বাকি আছে তা নিখুঁত সংখ্যার মাধ্যমে সরাসরি ডিসপ্লেতে দেখা যায়।</span>
+      </div>
+
+      <div class="feature-item">
+        <span class="feature-icon">✈️</span>
+        <span><strong>ফ্লাইট ও ট্রাভেল ফ্রেন্ডলি:</strong> ব্যাটারি সাইজ ৭৪Wh হওয়ায় আন্তর্জাতিক এয়ারলাইন্স নিয়মের (১০০Wh) মধ্যে থাকে, ফলে নিশ্চিন্তে বিমানে বহন করা সম্ভব।</span>
+      </div>
+
+      <div class="feature-item">
+        <span class="feature-icon">🛡️</span>
+        <span><strong>সম্পূর্ণ নিরাপদ ও সুরক্ষিত:</strong> রয়েছে Over-heating protection, Short-circuit protection এবং Over-charging protection যা আপনার মূল্যবান ডিভাইসের ব্যাটারিকে রাখে নিরাপদ।</span>
+      </div>
+
+      <!-- Quick Specs Grid -->
+      <h3 style="font-size: 17px; margin: 20px 0 10px; color: var(--text-dark);">⚙️ টেকনিক্যাল স্পেসিফিকেশন:</h3>
+      <div class="box-grid">
+        <div class="box-item">🔋 ব্যাটারি: 20,000 mAh (74Wh)</div>
+        <div class="box-item">⚡ আউটপুট: সর্বোচ্চ 22.5W ফাস্ট</div>
+        <div class="box-item">📥 ইনপুট (Type-C): 18W ফাস্ট রিচার্জ</div>
+        <div class="box-item">📱 আইফোন আউটপুট: 5V-2.4A</div>
+      </div>
+    </div>
+
+    <!-- Guarantee Box -->
+    <div class="guarantee-box">
+      <div class="icon">🛡️</div>
+      <div>
+        <h4>১০০% ক্যাশ অন ডেলিভারি (জিরো অগ্রিম পেমেন্ট)</h4>
+        <p>ডেলিভারি ম্যানের সামনে প্রোডাক্ট চেক করে ভালো লাগলে টাকা পরিশোধ করবেন। কোনো প্রকার অগ্রিম ফি দিতে হবে না!</p>
+      </div>
+    </div>
+
+    <!-- Order Form Section -->
+    <div class="order-section" id="order-form">
+      <div class="order-header">
+        <h3>ক্যাশ অন ডেলিভারিতে অর্ডার করুন</h3>
+        <p>অর্ডার কনফার্ম করতে নিচের তথ্যগুলো সঠিকভাবে পূরণ করুন</p>
+      </div>
+
+      <form id="orderForm" onsubmit="submitOrder(event)">
+        <div class="form-group">
+          <label>আপনার সম্পূর্ণ নাম *</label>
+          <input type="text" id="name" placeholder="যেমন: মো: আরিফুল ইসলাম" required>
+        </div>
+
+        <div class="form-group">
+          <label>সচল মোবাইল নম্বর *</label>
+          <input type="tel" id="phone" placeholder="যেমন: 017xxxxxxxx" pattern="[0-9]{11}" title="১১ ডিজিটের সঠিক মোবাইল নম্বর দিন" required>
+        </div>
+
+        <div class="form-group">
+          <label>সম্পূর্ণ ঠিকানা (বাসা/রোড, থানা, জেলা) *</label>
+          <textarea id="address" rows="2" placeholder="যেমন: বাড়ি ১২, রোড ৪, মিরপুর-১০, ঢাকা (অথবা আপনার থানা ও জেলা)" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>ডেলিভারি চার্জ</label>
+          <div class="free-delivery-badge-box">
+            <span>✅ সারা বাংলাদেশে হোম ডেলিভারি সম্পূর্ণ ফ্রি! (০ টাকা)</span>
+          </div>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="order-summary">
+          <div class="summary-row">
+            <span>Ven-Dens 20000mAh Power Bank (1টি)</span>
+            <span>২০০০ টাকা</span>
+          </div>
+          <div class="summary-row">
+            <span>ডেলিভারি চার্জ</span>
+            <span class="free-tag">০ টাকা (ফ্রি)</span>
+          </div>
+          <div class="summary-row total">
+            <span>সর্বমোট পরিশোধ করতে হবে</span>
+            <span>২০০০ টাকা</span>
+          </div>
+        </div>
+
+        <button type="submit" id="submitBtn" class="cta-btn">অর্ডার কনফার্ম করুন (ক্যাশ অন ডেলিভারি - ২০০০ ৳)</button>
+      </form>
+
+      <!-- Success Screen -->
+      <div id="successCard" class="success-card">
+        <h3>🎉 আপনার অর্ডারটি সফলভাবে গ্রহণ করা হয়েছে!</h3>
+        <p id="successDetails"></p>
+        <p style="margin-top: 10px; font-weight: 600;">ORVYN-এর প্রতিনিধি দ্রুত কল করে আপনার অর্ডারটি কনফার্ম করবেন।</p>
+      </div>
+
+      <a href="https://wa.me/8801805529344?text=Hello%20ORVYN,%20ami%20Ven-Dens%2020000mAh%20Power%20Bank%20Free%20Delivery-te%20order%20korte%20chai" target="_blank" class="whatsapp-btn">
+        💬 সরাসরি হোয়াটসঅ্যাপে অর্ডার করুন
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2026 ORVYN. All Rights Reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Slider Control
+    const slider = document.getElementById('productSlider');
+    const dots = document.querySelectorAll('.slider-dots .dot');
+
+    slider.addEventListener('scroll', () => {
+      const slideWidth = slider.clientWidth;
+      const activeIndex = Math.round(slider.scrollLeft / slideWidth);
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === activeIndex);
+      });
+    });
+
+    function goToSlide(index) {
+      const slideWidth = slider.clientWidth;
+      slider.scrollTo({
+        left: slideWidth * index,
+        behavior: 'smooth'
+      });
+    }
+
+    // Google Apps Script Connection
+    const GOOGLE_SHEET_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzwj1gvayLQyWsQwzs9ABHldFSKP1nD1JrKvY9Ta6Z8ePPYLnRldqLLoR61dfMLipyQ/exec";
+    const productPrice = 2000;
+
+    async function submitOrder(e) {
+      e.preventDefault();
+      
+      const submitBtn = document.getElementById('submitBtn');
+      const originalText = submitBtn.innerText;
+      submitBtn.disabled = true;
+      submitBtn.innerText = "অর্ডার প্রসেসিং হচ্ছে... অনুগ্রহ করে অপেক্ষা করুন";
+
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const deliveryChoice = "ফ্রি ডেলিভারি (০ টাকা)";
+      const total = productPrice;
+
+      const orderPayload = {
+        brand: "ORVYN",
+        product: "Ven-Dens VD-PB061 20000mAh 22.5W Power Bank",
+        name: name,
+        phone: phone,
+        address: address,
+        delivery: deliveryChoice,
+        total: total
+      };
+
+      try {
+        if (GOOGLE_SHEET_WEB_APP_URL) {
+          await fetch(GOOGLE_SHEET_WEB_APP_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(orderPayload)
+          });
+        }
+
+        document.getElementById('orderForm').style.display = 'none';
+        const successCard = document.getElementById('successCard');
+        document.getElementById('successDetails').innerText = 
+          "ধন্যবাদ " + name + "! ফ্রি হোম ডেলিভারিতে আপনার অর্ডার গ্রহণ করা হয়েছে। সর্বমোট ক্যাশ অন ডেলিভারি বিল: " + total + " টাকা।";
+        successCard.style.display = 'block';
+
+      } catch (err) {
+        alert("অর্ডার সাবমিট করতে সাময়িক সমস্যা হয়েছে। সরাসরি হোয়াটসঅ্যাপে মেসেজ দিন।");
+        submitBtn.disabled = false;
+        submitBtn.innerText = originalText;
+      }
+    }
+  </script>
+</body>
+</html>
