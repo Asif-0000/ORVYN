@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ORVYN - Robot Portable Wireless Speaker X808</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1f6ec2;
+      --primary-dark: #165290;
+      --secondary: #0f172a;
+      --accent: #f59e0b;
+      --bg-light: #f8fafc;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --white: #ffffff;
+      --border: #e2e8f0;
+      --success: #16a34a;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Hind Siliguri', sans-serif;
+    }
+    body {
+      background-color: var(--bg-light);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .top-notice {
+      background: var(--secondary);
+      color: var(--white);
+      text-align: center;
+      padding: 10px 14px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .top-notice span {
+      color: #38bdf8;
+      font-weight: 700;
+    }
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      background: var(--white);
+      min-height: 100vh;
+      box-shadow: 0 0 25px rgba(0,0,0,0.06);
+    }
+    .header {
+      text-align: center;
+      padding: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .brand-name {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .hero-section {
+      padding: 20px;
+      text-align: center;
+    }
+    .main-headline {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .badge {
+      display: inline-block;
+      background: #dcfce7;
+      color: #15803d;
+      font-weight: 700;
+      padding: 5px 15px;
+      border-radius: 50px;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+    
+    /* Swipeable Image Slider */
+    .slider-wrapper {
+      position: relative;
+      margin: 15px 0;
+    }
+    .product-slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #fafafa;
+      scrollbar-width: none;
+    }
+    .product-slider::-webkit-scrollbar {
+      display: none;
+    }
+    .slide {
+      flex: 0 0 100%;
+      width: 100%;
+      scroll-snap-align: start;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+    }
+    .slide img {
+      width: 100%;
+      max-height: 380px;
+      object-fit: contain;
+      border-radius: 8px;
+      display: block;
+      user-select: none;
+    }
+    .slider-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #cbd5e1;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .dot.active {
+      background: var(--primary);
+      transform: scale(1.2);
+    }
+    .swipe-hint {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    .price-tag {
+      background: #fef2f2;
+      border: 2px dashed var(--primary);
+      border-radius: 10px;
+      padding: 12px;
+      margin: 15px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+    }
+    .regular-price {
+      font-size: 18px;
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+    .offer-price {
+      font-size: 26px;
+      color: var(--primary);
+      font-weight: 700;
+    }
+    .cta-btn {
+      display: block;
+      width: 100%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      text-align: center;
+      padding: 14px 20px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(31, 110, 194, 0.35);
+      border: none;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+    .cta-btn:active {
+      transform: scale(0.98);
+    }
+    .features-list {
+      padding: 20px;
+      background: #fff;
+    }
+    .features-title {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 15px;
+      border-left: 4px solid var(--primary);
+      padding-left: 10px;
+    }
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 15px;
+    }
+    .feature-icon {
+      color: var(--success);
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .why-buy-box {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      padding: 16px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+    .why-buy-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #15803d;
+      margin-bottom: 10px;
+    }
+    .why-buy-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: #166534;
+    }
+
+    .guarantee-box {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .guarantee-box .icon {
+      font-size: 28px;
+    }
+    .guarantee-box h4 {
+      color: #15803d;
+      font-size: 16px;
+      margin-bottom: 2px;
+    }
+    .guarantee-box p {
+      font-size: 13px;
+      color: #166534;
+    }
+    .order-section {
+      background: #f8fafc;
+      padding: 25px 20px;
+      border-top: 2px solid var(--border);
+    }
+    .order-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .order-header h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--secondary);
+    }
+    .order-header p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--secondary);
+    }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 15px;
+      background: var(--white);
+    }
+    .form-group input:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    .free-delivery-badge-box {
+      background: #f0fdf4;
+      border: 1.5px dashed #22c55e;
+      border-radius: 8px;
+      padding: 12px 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .free-delivery-badge-box span {
+      font-size: 15px;
+      font-weight: 600;
+      color: #15803d;
+    }
+    .order-summary {
+      background: var(--white);
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      margin: 20px 0;
+    }
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      padding: 6px 0;
+    }
+    .summary-row .free-tag {
+      color: #15803d;
+      font-weight: 700;
+    }
+    .summary-row.total {
+      border-top: 1px solid var(--border);
+      margin-top: 6px;
+      padding-top: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .whatsapp-btn {
+      display: block;
+      background: #25d366;
+      color: white;
+      text-align: center;
+      padding: 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 14px;
+      font-size: 15px;
+    }
+    .success-card {
+      display: none;
+      background: #ecfdf5;
+      border: 2px solid #10b981;
+      padding: 25px;
+      border-radius: 10px;
+      text-align: center;
+      margin-top: 15px;
+    }
+    .success-card h3 {
+      color: #065f46;
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+    .success-card p {
+      color: #047857;
+      font-size: 14px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-notice">
+    🎁 ধামাকা অফার: সারা বাংলাদেশে <span>ফ্রি হোম ডেলিভারি</span> ও ক্যাশ অন ডেলিভারি সুবিধা!
+  </div>
+
+  <div class="container">
+    <div class="header">
+      <div class="brand-name">ORVYN</div>
+    </div>
+
+    <div class="hero-section">
+      <span class="badge">🚚 সারা বাংলাদেশে ডেলিভারি সম্পূর্ণ ফ্রি!</span>
+      <h1 class="main-headline">
+        🤖 Robot Portable Wireless Speaker X808 (5W RGB Light)
+      </h1>
+
+      <!-- Swipeable Product Slider -->
+      <div class="slider-wrapper">
+        <div class="product-slider" id="productSlider">
+          <div class="slide">
+            <img src="https://resellkori.com/wp-content/uploads/2026/10/Robot-Portable-Wireless-Speaker-X808-8AKoyY7Q.webp" alt="Robot Speaker X808 Slide 1">
+          </div>
+          <div class="slide">
+            <img src="https://resellkori.com/wp-content/uploads/2026/10/Robot-Portable-Wireless-Speaker-X808-LjrSZFeg-768x768.jpg" alt="Robot Speaker X808 Slide 2">
+          </div>
+          <div class="slide">
+            <img src="https://resellkori.com/wp-content/uploads/2026/10/Robot-Portable-Wireless-Speaker-X808-qiuW3A2f.webp" alt="Robot Speaker X808 Slide 3">
+          </div>
+          <div class="slide">
+            <img src="https://resellkori.com/wp-content/uploads/2026/10/Robot-Portable-Wireless-Speaker-X808-VuLcx9Yj.jpg" alt="Robot Speaker X808 Slide 3">
+          </div>
+        </div>
+        <div class="slider-dots" id="sliderDots">
+          <div class="dot active" onclick="goToSlide(0)"></div>
+          <div class="dot" onclick="goToSlide(1)"></div>
+          <div class="dot" onclick="goToSlide(2)"></div>
+        </div>
+        <div class="swipe-hint">👈 ছবি দেখতে ডানে বা বামে সোয়াইপ করুন 👉</div>
+      </div>
+
+      <div class="price-tag">
+        <span class="regular-price">রেগুলার: ১২০০  টাকা</span>
+        <span class="offer-price">অফার মূল্য: ৯৬০ টাকা</span>
+      </div>
+
+      <a href="#order-form" class="cta-btn">অর্ডার করতে এখানে ক্লিক করুন 🛒</a>
+    </div>
+ 
+    <div class="features-list">
+      <h2 class="features-title">প্রোডাক্টের বিশেষ ফিচারসমূহ:</h2>
+      <div class="feature-item">
+        <span class="feature-icon">✔</span>
+        <span><strong>Bluetooth Wireless Connectivity:</strong> যেকোনো মোবাইল বা ডিভাইসের সাথে সহজে ও দ্রুত কানেক্ট করার সুবিধা।</span>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">✔</span>
+        <span><strong>আকর্ষণীয় Robot Design:</strong> ইউনিক রোবট স্টাইল ডিজাইন যা গান শোনার পাশাপাশি ডেস্ক বা ঘরের সৌন্দর্য অনেক বাড়িয়ে দেয়।</span>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">✔</span>
+        <span><strong>RGB Colorful Light Effect:</strong> মিউজিকের সাথে নজরকাড়া আরজিবি লাইটিং ইফেক্ট মিউজিক অভিজ্ঞতাকে আরও চমৎকার করে তোলে।</span>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">✔</span>
+        <span><strong>USB ও TF Card সাপোর্ট:</strong> ব্লুটুথ ছাড়াও মেমোরি কার্ড বা পেনড্রাইভ দিয়ে সরাসরি গান শোনার পূর্ণ সুবিধা।</span>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">✔</span>
+        <span><strong>5W Clear Sound Output:</strong> ছোট সাইজের হলেও লাউড ও ক্রিস্টাল ক্লিয়ার অডিও আউটপুট দিতে সক্ষম।</span>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">✔</span>
+        <span><strong>Portable & Lightweight:</strong> ওজনে হালকা ও সহজে বহনযোগ্য হওয়ায় সব জায়গায় সাথে নিয়ে যাওয়ার উপযোগী।</span>
+      </div>
+
+      <div class="why-buy-box">
+        <div class="why-buy-title">💥 কেন এই স্পিকারটি কিনবেন?</div>
+        <div class="why-buy-item">
+          <span>✔️</span>
+          <span>ঘর, অফিস, পড়ার টেবিল বা ভ্রমণে যেকোনো জায়গায় সহজে ব্যবহার উপযোগী।</span>
+        </div>
+        <div class="why-buy-item">
+          <span>✔️</span>
+          <span>তারবিহীন ব্লুটুথ সংযোগে কোনো তারের জটলা ছাড়াই মোবাইলের সাথে কানেক্ট হয়।</span>
+        </div>
+        <div class="why-buy-item">
+          <span>✔️</span>
+          <span>গান, অডিও ও গেমিং এন্টারটেইনমেন্টের জন্য দারুণ সমাধান।</span>
+        </div>
+        <div class="why-buy-item">
+          <span>✔️</span>
+          <span>প্রিয়জনকে বিশেষ উপহার দেওয়ার জন্যও এটি একটি চমৎকার ও ইউনিক গ্যাজেট।</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="guarantee-box">
+      <div class="icon">🛡️</div>
+      <div>
+        <h4>১০০% ক্যাশ অন ডেলিভারি (জিরো অগ্রিম পেমেন্ট)</h4>
+        <p>ডেলিভারি ম্যানের সামনে প্রোডাক্ট চেক করে ভালো লাগলে টাকা পরিশোধ করবেন। কোনো অগ্রিম ফি দিতে হবে না!</p>
+      </div>
+    </div>
+
+    <div class="order-section" id="order-form">
+      <div class="order-header">
+        <h3>ক্যাশ অন ডেলিভারিতে অর্ডার করুন</h3>
+        <p>অর্ডার কনফার্ম করতে নিচের তথ্যগুলো সঠিকভাবে পূরণ করুন</p>
+      </div>
+
+      <form id="orderForm" onsubmit="submitOrder(event)">
+        <div class="form-group">
+          <label>আপনার সম্পূর্ণ নাম *</label>
+          <input type="text" id="name" placeholder="যেমন: মো: আরিফুল ইসলাম" required>
+        </div>
+
+        <div class="form-group">
+          <label>সচল মোবাইল নম্বর *</label>
+          <input type="tel" id="phone" placeholder="যেমন: 017xxxxxxxx" required>
+        </div>
+
+        <div class="form-group">
+          <label>সম্পূর্ণ ঠিকানা (বাসা/রোড, থানা, জেলা) *</label>
+          <textarea id="address" rows="2" placeholder="যেমন: বাড়ি ১২, রোড ৪, মিরপুর-১০, ঢাকা (অথবা আপনার থানা ও জেলা)" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>ডেলিভারি চার্জ</label>
+          <div class="free-delivery-badge-box">
+            <span>✅ সারা বাংলাদেশে হোম ডেলিভারি সম্পূর্ণ ফ্রি! (০ টাকা)</span>
+          </div>
+        </div>
+
+        <div class="order-summary">
+          <div class="summary-row">
+            <span>প্রোডাক্ট মূল্য</span>
+            <span>৯৬০ টাকা</span>
+          </div>
+          <div class="summary-row">
+            <span>ডেলিভারি চার্জ</span>
+            <span class="free-tag">০ টাকা (ফ্রি)</span>
+          </div>
+          <div class="summary-row total">
+            <span>সর্বমোট পরিশোধ করতে হবে</span>
+            <span>৯৬০ টাকা</span>
+          </div>
+        </div>
+
+        <button type="submit" id="submitBtn" class="cta-btn">অর্ডার কনফার্ম করুন (ক্যাশ অন ডেলিভারি - ৯৬০ ৳)</button>
+      </form>
+
+      <div id="successCard" class="success-card">
+        <h3>🎉 আপনার অর্ডারটি সফলভাবে গ্রহণ করা হয়েছে!</h3>
+        <p id="successDetails"></p>
+        <p style="margin-top: 8px; font-weight: 600;">আমাদের প্রতিনিধি দ্রুত আপনার নম্বরে কল করে অর্ডার নিশ্চিত করবেন।</p>
+      </div>
+
+      <a href="https://wa.me/8801805529344?text=Hello,%20ami%20Robot%20Wireless%20Speaker%20X808%20Free%20Delivery-te%20order%20korte%20chai" target="_blank" class="whatsapp-btn">
+        💬 সরাসরি Whatsapp এ  অর্ডার করুন
+      </a>
+    </div>
+
+    <footer>
+      <p>© 2026 ORVYN. All Rights Reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Slider Swipe Tracking & Dots Logic
+    const slider = document.getElementById('productSlider');
+    const dots = document.querySelectorAll('.slider-dots .dot');
+
+    slider.addEventListener('scroll', () => {
+      const slideWidth = slider.clientWidth;
+      const activeIndex = Math.round(slider.scrollLeft / slideWidth);
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === activeIndex);
+      });
+    });
+
+    function goToSlide(index) {
+      const slideWidth = slider.clientWidth;
+      slider.scrollTo({
+        left: slideWidth * index,
+        behavior: 'smooth'
+      });
+    }
+
+    // Google Sheets Submission Logic
+    const GOOGLE_SHEET_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzwj1gvayLQyWsQwzs9ABHldFSKP1nD1JrKvY9Ta6Z8ePPYLnRldqLLoR61dfMLipyQ/exec";
+    const productPrice = 850;
+
+    async function submitOrder(e) {
+      e.preventDefault();
+      
+      const submitBtn = document.getElementById('submitBtn');
+      const originalText = submitBtn.innerText;
+      submitBtn.disabled = true;
+      submitBtn.innerText = "অর্ডার প্রসেসিং হচ্ছে... অনুগ্রহ করে অপেক্ষা করুন";
+
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const deliveryChoice = "ফ্রি ডেলিভারি (০ টাকা)";
+      const total = productPrice;
+
+      const orderPayload = {
+        product: "Robot Portable Wireless Speaker X808",
+        name: name,
+        phone: phone,
+        address: address,
+        delivery: deliveryChoice,
+        total: total
+      };
+
+      try {
+        if (GOOGLE_SHEET_WEB_APP_URL) {
+          await fetch(GOOGLE_SHEET_WEB_APP_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(orderPayload)
+          });
+        }
+
+        document.getElementById('orderForm').style.display = 'none';
+        const successCard = document.getElementById('successCard');
+        document.getElementById('successDetails').innerText = 
+          "ধন্যবাদ " + name + "! ফ্রি ডেলিভারিতে আপনার অর্ডার গ্রহণ করা হয়েছে। সর্বমোট বিল: " + total + " টাকা (ক্যাশ অন ডেলিভারি)।";
+        successCard.style.display = 'block';
+
+      } catch (err) {
+        alert("অর্ডার সাবমিট করতে সাময়িক সমস্যা হয়েছে। সরাসরি হোয়াটসঅ্যাপে মেসেজ দিন।");
+        submitBtn.disabled = false;
+        submitBtn.innerText = originalText;
+      }
+    }
+  </script>
+</body>
+</html>
