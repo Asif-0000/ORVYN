@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REMAX RPP-609 60000mAh Power Bank</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --text: #1e293b;
+      --bg: #f8fafc;
+      --border: #cbd5e1;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Hind Siliguri', sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 15px; }
+    .box { max-width: 550px; margin: 0 auto; background: #fff; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    h2 { font-size: 20px; margin-bottom: 15px; text-align: center; color: #0f172a; line-height: 1.4; }
+    
+    /* Gallery Styles */
+    .gallery-container { margin-bottom: 15px; }
+    .main-preview-img { width: 100%; height: 300px; object-fit: contain; border-radius: 8px; border: 1px solid var(--border); background: #f1f5f9; display: block; }
+    .thumbnail-row { display: flex; gap: 8px; margin-top: 10px; overflow-x: auto; padding-bottom: 5px; }
+    .thumb-img { width: 65px; height: 65px; object-fit: cover; border-radius: 6px; border: 2px solid #e2e8f0; cursor: pointer; transition: 0.2s; flex-shrink: 0; }
+    .thumb-img:hover, .thumb-img.active { border-color: var(--primary); transform: scale(1.04); }
+
+    /* Specification Highlights */
+    .specs-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; margin-bottom: 15px; font-size: 14px; }
+    .specs-box ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 12px; }
+    .specs-box li { display: flex; align-items: center; gap: 6px; }
+    .specs-box li::before { content: "✔"; color: var(--primary); font-weight: bold; }
+
+    .price { background: #eff6ff; padding: 12px; text-align: center; font-size: 20px; font-weight: 700; color: var(--primary); border-radius: 8px; margin-bottom: 15px; border: 1px dashed var(--primary); line-height: 1.4; }
+    .old-price { text-decoration: line-through; color: #64748b; font-size: 16px; margin-right: 8px; font-weight: 500; }
+    
+    label { font-size: 14px; font-weight: 600; margin-bottom: 4px; display: block; }
+    input, textarea { width: 100%; padding: 11px; margin-bottom: 12px; border: 1px solid var(--border); border-radius: 6px; font-size: 15px; }
+    input:focus, textarea:focus { outline: none; border-color: var(--primary); }
+    button { width: 100%; padding: 13px; background: var(--primary); color: #fff; border: none; border-radius: 6px; font-size: 16px; font-weight: 700; cursor: pointer; transition: 0.2s; }
+    button:hover { background: var(--primary-dark); }
+    .success { display: none; background: #ecfdf5; border: 1px solid #10b981; padding: 15px; border-radius: 8px; text-align: center; margin-top: 15px; }
+    .back { display: block; text-align: center; margin-top: 15px; color: #64748b; text-decoration: none; font-size: 14px; font-weight: 600; }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h2>REMAX RPP-609 Container Series 60000mAh Power Bank (Grey)</h2>
+
+    <!-- Image Gallery -->
+    <div class="gallery-container">
+      <img id="mainImage" class="main-preview-img" src="https://resellkori.com/wp-content/uploads/2025/08/certificate-10_7.jpg" alt="REMAX RPP-609 Power Bank">
+      <div class="thumbnail-row">
+        <img src="https://resellkori.com/wp-content/uploads/2025/08/certificate-10_7.jpg" class="thumb-img active" onclick="changeImage(this)">
+        <img src="https://resellkori.com/wp-content/uploads/2025/08/certificate-10_9-768x768.jpg" class="thumb-img" onclick="changeImage(this)">
+        <img src="https://resellkori.com/wp-content/uploads/2025/08/certificate-10_8.jpg" class="thumb-img" onclick="changeImage(this)">
+      </div>
+    </div>
+
+    <!-- Product Key Specs -->
+    <div class="specs-box">
+      <ul>
+        <li><strong>ক্যাপাসিটি:</strong> 60000mAh</li>
+        <li><strong>আউটপুট:</strong> PD 20W + QC 22.5W</li>
+        <li><strong>পোর্ট:</strong> 4 USB + 2 Type-C</li>
+        <li><strong>ডিসপ্লে:</strong> Digital LED Display</li>
+        <li><strong>ইনপুট:</strong> Type-C Dual Input</li>
+        <li><strong>রঙ/বডি:</strong> Grey (ABS+PC)</li>
+      </ul>
+    </div>
+
+    <div class="price">
+      <span class="old-price">৳ ৫২০০</span> অফার মূল্য: ৪৭৫০ টাকা (ফ্রি ডেলিভারি)
+    </div>
+
+    <form id="orderForm" onsubmit="sendOrder(event)">
+      <label>আপনার সম্পূর্ণ নাম *</label>
+      <input type="text" id="name" required placeholder="মো: আরিফুল ইসলাম">
+
+      <label>সচল মোবাইল নম্বর *</label>
+      <input type="tel" id="phone" required placeholder="017xxxxxxxx">
+
+      <label>সম্পূর্ণ ঠিকানা (বাসা/রোড, থানা, জেলা) *</label>
+      <textarea id="address" required rows="2" placeholder="বাড়ি ১২, রোড ৪, ধানমন্ডি, ঢাকা"></textarea>
+
+      <button type="submit" id="btn">অর্ডার নিশ্চিত করুন (৪৭৫০ ৳)</button>
+    </form>
+
+    <div id="success" class="success">
+      <h3 style="color:#065f46; margin-bottom:5px;">🎉 ধন্যবাদ! আপনার অর্ডারটি সফল হয়েছে।</h3>
+      <p style="color:#047857;">আমাদের প্রতিনিধি খুব দ্রুত আপনার নম্বরে কল করে অর্ডার নিশ্চিত করবেন।</p>
+    </div>
+
+    <a href="index.html" class="back">← স্টোরের সকল প্রোডাক্ট দেখুন</a>
+  </div>
+
+  <script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzwj1gvayLQyWsQwzs9ABHldFSKP1nD1JrKvY9Ta6Z8ePPYLnRldqLLoR61dfMLipyQ/exec";
+
+    function changeImage(element) {
+      document.getElementById('mainImage').src = element.src;
+      const thumbnails = document.querySelectorAll('.thumb-img');
+      thumbnails.forEach(img => img.classList.remove('active'));
+      element.classList.add('active');
+    }
+
+    async function sendOrder(e) {
+      e.preventDefault();
+      const btn = document.getElementById('btn');
+      btn.disabled = true;
+      btn.innerText = "অর্ডার প্রসেসিং হচ্ছে...";
+
+      const payload = {
+        product: "REMAX RPP-609 Container Series 60000mAh Power Bank (Grey)",
+        name: document.getElementById('name').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        address: document.getElementById('address').value.trim(),
+        delivery: "ফ্রি ডেলিভারি",
+        total: 4750
+      };
+
+      try {
+        await fetch(SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        document.getElementById('orderForm').style.display = 'none';
+        document.getElementById('success').style.display = 'block';
+      } catch (err) {
+        alert("সমস্যা হয়েছে, অনুগ্রহ করে আবার চেষ্টা করুন।");
+        btn.disabled = false;
+        btn.innerText = "অর্ডার নিশ্চিত করুন (৪৭৫০ ৳)";
+      }
+    }
+  </script>
+</body>
+</html>
