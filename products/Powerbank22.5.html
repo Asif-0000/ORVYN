@@ -61,9 +61,44 @@
       color: var(--primary);
       text-transform: uppercase;
       letter-spacing: 2px;
+      text-decoration: none;
+      display: inline-block;
     }
+
+    /* Back to Products Navigation Bar */
+    .back-nav-bar {
+      padding: 12px 20px 0 20px;
+      display: flex;
+      justify-content: flex-start;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      background-color: #eff6ff;
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 6px;
+      border: 1px solid #bfdbfe;
+      transition: all 0.2s ease;
+    }
+    .back-btn:hover {
+      background-color: var(--primary);
+      color: var(--white);
+      border-color: var(--primary);
+    }
+    .back-btn svg {
+      transition: transform 0.2s ease;
+    }
+    .back-btn:hover svg {
+      transform: translateX(-3px);
+    }
+
     .hero-section {
-      padding: 20px;
+      padding: 15px 20px 20px 20px;
       text-align: center;
     }
     .main-headline {
@@ -98,10 +133,10 @@
       border-radius: 12px;
       border: 1px solid var(--border);
       background: #fafafa;
-      scrollbar-width: none; /* Firefox */
+      scrollbar-width: none;
     }
     .product-slider::-webkit-scrollbar {
-      display: none; /* Chrome, Safari */
+      display: none;
     }
     .slide {
       flex: 0 0 100%;
@@ -379,7 +414,18 @@
 
   <div class="container">
     <div class="header">
-      <div class="brand-name">ORVYN</div>
+      <a href="index.html" class="brand-name">ORVYN</a>
+    </div>
+
+    <!-- ব্যাক বাটন যুক্ত করা হলো -->
+    <div class="back-nav-bar">
+      <a href="index.html" class="back-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        সকল প্রোডাক্ট দেখুন
+      </a>
     </div>
 
     <div class="hero-section">
@@ -428,7 +474,7 @@
           </div>
         </div>
 
-        <div class="swipe-hint">👈 সোয়াইপ করুন বা ছবিতে ক্লিক করুন 👉</div>
+        <div class="swipe-hint">👈 সোয়াইপ করুন বা ছবিতে ক্লিক করুন 👉</div>
       </div>
 
       <div class="price-tag">
@@ -443,19 +489,19 @@
       <h2 class="features-title">প্রোডাক্টের বিশেষ সুবিধাসমূহ:</h2>
       <div class="feature-item">
         <span class="feature-icon">✔</span>
-        <span><strong>২২.৫ ওয়াট টু-ওয়ে ফাস্ট চার্জিং (PD 3.0 + QC 3.0):</strong> এটি দিয়ে ফোন যেমন দ্রুত চার্জ করা যায় (আইফোনের জন্য ১৮W এবং হুয়াওয়ের জন্য ২২.৫W পর্যন্ত), তেমনি পাওয়ার ব্যাংক নিজেও খুব দ্রুত চার্জ হয়ে যায়।</span>
+        <span><strong>২২.৫ ওয়াট টু-ওয়ে ফাস্ট চার্জিং (PD 3.0 + QC 3.0):</strong> এটি দিয়ে ফোন যেমন দ্রুত চার্জ করা যায় (আইফোনের জন্য ১৮W এবং হুয়াওয়ের জন্য ২২.৫W পর্যন্ত), তেমনি পাওয়ার ব্যাংক নিজেও খুব দ্রুত চার্জ হয়ে যায়।</span>
       </div>
       <div class="feature-item">
         <span class="feature-icon">✔</span>
-        <span><strong>একসাথে ৩টি ডিভাইস চার্জের সুবিধা (Three inputs / Three outputs):</strong> একাধিক পোর্ট থাকায় একই সময়ে ৩টি ডিভাইস একসাথে চার্জ করা সম্ভব, ফলে একাধিক গ্যাজেট থাকলে আলাদা করে চার্জ দেওয়ার ঝামেলা থাকে না।</span>
+        <span><strong>একসাথে ৩টি ডিভাইস চার্জের সুবিধা (Three inputs / Three outputs):</strong> একাধিক পোর্ট থাকায় একই সময়ে ৩টি ডিভাইস একসাথে চার্জ করা সম্ভব, ফলে একাধিক গ্যাজেট থাকলে আলাদা করে চার্জ দেওয়ার ঝামেলা থাকে না।</span>
       </div>
       <div class="feature-item">
         <span class="feature-icon">✔</span>
-        <span><strong>স্মার্ট এলইডি ডিজিটাল ডিসপ্লে:</strong> সাধারণ ডট লাইটের মতো আন্দাজে চার্জ বুঝতে হয় না; স্ক্রিনে সরাসরি ব্যাটারির অবশিষ্ট চার্জের সঠিক পার্সেন্টেজ ও চার্জিং স্ট্যাটাস দেখা যায়।</span>
+        <span><strong>স্মার্ট এলইডি ডিজিটাল ডিসপ্লে:</strong> সাধারণ ডট লাইটের মতো আন্দাজে চার্জ বুঝতে হয় না; স্ক্রিনে সরাসরি ব্যাটারির অবশিষ্ট চার্জের সঠিক পার্সেন্টেজ ও চার্জিং স্ট্যাটাস দেখা যায়।</span>
       </div>
       <div class="feature-item">
         <span class="feature-icon">✔</span>
-        <span><strong>নিরাপদ ও প্রিমিয়াম মেটাল বডি:</strong> স্টাইলিশ মেটালিক ফিনিশের কারণে দেখতে যেমন প্রিমিয়াম এবং টেকসই, তেমনি বিল্ট-ইন ওভারচার্জ প্রটেকশন থাকায় ফোনের ব্যাটারি নষ্ট হওয়া বা অতিরিক্ত চার্জিংয়ের ঝুঁকি থাকে না।</span>
+        <span><strong>নিরাপদ ও প্রিমিয়াম মেটাল বডি:</strong> স্টাইলিশ মেটালিক ফিনিশের কারণে দেখতে যেমন প্রিমিয়াম এবং টেকসই, তেমনি বিল্ট-ইন ওভারচার্জ প্রটেকশন থাকায় ফোনের ব্যাটারি নষ্ট হওয়া বা অতিরিক্ত চার্জিংয়ের ঝুঁকি থাকে না।</span>
       </div>
     </div>
 
@@ -486,7 +532,7 @@
 
         <div class="form-group">
           <label>সম্পূর্ণ ঠিকানা (বাসা/রোড, থানা, জেলা) *</label>
-          <textarea id="address" rows="2" placeholder="যেমন: বাড়ি ১২, রোড ৪, মিরপুর-১০, ঢাকা (অথবা আপনার থানা ও জেলা)" required></textarea>
+          <textarea id="address" rows="2" placeholder="যেমন: বাড়ি ১২, রোড ৪, মিরপুর-১০, ঢাকা (অথবা আপনার থানা ও জেলা)" required></textarea>
         </div>
 
         <div class="form-group">
@@ -515,13 +561,13 @@
       </form>
 
       <div id="successCard" class="success-card">
-        <h3>🎉 আপনার অর্ডারটি সফলভাবে গ্রহণ করা হয়েছে!</h3>
+        <h3>🎉 আপনার অর্ডারটি সফলভাবে গ্রহণ করা হয়েছে!</h3>
         <p id="successDetails"></p>
         <p style="margin-top: 8px; font-weight: 600;">আমাদের প্রতিনিধি দ্রুত আপনার নম্বরে কল করে অর্ডার নিশ্চিত করবেন।</p>
       </div>
 
       <a href="https://wa.me/8801805529344?text=Hello,%20ami%20Baseus%20Power%20Bank%20Free%20Delivery-te%20order%20korte%20chai" target="_blank" class="whatsapp-btn">
-        💬 সরাসরি হোয়াটসঅ্যাপে অর্ডার করুন
+        💬 সরাসরি WhatsApp এ অর্ডার করুন
       </a>
     </div>
 
@@ -594,11 +640,11 @@
         document.getElementById('orderForm').style.display = 'none';
         const successCard = document.getElementById('successCard');
         document.getElementById('successDetails').innerText = 
-          "ধন্যবাদ " + name + "! ফ্রি ডেলিভারিতে আপনার অর্ডার গ্রহণ করা হয়েছে। সর্বমোট বিল: " + total + " টাকা (ক্যাশ অন ডেলিভারি)।";
+          "ধন্যবাদ " + name + "! ফ্রি ডেলিভারিতে আপনার অর্ডার গ্রহণ করা হয়েছে। সর্বমোট বিল: " + total + " টাকা (ক্যাশ অন ডেলিভারি)।";
         successCard.style.display = 'block';
 
       } catch (err) {
-        alert("অর্ডার সাবমিট করতে সাময়িক সমস্যা হয়েছে। সরাসরি হোয়াটসঅ্যাপে মেসেজ দিন।");
+        alert("অর্ডার সাবমিট করতে সাময়িক সমস্যা হয়েছে। সরাসরি হোয়াটসঅ্যাপে মেসেজ দিন।");
         submitBtn.disabled = false;
         submitBtn.innerText = originalText;
       }
