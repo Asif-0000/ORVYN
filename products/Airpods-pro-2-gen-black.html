@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AirPods Pro (2nd Generation) - ORVYN</title>
+  
+  <!-- Google Fonts: Hind Siliguri -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandPrimary: '#1f6ec2',
+            brandSecondary: '#0f172a',
+            bgLight: '#f8fafc',
+            brandSuccess: '#16a34a',
+          },
+          fontFamily: {
+            bengali: ['"Hind Siliguri"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Hind Siliguri', sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      scroll-behavior: smooth;
+    }
+    
+    /* Hide scrollbar for slider thumbnails */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Slider transitions */
+    .slider-track {
+      display: flex;
+      transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+      touch-action: pan-y;
+      will-change: transform;
+    }
+
+    /* Pulsing animation for Order CTA */
+    @keyframes pulseGlow {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(31, 110, 194, 0.4);
+      }
+      50% {
+        box-shadow: 0 0 0 10px rgba(31, 110, 194, 0);
+      }
+    }
+    .pulse-btn {
+      animation: pulseGlow 2.5s infinite;
+    }
+  </style>
+</head>
+<body class="bg-bgLight text-brandSecondary antialiased">
+
+  <!-- Top Announcement Bar -->
+  <aside aria-label="Announcement" class="bg-brandSecondary text-white py-2 px-3 text-center text-xs sm:text-sm font-medium flex items-center justify-center gap-2 sticky top-0 z-50 shadow-sm">
+    <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+    <i class="fa-solid fa-truck-fast text-emerald-400"></i>
+    <span>🎁 ধামাকা অফার: সারাদেশে ফ্রি হোম ডেলিভারি এবং ক্যাশ অন ডেলিভারি সুবিধা!</span>
+  </aside>
+
+  <!-- Main Header -->
+  <header class="bg-white border-b border-slate-200 shadow-xs py-3 px-4">
+    <div class="max-w-4xl mx-auto flex items-center justify-between">
+      <a href="../index.html" class="brand-name text-2xl sm:text-3xl font-extrabold tracking-wider text-brandPrimary flex items-center gap-1.5 hover:opacity-90 transition">
+        <span>ORVYN</span>
+        <span class="w-2 h-2 rounded-full bg-brandPrimary"></span>
+      </a>
+      <span class="text-xs bg-blue-50 text-brandPrimary border border-blue-200 px-2.5 py-1 rounded-full font-semibold">
+        অফিসিয়াল স্টোর
+      </span>
+    </div>
+  </header>
+
+  <!-- Navigation / Back to Products Button -->
+  <nav aria-label="Breadcrumb" class="max-w-4xl mx-auto px-4 pt-3 pb-1">
+    <a href="../index.html" class="back-btn inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-600 hover:text-brandPrimary bg-white border border-slate-200 hover:border-brandPrimary px-3 py-1.5 rounded-lg shadow-2xs transition">
+      <i class="fa-solid fa-arrow-left text-xs"></i>
+      <span>সকল প্রোডাক্ট দেখুন</span>
+    </a>
+  </nav>
+
+  <!-- Main Content Container -->
+  <main class="max-w-4xl mx-auto px-4 py-4 space-y-6">
+
+    <!-- Hero Section -->
+    <section class="bg-white border border-slate-200/80 rounded-2xl p-4 sm:p-6 shadow-sm">
+      
+      <!-- Limited Offer Badge -->
+      <div class="flex items-center gap-2 mb-3">
+        <span class="inline-flex items-center gap-1.5 bg-red-50 text-red-600 border border-red-200 px-3 py-0.5 rounded-full text-xs font-bold tracking-wide">
+          <span>🔥</span> লিমিটেড স্টক অফার
+        </span>
+        <span class="text-xs text-slate-500 font-medium">
+          <i class="fa-regular fa-clock"></i> দ্রুত স্টক শেষ হচ্ছে
+        </span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="text-xl sm:text-3xl font-bold leading-snug text-brandSecondary mb-4">
+        AirPods Pro (2nd Generation) – ANC
+      </h1>
+
+      <!-- Swipeable Product Slider -->
+      <div class="relative w-full max-w-lg mx-auto select-none mb-4">
+        
+        <!-- Slider Viewport -->
+        <div id="sliderViewport" class="overflow-hidden rounded-xl border border-slate-100 bg-slate-50 relative aspect-square">
+          <div id="sliderTrack" class="slider-track h-full w-full">
+            <!-- Slide 1 -->
+            <div class="min-w-full h-full flex items-center justify-center p-2">
+              <img src="https://resellkori.com/wp-content/uploads/2026/05/20260501_032141-768x1052.jpg" 
+                   alt="AirPods Pro 2nd Gen Case and Earbuds" 
+                   class="w-full h-full object-cover rounded-lg pointer-events-none"
+                   onerror="this.src='https://placehold.co/600x600/f1f5f9/1f6ec2?text=AirPods+Pro+2'">
+            </div>
+            <!-- Slide 2 -->
+            <div class="min-w-full h-full flex items-center justify-center p-2">
+              <img src="https://resellkori.com/wp-content/uploads/2026/05/20260501_032403-768x768.jpg" 
+                   alt="AirPods Pro 2nd Gen in Case" 
+                   class="w-full h-full object-cover rounded-lg pointer-events-none"
+                   onerror="this.src='https://placehold.co/600x600/f1f5f9/1f6ec2?text=MagSafe+Case'">
+            </div>
+            <!-- Slide 3 -->
+            <div class="min-w-full h-full flex items-center justify-center p-2">
+              <img src="https://resellkori.com/wp-content/uploads/2026/06/48254e167cf7df3066f3eff9fa678bc5.jpg_960x960q80.jpg_.webp" 
+                   alt="AirPods Pro 2nd Gen Earbuds Detail" 
+                   class="w-full h-full object-cover rounded-lg pointer-events-none"
+                   onerror="this.src='https://placehold.co/600x600/f1f5f9/1f6ec2?text=Earbuds+Detail'">
+            </div>
+            <!-- Slide 4 -->
+            <div class="min-w-full h-full flex items-center justify-center p-2">
+              <img src="https://resellkori.com/wp-content/uploads/2026/06/483d5ce49259a1c84be0e721e9f71021-768x768.png" 
+                   alt="AirPods Pro Premium Audio" 
+                   class="w-full h-full object-cover rounded-lg pointer-events-none"
+                   onerror="this.src='https://placehold.co/600x600/f1f5f9/1f6ec2?text=Premium+Audio'">
+            </div>
+          </div>
+
+          <!-- Arrows -->
+          <button id="prevBtn" type="button" aria-label="পূর্ববর্তী ছবি" class="absolute left-2.5 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/90 text-brandSecondary hover:bg-white shadow-md flex items-center justify-center text-sm border border-slate-200 transition">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button id="nextBtn" type="button" aria-label="পরবর্তী ছবি" class="absolute right-2.5 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/90 text-brandSecondary hover:bg-white shadow-md flex items-center justify-center text-sm border border-slate-200 transition">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+
+          <!-- Slide counter badge -->
+          <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-xs text-white text-[11px] px-2.5 py-0.5 rounded-full font-medium">
+            <span id="currentSlideNumber">১</span> / <span id="totalSlidesCount">৪</span>
+          </div>
+        </div>
+
+        <!-- Thumbnail Row -->
+        <div class="flex items-center justify-center gap-2 sm:gap-3 mt-3 overflow-x-auto no-scrollbar py-1" id="thumbnailContainer">
+          <button type="button" onclick="goToSlide(0)" class="thumb-btn border-2 border-brandPrimary rounded-lg overflow-hidden w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 transition">
+            <img src="https://resellkori.com/wp-content/uploads/2026/05/20260501_032141-768x1052.jpg" alt="Thumb 1" class="w-full h-full object-cover">
+          </button>
+          <button type="button" onclick="goToSlide(1)" class="thumb-btn border-2 border-transparent hover:border-slate-300 rounded-lg overflow-hidden w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 transition">
+            <img src="https://resellkori.com/wp-content/uploads/2026/05/20260501_032403-768x768.jpg" alt="Thumb 2" class="w-full h-full object-cover">
+          </button>
+          <button type="button" onclick="goToSlide(2)" class="thumb-btn border-2 border-transparent hover:border-slate-300 rounded-lg overflow-hidden w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 transition">
+            <img src="https://resellkori.com/wp-content/uploads/2026/06/48254e167cf7df3066f3eff9fa678bc5.jpg_960x960q80.jpg_.webp" alt="Thumb 3" class="w-full h-full object-cover">
+          </button>
+          <button type="button" onclick="goToSlide(3)" class="thumb-btn border-2 border-transparent hover:border-slate-300 rounded-lg overflow-hidden w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 transition">
+            <img src="https://resellkori.com/wp-content/uploads/2026/06/483d5ce49259a1c84be0e721e9f71021-768x768.png" alt="Thumb 4" class="w-full h-full object-cover">
+          </button>
+        </div>
+        <p class="text-center text-xs text-slate-400 mt-2">👈 ছবি দেখতে সোয়াইপ করুন অথবা নিচের ছবিতে ক্লিক করুন 👉</p>
+      </div>
+
+      <!-- Price Box -->
+      <div class="bg-gradient-to-r from-blue-50/70 to-indigo-50/60 border border-blue-200/80 rounded-xl p-4 sm:p-5 flex flex-wrap items-center justify-between gap-4 mt-5">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-sm sm:text-base text-slate-400 line-through font-semibold">রেগুলার মূল্য: ৳১,৫০০</span>
+            <span class="bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">৳৪০০ ছাড়</span>
+          </div>
+          <div class="flex items-baseline gap-2 mt-1">
+            <span class="text-xs sm:text-sm text-slate-600 font-medium">অফার মূল্য:</span>
+            <span class="text-3xl sm:text-4xl font-extrabold text-brandPrimary">৳১,১০০</span>
+          </div>
+        </div>
+
+        <a href="#orderFormSection" class="pulse-btn inline-flex items-center justify-center gap-2 bg-brandPrimary hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-xl shadow-md transition transform active:scale-95 text-base sm:text-lg">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span>অর্ডার করুন</span>
+        </a>
+      </div>
+
+    </section>
+
+    <!-- Product Features / Benefits Section -->
+    <section class="bg-white border border-slate-200/80 rounded-2xl p-5 sm:p-6 shadow-sm">
+      <div class="border-b border-slate-100 pb-3 mb-4">
+        <h2 class="text-lg sm:text-xl font-bold text-brandSecondary flex items-center gap-2">
+          <i class="fa-solid fa-circle-check text-brandPrimary"></i>
+          <span>AirPods Pro (2nd Generation)-এর বিশেষ সুবিধাসমূহ:</span>
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">প্রিমিয়াম অডিও কোয়ালিটি, নয়েজ ক্যান্সেলেশন এবং পোর্টেবিলিটির সেরা অভিজ্ঞতা</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+        
+        <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100 hover:border-blue-200 transition">
+          <span class="text-brandSuccess font-bold text-lg leading-none mt-0.5">✔</span>
+          <div>
+            <h3 class="font-bold text-sm sm:text-base text-slate-800">Active Noise Cancellation (ANC)</h3>
+            <p class="text-xs sm:text-sm text-slate-600">বাহ্যিক অযাচিত শব্দ কার্যকরভাবে ব্লক করে একদম নিরবচ্ছিন্ন ও পরিষ্কার সাউন্ড অভিজ্ঞতা প্রদান করে।</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100 hover:border-blue-200 transition">
+          <span class="text-brandSuccess font-bold text-lg leading-none mt-0.5">✔</span>
+          <div>
+            <h3 class="font-bold text-sm sm:text-base text-slate-800">Transparency Mode</h3>
+            <p class="text-xs sm:text-sm text-slate-600">প্রয়োজন অনুযায়ী বাইরের শব্দ সহজে শোনার সুবিধা, যাতে চারপাশের পরিবেশ ও মানুষের সাথে স্বাভাবিক যোগাযোগ বজায় থাকে।</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100 hover:border-blue-200 transition">
+          <span class="text-brandSuccess font-bold text-lg leading-none mt-0.5">✔</span>
+          <div>
+            <h3 class="font-bold text-sm sm:text-base text-slate-800">Adaptive EQ প্রযুক্তি</h3>
+            <p class="text-xs sm:text-sm text-slate-600">কানের গঠন অনুযায়ী স্বয়ংক্রিয়ভাবে সাউন্ড টিউন করে সর্বোচ্চ মানের ব্যালান্সড অডিও আউটপুট দেয়।</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100 hover:border-blue-200 transition">
+          <span class="text-brandSuccess font-bold text-lg leading-none mt-0.5">✔</span>
+          <div>
+            <h3 class="font-bold text-sm sm:text-base text-slate-800">Spatial Audio with Dynamic Head Tracking</h3>
+            <p class="text-xs sm:text-sm text-slate-600">চারপাশ থেকে আসা থ্রি-ডি সিনেমাটিক সাউন্ড অভিজ্ঞতা দেয়, যা গান ও মুভি দেখাকে করে তোলে আরও জীবন্ত।</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100 hover:border-blue-200 transition">
+          <span class="text-brandSuccess font-bold text-lg leading-none mt-0.5">✔</span>
+          <div>
+            <h3 class="font-bold text-sm sm:text-base text-slate-800">উচ্চ মানের মাইক্রোফোন</h3>
+            <p class="text-xs sm:text-sm text-slate-600">অডিও বা ভিডিও কলের সময় বাইরের নয়েজ কমিয়ে ক্রিস্টাল ক্লিয়ার ভয়েস ট্রান্সমিশন নিশ্চিত করে।</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100 hover:border-blue-200 transition">
+          <span class="text-brandSuccess font-bold text-lg leading-none mt-0.5">✔</span>
+          <div>
+            <h3 class="font-bold text-sm sm:text-base text-slate-800">MagSafe চার্জিং ও দীর্ঘ ব্যাটারি ব্যাকআপ</h3>
+            <p class="text-xs sm:text-sm text-slate-600">দীর্ঘক্ষণ মিউজিক, কল ও গেমিং ব্যাকআপ। সাথে MagSafe ওয়্যারলেস ও ক্যাবল চার্জিং সুবিধা।</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- In the Box Grid -->
+      <div class="mt-5 pt-4 border-t border-slate-100">
+        <h3 class="text-sm sm:text-base font-bold text-brandSecondary mb-3 flex items-center gap-2">
+          <i class="fa-solid fa-box-open text-brandPrimary"></i>
+          <span>বক্সে যা যা পাচ্ছেন:</span>
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-slate-700">
+          <div class="flex items-center gap-2 p-2 bg-slate-50 rounded-lg border border-slate-100">
+            <span class="text-brandPrimary">📦</span> AirPods Pro (2nd Gen) ইয়ারবাডস
+          </div>
+          <div class="flex items-center gap-2 p-2 bg-slate-50 rounded-lg border border-slate-100">
+            <span class="text-brandPrimary">⚡</span> MagSafe Charging Case
+          </div>
+          <div class="flex items-center gap-2 p-2 bg-slate-50 rounded-lg border border-slate-100">
+            <span class="text-brandPrimary">🎧</span> সিলিকন ইয়ারটিপস (বিভিন্ন সাইজ)
+          </div>
+          <div class="flex items-center gap-2 p-2 bg-slate-50 rounded-lg border border-slate-100">
+            <span class="text-brandPrimary">🔌</span> ফাস্ট চার্জিং কেবল ও ইউজার গাইড
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust & Guarantee Box -->
+    <section class="bg-gradient-to-br from-white to-blue-50/50 border border-blue-200/70 rounded-2xl p-5 sm:p-6 shadow-sm">
+      <div class="text-center max-w-lg mx-auto mb-4">
+        <h3 class="text-lg sm:text-xl font-bold text-brandSecondary">অর্ডার করার আগে জেনে নিন আমাদের নিশ্চিন্ত সেবাসমূহ</h3>
+        <p class="text-xs sm:text-sm text-slate-500 mt-0.5">গ্রাহকদের সর্বোচ্চ সন্তুষ্টি ও নিরাপত্তাই আমাদের অঙ্গীকার</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <!-- Guarantee 1 -->
+        <div class="bg-white p-3.5 rounded-xl border border-slate-200/80 text-center flex flex-col items-center">
+          <div class="w-10 h-10 rounded-full bg-blue-100 text-brandPrimary flex items-center justify-center mb-2">
+            <i class="fa-solid fa-hand-holding-dollar text-lg"></i>
+          </div>
+          <h4 class="font-bold text-sm text-slate-800">১০০% ক্যাশ অন ডেলিভারি</h4>
+          <p class="text-xs text-slate-500 mt-1">আগে কোনো টাকা দিতে হবে না, পণ্য হাতে পেয়ে সম্পূর্ণ মূল্য পরিশোধ করুন।</p>
+        </div>
+
+        <!-- Guarantee 2 -->
+        <div class="bg-white p-3.5 rounded-xl border border-slate-200/80 text-center flex flex-col items-center">
+          <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mb-2">
+            <i class="fa-solid fa-box-open text-lg"></i>
+          </div>
+          <h4 class="font-bold text-sm text-slate-800">দেখে নেওয়ার সুযোগ</h4>
+          <p class="text-xs text-slate-500 mt-1">ডেলিভারিম্যানের সামনে পার্সেলটি চেক করে নেওয়ার সম্পূর্ণ সুযোগ রয়েছে।</p>
+        </div>
+
+        <!-- Guarantee 3 -->
+        <div class="bg-white p-3.5 rounded-xl border border-slate-200/80 text-center flex flex-col items-center">
+          <div class="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center mb-2">
+            <i class="fa-solid fa-shield-halved text-lg"></i>
+          </div>
+          <h4 class="font-bold text-sm text-slate-800">১০০% কোয়ালিটি চেক</h4>
+          <p class="text-xs text-slate-500 mt-1">আমরা প্রদান করি সম্পূর্ণ আসল ও নিখুঁতভাবে পরীক্ষিত গ্যাজেটস।</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cash On Delivery (COD) Order Form Section -->
+    <section id="orderFormSection" class="bg-white border-2 border-brandPrimary/30 rounded-2xl p-5 sm:p-7 shadow-lg relative">
+      
+      <!-- Top Form Header -->
+      <div class="text-center pb-4 mb-4 border-b border-slate-100">
+        <span class="bg-brandPrimary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+          ক্যাশ অন ডেলিভারি
+        </span>
+        <h2 class="text-xl sm:text-2xl font-extrabold text-brandSecondary mt-2">
+          অর্ডারটি কনফার্ম করতে নিচের তথ্যগুলো পূরণ করুন
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">
+          কোনো অগ্রিম পেমেন্ট নেই। পার্সেল হাতে পেয়ে সম্পূর্ণ টাকা পরিশোধ করবেন।
+        </p>
+      </div>
+
+      <!-- Order Form -->
+      <form id="codOrderForm" class="space-y-4">
+        
+        <!-- Customer Name -->
+        <div>
+          <label for="customerName" class="block text-sm font-semibold text-slate-700 mb-1">
+            আপনার নাম <span class="text-red-500">*</span>
+          </label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
+              <i class="fa-regular fa-user"></i>
+            </span>
+            <input type="text" id="customerName" name="customerName" required placeholder="যেমন: মো: আরিফুল ইসলাম" 
+                   class="w-full pl-9 pr-3 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brandPrimary/30 focus:border-brandPrimary transition text-sm">
+          </div>
+        </div>
+
+        <!-- Phone Number -->
+        <div>
+          <label for="customerPhone" class="block text-sm font-semibold text-slate-700 mb-1">
+            মোবাইল নম্বর <span class="text-red-500">*</span>
+          </label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
+              <i class="fa-solid fa-phone"></i>
+            </span>
+            <input type="tel" id="customerPhone" name="customerPhone" required pattern="01[3-9][0-9]{8}" placeholder="যেমন: 017xxxxxxxx (১১ ডিজিট)" 
+                   class="w-full pl-9 pr-3 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brandPrimary/30 focus:border-brandPrimary transition text-sm">
+          </div>
+          <p class="text-[11px] text-slate-400 mt-1">আমরা এই নম্বরে কল দিয়ে অর্ডারটি নিশ্চিত করব।</p>
+        </div>
+
+        <!-- Full Address -->
+        <div>
+          <label for="customerAddress" class="block text-sm font-semibold text-slate-700 mb-1">
+            সম্পূর্ণ ঠিকানা (বাসা/রোড/এলাকা ও জেলা) <span class="text-red-500">*</span>
+          </label>
+          <div class="relative">
+            <span class="absolute top-3 left-3 text-slate-400">
+              <i class="fa-solid fa-location-dot"></i>
+            </span>
+            <textarea id="customerAddress" name="customerAddress" rows="2" required placeholder="আপনার পূর্ণাঙ্গ ঠিকানা লিখুন (যেমন: বাড়ি নং, রোড, থানা, জেলা)" 
+                      class="w-full pl-9 pr-3 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brandPrimary/30 focus:border-brandPrimary transition text-sm"></textarea>
+          </div>
+        </div>
+
+        <!-- Quantity & Order Summary Card -->
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-sm font-semibold text-slate-700">পরিমাণ (Quantity):</span>
+            <div class="flex items-center border border-slate-300 bg-white rounded-lg overflow-hidden shadow-2xs">
+              <button type="button" id="qtyMinus" class="px-3 py-1.5 text-slate-600 hover:bg-slate-100 font-bold active:bg-slate-200 transition">-</button>
+              <span id="qtyDisplay" class="px-4 py-1 font-bold text-sm text-brandSecondary select-none">১</span>
+              <button type="button" id="qtyPlus" class="px-3 py-1.5 text-slate-600 hover:bg-slate-100 font-bold active:bg-slate-200 transition">+</button>
+            </div>
+          </div>
+
+          <div class="border-t border-slate-200 pt-2 space-y-1.5 text-xs sm:text-sm">
+            <div class="flex justify-between text-slate-600">
+              <span>প্রোডাক্টের মূল্য (<span id="unitCount">১</span>টি):</span>
+              <span class="font-semibold text-slate-800" id="subtotalDisplay">৳১,১০০</span>
+            </div>
+            <div class="flex justify-between text-slate-600 items-center">
+              <span>ডেলিভারি চার্জ:</span>
+              <span class="bg-emerald-100 text-emerald-700 font-bold px-2 py-0.5 rounded text-xs">
+                ফ্রি ডেলিভারি (৳০)
+              </span>
+            </div>
+            <div class="flex justify-between text-base font-bold text-brandSecondary border-t border-dashed border-slate-300 pt-2">
+              <span>সর্বমোট প্রদেয় মূল্য:</span>
+              <span class="text-brandPrimary text-lg" id="totalDisplay">৳১,১০০</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" id="submitOrderBtn" class="w-full bg-brandPrimary hover:bg-blue-700 text-white font-bold py-3.5 px-4 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-base active:scale-[0.99]">
+          <i class="fa-solid fa-lock"></i>
+          <span>অর্ডার কনফার্ম করুন (৳<span id="btnTotalText">১,১০০</span>)</span>
+        </button>
+
+        <!-- Loading State Indicator -->
+        <div id="orderLoader" class="hidden text-center py-2 text-brandPrimary text-sm font-medium">
+          <i class="fa-solid fa-circle-notch fa-spin text-lg mr-2"></i>
+          <span>অর্ডার প্রসেস হচ্ছে, অনুগ্রহ করে অপেক্ষা করুন...</span>
+        </div>
+
+      </form>
+
+      <!-- Success Card -->
+      <div id="successCard" class="hidden text-center py-6 px-4 space-y-4">
+        <div class="w-16 h-16 bg-emerald-100 text-brandSuccess rounded-full flex items-center justify-center mx-auto text-2xl shadow-inner">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-slate-800">ধন্যবাদ! আপনার অর্ডারটি সফলভাবে গ্রহণ করা হয়েছে</h3>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">আমাদের একজন প্রতিনিধি শীঘ্রই আপনার নম্বরে ফোন করে অর্ডারটি কনফার্ম করবেন।</p>
+        </div>
+        
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 text-left text-xs sm:text-sm space-y-1.5 max-w-sm mx-auto">
+          <p><strong class="text-slate-700">অর্ডার নম্বর:</strong> <span id="summaryOrderNumber" class="font-mono text-brandPrimary">#ORV-8942</span></p>
+          <p><strong class="text-slate-700">নাম:</strong> <span id="summaryName"></span></p>
+          <p><strong class="text-slate-700">মোবাইল:</strong> <span id="summaryPhone"></span></p>
+          <p><strong class="text-slate-700">পরিমাণ:</strong> <span id="summaryQty"></span> টি</p>
+          <p><strong class="text-slate-700">মোট মূল্য:</strong> <span id="summaryTotal" class="font-bold text-brandSuccess"></span> (ক্যাশ অন ডেলিভারি)</p>
+        </div>
+
+        <button type="button" onclick="resetOrderForm()" class="inline-flex items-center gap-2 bg-slate-200 hover:bg-slate-300 text-slate-800 text-xs sm:text-sm font-semibold px-4 py-2 rounded-lg transition">
+          <i class="fa-solid fa-arrow-rotate-left"></i>
+          <span>আরেকটি অর্ডার করুন</span>
+        </button>
+      </div>
+
+      <!-- Divider -->
+      <div class="relative flex py-4 items-center">
+        <div class="flex-grow border-t border-slate-200"></div>
+        <span class="flex-shrink mx-4 text-slate-400 text-xs font-semibold uppercase">অথবা সরাসরি হোয়াটসঅ্যাপে</span>
+        <div class="flex-grow border-t border-slate-200"></div>
+      </div>
+
+      <!-- Direct WhatsApp Order Button -->
+      <div>
+        <a id="whatsappOrderBtn" href="https://wa.me/8801805529344?text=%E0%A6%86%E0%A6%AE%E0%A6%BF%20AirPods%20Pro%20(2nd%20Generation)%20(%E0%A7%B3%E0%A7%A7,%E0%A7%A7%E0%A7%A6%E0%A7%A6)%20%E0%A6%85%E0%A6%B0%E0%A7%8D%E0%A6%A1%E0%A6%BE%E0%A6%B0%20%E0%A6%95%E0%A6%B0%E0%A6%A4%E0%A7%87%20%E0%A6%9A%E0%A6%BE%E0%A6%87%E0%A5%A4" 
+           target="_blank" rel="noopener noreferrer"
+           class="w-full bg-[#25D366] hover:bg-[#20ba59] text-white font-bold py-3 px-4 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-sm sm:text-base">
+          <i class="fa-brands fa-whatsapp text-xl"></i>
+          <span>WhatsApp-এ সরাসরি অর্ডার করুন</span>
+        </a>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-brandSecondary text-slate-400 text-center py-6 px-4 mt-8 border-t border-slate-800 text-xs sm:text-sm space-y-2">
+    <div class="flex items-center justify-center gap-2 text-white font-bold tracking-wider text-base">
+      <span>ORVYN</span>
+    </div>
+    <p>নিরাপদ অনলাইন কেনাকাটা এবং গুণগত মানের শতভাগ প্রতিশ্রুতি।</p>
+    <p class="text-slate-500 pt-2 border-t border-slate-800/80">© 2026 ORVYN. All Rights Reserved.</p>
+  </footer>
+
+  <!-- JavaScript Functionality -->
+  <script>
+    /* =========================================================
+       1. SLIDER LOGIC (Touch Swiping, Arrow Keys, Thumbnails)
+       ========================================================= */
+    const sliderTrack = document.getElementById('sliderTrack');
+    const sliderViewport = document.getElementById('sliderViewport');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const currentSlideEl = document.getElementById('currentSlideNumber');
+    const thumbBtns = document.querySelectorAll('.thumb-btn');
+    
+    const totalSlides = 4;
+    let currentSlide = 0;
+    
+    // Convert English numbers to Bengali numerals
+    function toBengaliNumber(num) {
+      const bnDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+      return num.toString().replace(/\d/g, d => bnDigits[d]);
+    }
+
+    function goToSlide(index) {
+      if (index < 0) {
+        currentSlide = totalSlides - 1;
+      } else if (index >= totalSlides) {
+        currentSlide = 0;
+      } else {
+        currentSlide = index;
+      }
+
+      sliderTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+      currentSlideEl.innerText = toBengaliNumber(currentSlide + 1);
+
+      // Update thumbnail borders
+      thumbBtns.forEach((btn, idx) => {
+        if (idx === currentSlide) {
+          btn.classList.add('border-brandPrimary');
+          btn.classList.remove('border-transparent');
+          btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        } else {
+          btn.classList.remove('border-brandPrimary');
+          btn.classList.add('border-transparent');
+        }
+      });
+    }
+
+    prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+    nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+
+    // Touch & Swipe Support
+    let startX = 0;
+    let endX = 0;
+    let isDragging = false;
+
+    sliderViewport.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      isDragging = true;
+    }, { passive: true });
+
+    sliderViewport.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      endX = e.touches[0].clientX;
+    }, { passive: true });
+
+    sliderViewport.addEventListener('touchend', () => {
+      if (!isDragging) return;
+      isDragging = false;
+      const diffX = startX - endX;
+      if (Math.abs(diffX) > 40 && endX !== 0) {
+        if (diffX > 0) {
+          goToSlide(currentSlide + 1);
+        } else {
+          goToSlide(currentSlide - 1);
+        }
+      }
+      startX = 0;
+      endX = 0;
+    });
+
+    // Mouse drag support for desktop
+    sliderViewport.addEventListener('mousedown', (e) => {
+      startX = e.clientX;
+      isDragging = true;
+    });
+
+    window.addEventListener('mouseup', (e) => {
+      if (!isDragging) return;
+      isDragging = false;
+      endX = e.clientX;
+      const diffX = startX - endX;
+      if (Math.abs(diffX) > 40) {
+        if (diffX > 0) {
+          goToSlide(currentSlide + 1);
+        } else {
+          goToSlide(currentSlide - 1);
+        }
+      }
+    });
+
+    /* =========================================================
+       2. REAL-TIME PRICE & QUANTITY CALCULATION
+       ========================================================= */
+    const UNIT_PRICE = 1100;
+    let currentQuantity = 1;
+
+    const qtyMinusBtn = document.getElementById('qtyMinus');
+    const qtyPlusBtn = document.getElementById('qtyPlus');
+    const qtyDisplay = document.getElementById('qtyDisplay');
+    const unitCountEl = document.getElementById('unitCount');
+    const subtotalDisplay = document.getElementById('subtotalDisplay');
+    const totalDisplay = document.getElementById('totalDisplay');
+    const btnTotalText = document.getElementById('btnTotalText');
+    const whatsappOrderBtn = document.getElementById('whatsappOrderBtn');
+
+    function updateOrderPricing() {
+      const totalPrice = UNIT_PRICE * currentQuantity;
+      const formattedTotal = toBengaliNumber(totalPrice.toLocaleString('en-IN'));
+      const formattedQty = toBengaliNumber(currentQuantity);
+
+      qtyDisplay.innerText = formattedQty;
+      unitCountEl.innerText = formattedQty;
+      subtotalDisplay.innerText = `৳${formattedTotal}`;
+      totalDisplay.innerText = `৳${formattedTotal}`;
+      btnTotalText.innerText = formattedTotal;
+
+      // Update WhatsApp URL with current quantity and price
+      const waMsg = encodeURIComponent(
+        `হ্যালো ORVYN, আমি AirPods Pro (2nd Generation) অর্ডার করতে চাই।\nপরিমাণ: ${currentQuantity} টি\nমোট মূল্য: ৳${totalPrice} (ক্যাশ অন ডেলিভারি)`
+      );
+      whatsappOrderBtn.href = `https://wa.me/8801805529344?text=${waMsg}`;
+    }
+
+    qtyPlusBtn.addEventListener('click', () => {
+      if (currentQuantity < 10) {
+        currentQuantity++;
+        updateOrderPricing();
+      }
+    });
+
+    qtyMinusBtn.addEventListener('click', () => {
+      if (currentQuantity > 1) {
+        currentQuantity--;
+        updateOrderPricing();
+      }
+    });
+
+    /* =========================================================
+       3. ORDER FORM SUBMISSION (Google Apps Script Integration)
+       ========================================================= */
+    const codOrderForm = document.getElementById('codOrderForm');
+    const submitOrderBtn = document.getElementById('submitOrderBtn');
+    const orderLoader = document.getElementById('orderLoader');
+    const successCard = document.getElementById('successCard');
+
+    // Google Apps Script Web App Deployment URL
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzwj1gvayLQyWsQwzs9ABHldFSKP1nD1JrKvY9Ta6Z8ePPYLnRldqLLoR61dfMLipyQ/exec';
+
+    codOrderForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('customerName').value.trim();
+      const phone = document.getElementById('customerPhone').value.trim();
+      const address = document.getElementById('customerAddress').value.trim();
+      const totalPrice = UNIT_PRICE * currentQuantity;
+      const orderNumber = 'ORV-' + Math.floor(1000 + Math.random() * 9000);
+
+      // Simple phone validation
+      if (phone.length < 11) {
+        alertFallback('অনুগ্রহ করে সঠিক ১১ ডিজিটের মোবাইল নম্বর দিন।');
+        return;
+      }
+
+      // Show loader
+      submitOrderBtn.disabled = true;
+      submitOrderBtn.classList.add('opacity-50', 'pointer-events-none');
+      orderLoader.classList.remove('hidden');
+
+      const payload = {
+        orderId: orderNumber,
+        product: 'AirPods Pro (2nd Generation)',
+        productName: 'AirPods Pro (2nd Generation)',
+        name: name,
+        customerName: name,
+        phone: phone,
+        customerPhone: phone,
+        address: address,
+        customerAddress: address,
+        quantity: currentQuantity,
+        total: totalPrice,
+        totalAmount: totalPrice,
+        delivery: 'ফ্রি ডেলিভারি (০ টাকা)',
+        deliveryCharge: 0,
+        paymentMethod: 'Cash on Delivery',
+        orderDate: new Date().toISOString()
+      };
+
+      try {
+        // Attempt POST in no-cors mode for Google Sheets Web App
+        await fetch(SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+      } catch (err) {
+        console.warn('Network notice: App Script submitted.', err);
+      } finally {
+        // Populate and display success message
+        document.getElementById('summaryOrderNumber').innerText = '#' + orderNumber;
+        document.getElementById('summaryName').innerText = name;
+        document.getElementById('summaryPhone').innerText = phone;
+        document.getElementById('summaryQty').innerText = toBengaliNumber(currentQuantity);
+        document.getElementById('summaryTotal').innerText = '৳' + toBengaliNumber(totalPrice.toLocaleString('en-IN'));
+
+        orderLoader.classList.add('hidden');
+        codOrderForm.classList.add('hidden');
+        successCard.classList.remove('hidden');
+      }
+    });
+
+    function resetOrderForm() {
+      codOrderForm.reset();
+      currentQuantity = 1;
+      updateOrderPricing();
+      submitOrderBtn.disabled = false;
+      submitOrderBtn.classList.remove('opacity-50', 'pointer-events-none');
+      successCard.classList.add('hidden');
+      codOrderForm.classList.remove('hidden');
+    }
+
+    // Modal / Toast alternative for alerts
+    function alertFallback(message) {
+      const toast = document.createElement('div');
+      toast.className = 'fixed bottom-5 right-5 z-50 bg-red-600 text-white px-4 py-3 rounded-xl shadow-lg text-sm flex items-center gap-2';
+      toast.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i><span>${message}</span>`;
+      document.body.appendChild(toast);
+      setTimeout(() => {
+        toast.remove();
+      }, 3500);
+    }
+  </script>
+</body>
+</html>
