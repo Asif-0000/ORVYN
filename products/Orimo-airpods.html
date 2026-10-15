@@ -176,16 +176,16 @@
         <!-- Thumbnail Row -->
         <div class="flex items-center justify-center gap-2 sm:gap-3 mt-3 overflow-x-auto no-scrollbar py-1" id="thumbnailContainer">
           <button type="button" onclick="goToSlide(0)" class="thumb-btn border-2 border-brandPrimary rounded-lg overflow-hidden w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 transition">
-            <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=150&auto=format&fit=crop&q=80" alt="Thumb 1" class="w-full h-full object-cover">
+            <img src="https://resellkori.com/wp-content/uploads/2026/10/1000041169-768x768.jpg" alt="Thumb 1" class="w-full h-full object-cover">
           </button>
           <button type="button" onclick="goToSlide(1)" class="thumb-btn border-2 border-transparent hover:border-slate-300 rounded-lg overflow-hidden w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 transition">
-            <img src="https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=150&auto=format&fit=crop&q=80" alt="Thumb 2" class="w-full h-full object-cover">
+            <img src="https://resellkori.com/wp-content/uploads/2026/10/1000041172-768x768.jpg" alt="Thumb 2" class="w-full h-full object-cover">
           </button>
           <button type="button" onclick="goToSlide(2)" class="thumb-btn border-2 border-transparent hover:border-slate-300 rounded-lg overflow-hidden w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 transition">
-            <img src="https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?w=150&auto=format&fit=crop&q=80" alt="Thumb 3" class="w-full h-full object-cover">
+            <img src="https://resellkori.com/wp-content/uploads/2026/10/1000041171-768x768.jpg" alt="Thumb 3" class="w-full h-full object-cover">
           </button>
           <button type="button" onclick="goToSlide(3)" class="thumb-btn border-2 border-transparent hover:border-slate-300 rounded-lg overflow-hidden w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 transition">
-            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=150&auto=format&fit=crop&q=80" alt="Thumb 4" class="w-full h-full object-cover">
+            <img src="https://resellkori.com/wp-content/uploads/2026/10/1000041170-768x768.jpg" alt="Thumb 4" class="w-full h-full object-cover">
           </button>
         </div>
       </div>
@@ -194,12 +194,12 @@
       <div class="bg-gradient-to-r from-blue-50/70 to-indigo-50/60 border border-blue-200/80 rounded-xl p-4 sm:p-5 flex flex-wrap items-center justify-between gap-4 mt-5">
         <div>
           <div class="flex items-center gap-2">
-            <span class="text-sm sm:text-base text-slate-400 line-through font-semibold">রেগুলার মূল্য: ৳১,৮৫০</span>
+            <span class="text-sm sm:text-base text-slate-400 line-through font-semibold">রেগুলার মূল্য: ৳১,৪১০</span>
             <span class="bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">৳৬৬০ ছাড়</span>
           </div>
           <div class="flex items-baseline gap-2 mt-1">
             <span class="text-xs sm:text-sm text-slate-600 font-medium">অফার মূল্য:</span>
-            <span class="text-3xl sm:text-4xl font-extrabold text-brandPrimary">৳১,১৯০</span>
+            <span class="text-3xl sm:text-4xl font-extrabold text-brandPrimary">৳৭৫০</span>
           </div>
         </div>
 
@@ -395,7 +395,7 @@
           <div class="border-t border-slate-200 pt-2 space-y-1.5 text-xs sm:text-sm">
             <div class="flex justify-between text-slate-600">
               <span>প্রোডাক্টের মূল্য (<span id="unitCount">১</span>টি):</span>
-              <span class="font-semibold text-slate-800" id="subtotalDisplay">৳১,১৯০</span>
+              <span class="font-semibold text-slate-800" id="subtotalDisplay">৳৭৫০</span>
             </div>
             <div class="flex justify-between text-slate-600 items-center">
               <span>ডেলিভারি চার্জ:</span>
@@ -405,7 +405,7 @@
             </div>
             <div class="flex justify-between text-base font-bold text-brandSecondary border-t border-dashed border-slate-300 pt-2">
               <span>সর্বমোট প্রদেয় মূল্য:</span>
-              <span class="text-brandPrimary text-lg" id="totalDisplay">৳১,১৯০</span>
+              <span class="text-brandPrimary text-lg" id="totalDisplay">৳৭৫০</span>
             </div>
           </div>
         </div>
@@ -413,7 +413,7 @@
         <!-- Submit Button -->
         <button type="submit" id="submitOrderBtn" class="w-full bg-brandPrimary hover:bg-blue-700 text-white font-bold py-3.5 px-4 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-base active:scale-[0.99]">
           <i class="fa-solid fa-lock"></i>
-          <span>অর্ডার কনফার্ম করুন (৳<span id="btnTotalText">১,১৯০</span>)</span>
+          <span>অর্ডার কনফার্ম করুন (৳<span id="btnTotalText">৭৫০</span>)</span>
         </button>
 
         <!-- Loading State Indicator (Hidden by default) -->
@@ -580,7 +580,7 @@
     /* =========================================================
        2. REAL-TIME PRICE & QUANTITY CALCULATION
        ========================================================= */
-    const UNIT_PRICE = 1190;
+    const UNIT_PRICE = 750;
     let currentQuantity = 1;
 
     const qtyMinusBtn = document.getElementById('qtyMinus');
