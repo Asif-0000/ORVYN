@@ -3,575 +3,641 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ORVYN - Baseus 20000mAh (65W) Power Bank</title>
+  <title>Baseus 20000mAh (65W) Power Bank - ORVYN</title>
+  
+  <!-- Google Fonts: Hind Siliguri -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandPrimary: '#1f6ec2',
+            brandSecondary: '#0f172a',
+            bgLight: '#f8fafc',
+            brandSuccess: '#16a34a',
+          },
+          fontFamily: {
+            bengali: ['"Hind Siliguri"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
-    :root {
-      --primary: #1f6ec2;
-      --primary-dark: #165290;
-      --secondary: #0f172a;
-      --accent: #f59e0b;
-      --bg-light: #f8fafc;
-      --text: #1e293b;
-      --text-muted: #64748b;
-      --white: #ffffff;
-      --border: #e2e8f0;
-      --success: #16a34a;
-    }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Hind Siliguri', sans-serif;
-    }
     body {
-      background-color: var(--bg-light);
-      color: var(--text);
-      line-height: 1.6;
-    }
-    .top-notice {
-      background: var(--secondary);
-      color: var(--white);
-      text-align: center;
-      padding: 10px 14px;
-      font-size: 14px;
-      font-weight: 600;
-    }
-    .top-notice span {
-      color: #38bdf8;
-      font-weight: 700;
-    }
-    .container {
-      max-width: 680px;
-      margin: 0 auto;
-      background: var(--white);
-      min-height: 100vh;
-      box-shadow: 0 0 25px rgba(0,0,0,0.06);
-    }
-    .header {
-      text-align: center;
-      padding: 20px;
-      border-bottom: 1px solid var(--border);
-    }
-    .brand-name {
-      font-size: 26px;
-      font-weight: 700;
-      color: var(--primary);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-    .hero-section {
-      padding: 20px;
-      text-align: center;
-    }
-    .main-headline {
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--secondary);
-      margin-bottom: 12px;
-      line-height: 1.4;
-    }
-    .badge {
-      display: inline-block;
-      background: #dcfce7;
-      color: #15803d;
-      font-weight: 700;
-      padding: 5px 15px;
-      border-radius: 50px;
-      font-size: 13px;
-      margin-bottom: 12px;
-    }
-
-    /* Swipeable Image Slider with Thumbnails */
-    .slider-wrapper {
-      position: relative;
-      margin: 15px 0 20px 0;
-    }
-    .product-slider {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
+      font-family: 'Hind Siliguri', sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
       scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: #fafafa;
+    }
+    
+    /* Hide scrollbar for slider thumbnails */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
       scrollbar-width: none;
     }
-    .product-slider::-webkit-scrollbar {
-      display: none;
-    }
-    .slide {
-      flex: 0 0 100%;
-      width: 100%;
-      scroll-snap-align: start;
+
+    /* Slider transitions */
+    .slider-track {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 10px;
-    }
-    .slide img {
-      width: 100%;
-      max-height: 380px;
-      object-fit: contain;
-      border-radius: 8px;
-      display: block;
-      user-select: none;
+      transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+      touch-action: pan-y;
+      will-change: transform;
     }
 
-    /* Thumbnails Selection Grid */
-    .thumbnail-gallery {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 12px;
-      overflow-x: auto;
-      padding: 4px;
-      scrollbar-width: none;
+    /* Pulsing animation for Order CTA */
+    @keyframes pulseGlow {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(31, 110, 194, 0.4);
+      }
+      50% {
+        box-shadow: 0 0 0 10px rgba(31, 110, 194, 0);
+      }
     }
-    .thumbnail-gallery::-webkit-scrollbar {
-      display: none;
-    }
-    .thumb-item {
-      width: 65px;
-      height: 65px;
-      border-radius: 8px;
-      border: 2px solid var(--border);
-      cursor: pointer;
-      background: #fafafa;
-      transition: all 0.2s ease;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      padding: 2px;
-    }
-    .thumb-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      border-radius: 6px;
-      display: block;
-    }
-    .thumb-item.active {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 2px rgba(31, 110, 194, 0.25);
-      transform: scale(1.05);
-    }
-    .swipe-hint {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-top: 8px;
-    }
-
-    .price-tag {
-      background: #fef2f2;
-      border: 2px dashed var(--primary);
-      border-radius: 10px;
-      padding: 12px;
-      margin: 15px 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 15px;
-    }
-    .regular-price {
-      font-size: 18px;
-      color: var(--text-muted);
-      text-decoration: line-through;
-    }
-    .offer-price {
-      font-size: 26px;
-      color: var(--primary);
-      font-weight: 700;
-    }
-    .cta-btn {
-      display: block;
-      width: 100%;
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: var(--white);
-      text-align: center;
-      padding: 14px 20px;
-      border-radius: 8px;
-      font-size: 18px;
-      font-weight: 700;
-      text-decoration: none;
-      box-shadow: 0 4px 14px rgba(31, 110, 194, 0.35);
-      border: none;
-      cursor: pointer;
-      transition: 0.2s ease;
-    }
-    .cta-btn:active {
-      transform: scale(0.98);
-    }
-    .features-list {
-      padding: 20px;
-      background: #fff;
-    }
-    .features-title {
-      font-size: 19px;
-      font-weight: 700;
-      color: var(--secondary);
-      margin-bottom: 15px;
-      border-left: 4px solid var(--primary);
-      padding-left: 10px;
-    }
-    .feature-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 12px;
-      font-size: 15px;
-    }
-    .feature-icon {
-      color: var(--success);
-      font-weight: bold;
-      font-size: 18px;
-    }
-    .guarantee-box {
-      background: #f0fdf4;
-      border: 1px solid #bbf7d0;
-      padding: 15px;
-      border-radius: 8px;
-      margin: 20px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .guarantee-box .icon {
-      font-size: 28px;
-    }
-    .guarantee-box h4 {
-      color: #15803d;
-      font-size: 16px;
-      margin-bottom: 2px;
-    }
-    .guarantee-box p {
-      font-size: 13px;
-      color: #166534;
-    }
-    .order-section {
-      background: #f8fafc;
-      padding: 25px 20px;
-      border-top: 2px solid var(--border);
-    }
-    .order-header {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .order-header h3 {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--secondary);
-    }
-    .order-header p {
-      font-size: 14px;
-      color: var(--text-muted);
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    .form-group label {
-      display: block;
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 6px;
-      color: var(--secondary);
-    }
-    .form-group input, .form-group textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      font-size: 15px;
-      background: var(--white);
-    }
-    .form-group input:focus, .form-group textarea:focus {
-      outline: none;
-      border-color: var(--primary);
-    }
-    .free-delivery-badge-box {
-      background: #f0fdf4;
-      border: 1.5px dashed #22c55e;
-      border-radius: 8px;
-      padding: 12px 15px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 8px;
-    }
-    .free-delivery-badge-box span {
-      font-size: 15px;
-      font-weight: 600;
-      color: #15803d;
-    }
-    .order-summary {
-      background: var(--white);
-      padding: 15px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      margin: 20px 0;
-    }
-    .summary-row {
-      display: flex;
-      justify-content: space-between;
-      font-size: 14px;
-      padding: 6px 0;
-    }
-    .summary-row .free-tag {
-      color: #15803d;
-      font-weight: 700;
-    }
-    .summary-row.total {
-      border-top: 1px solid var(--border);
-      margin-top: 6px;
-      padding-top: 10px;
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--primary);
-    }
-    .whatsapp-btn {
-      display: block;
-      background: #25d366;
-      color: white;
-      text-align: center;
-      padding: 12px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      margin-top: 14px;
-      font-size: 15px;
-    }
-    .success-card {
-      display: none;
-      background: #ecfdf5;
-      border: 2px solid #10b981;
-      padding: 25px;
-      border-radius: 10px;
-      text-align: center;
-      margin-top: 15px;
-    }
-    .success-card h3 {
-      color: #065f46;
-      font-size: 20px;
-      margin-bottom: 8px;
-    }
-    .success-card p {
-      color: #047857;
-      font-size: 14px;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 13px;
-      color: var(--text-muted);
-      border-top: 1px solid var(--border);
+    .pulse-btn {
+      animation: pulseGlow 2.5s infinite;
     }
   </style>
 </head>
-<body>
+<body class="bg-bgLight text-brandSecondary antialiased">
 
-  <div class="top-notice">
-    🎁 ধামাকা অফার: সারা বাংলাদেশে <span>ফ্রি হোম ডেলিভারি</span> ও ক্যাশ অন ডেলিভারি সুবিধা!
-  </div>
+  <!-- Top Announcement Bar -->
+  <aside aria-label="Announcement" class="bg-brandSecondary text-white py-2 px-3 text-center text-xs sm:text-sm font-medium flex items-center justify-center gap-2 sticky top-0 z-50 shadow-sm">
+    <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+    <i class="fa-solid fa-truck-fast text-emerald-400"></i>
+    <span>🎁 ধামাকা অফার: সারা বাংলাদেশে ফ্রি হোম ডেলিভারি ও ক্যাশ অন ডেলিভারি সুবিধা!</span>
+  </aside>
 
-  <div class="container">
-    <div class="header">
-      <div class="brand-name">ORVYN</div>
+  <!-- Main Header -->
+  <header class="bg-white border-b border-slate-200 shadow-xs py-3 px-4">
+    <div class="max-w-4xl mx-auto flex items-center justify-between">
+      <a href="../index.html" class="brand-name text-2xl sm:text-3xl font-extrabold tracking-wider text-brandPrimary flex items-center gap-1.5 hover:opacity-90 transition">
+        <span>ORVYN</span>
+        <span class="w-2 h-2 rounded-full bg-brandPrimary"></span>
+      </a>
+      <span class="text-xs bg-blue-50 text-brandPrimary border border-blue-200 px-2.5 py-1 rounded-full font-semibold">
+        অফিসিয়াল স্টোর
+      </span>
     </div>
+  </header>
 
-    <div class="hero-section">
-      <span class="badge">🚚 সারা বাংলাদেশে ডেলিভারি সম্পূর্ণ ফ্রি!</span>
-      <h1 class="main-headline">
+  <!-- Navigation / Back to Products Button -->
+  <nav aria-label="Breadcrumb" class="max-w-4xl mx-auto px-4 pt-3 pb-1">
+    <a href="../index.html" class="back-btn inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-600 hover:text-brandPrimary bg-white border border-slate-200 hover:border-brandPrimary px-3 py-1.5 rounded-lg shadow-2xs transition">
+      <i class="fa-solid fa-arrow-left text-xs"></i>
+      <span>সকল প্রোডাক্ট দেখুন</span>
+    </a>
+  </nav>
+
+  <!-- Main Content Container -->
+  <main class="max-w-4xl mx-auto px-4 py-4 space-y-6">
+
+    <!-- Hero Section -->
+    <section class="bg-white border border-slate-200/80 rounded-2xl p-4 sm:p-6 shadow-sm">
+      
+      <!-- Delivery Badge -->
+      <div class="flex items-center gap-2 mb-3">
+        <span class="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 border border-emerald-200 px-3 py-0.5 rounded-full text-xs font-bold tracking-wide">
+          <span>🚚</span> সারা বাংলাদেশে ডেলিভারি সম্পূর্ণ ফ্রি!
+        </span>
+        <span class="text-xs text-slate-500 font-medium">
+          <i class="fa-regular fa-clock"></i> দ্রুত স্টক শেষ হচ্ছে
+        </span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="text-xl sm:text-3xl font-bold leading-snug text-brandSecondary mb-4">
         Baseus 20000mAh (65W) Metal Digital Display ফাস্ট চার্জিং পাওয়ার ব্যাংক!
       </h1>
 
-      <!-- Swipeable Product Slider + Clickable Thumbnails -->
-      <div class="slider-wrapper">
-        <div class="product-slider" id="productSlider">
-          <div class="slide">
-            <img src="https://resellkori.com/wp-content/uploads/2025/11/61w9eU-h0lL._AC_UF10001000_QL80_-768x703.jpg" alt="Baseus Power Bank 1">
+      <!-- Swipeable Product Slider -->
+      <div class="relative w-full max-w-lg mx-auto select-none mb-4">
+        
+        <!-- Slider Viewport -->
+        <div id="sliderViewport" class="overflow-hidden rounded-xl border border-slate-100 bg-slate-50 relative aspect-square">
+          <div id="sliderTrack" class="slider-track h-full w-full">
+            <!-- Slide 1 -->
+            <div class="min-w-full h-full flex items-center justify-center p-3">
+              <img src="https://resellkori.com/wp-content/uploads/2025/11/61w9eU-h0lL._AC_UF10001000_QL80_-768x703.jpg" 
+                   alt="Baseus 65W Power Bank 1" 
+                   class="w-full h-full object-contain rounded-lg pointer-events-none"
+                   onerror="this.src='https://placehold.co/600x600/f1f5f9/1f6ec2?text=Baseus+65W+Image+1'">
+            </div>
+            <!-- Slide 2 -->
+            <div class="min-w-full h-full flex items-center justify-center p-3">
+              <img src="https://resellkori.com/wp-content/uploads/2025/11/baseus-adaman-65w-digital-display-quick-charge-power-bank-20000mah-5-600x600-1.jpg" 
+                   alt="Baseus 65W Power Bank 2" 
+                   class="w-full h-full object-contain rounded-lg pointer-events-none"
+                   onerror="this.src='https://placehold.co/600x600/f1f5f9/1f6ec2?text=Baseus+65W+Image+2'">
+            </div>
+            <!-- Slide 3 -->
+            <div class="min-w-full h-full flex items-center justify-center p-3">
+              <img src="https://resellkori.com/wp-content/uploads/2025/11/07bc6477c4bf98153079650f544eff074812bd9d616374b9b00d0e231261396c.jpg" 
+                   alt="Baseus 65W Power Bank 3" 
+                   class="w-full h-full object-contain rounded-lg pointer-events-none"
+                   onerror="this.src='https://placehold.co/600x600/f1f5f9/1f6ec2?text=Baseus+65W+Image+3'">
+            </div>
           </div>
-          <div class="slide">
-            <img src="https://resellkori.com/wp-content/uploads/2025/11/baseus-adaman-65w-digital-display-quick-charge-power-bank-20000mah-5-600x600-1.jpg" alt="Baseus Power Bank 2">
-          </div>
-          <div class="slide">
-            <img src="https://resellkori.com/wp-content/uploads/2025/11/07bc6477c4bf98153079650f544eff074812bd9d616374b9b00d0e231261396c.jpg" alt="Baseus Power Bank 3">
-          </div>
-        </div>
 
-        <!-- Thumbnail Gallery -->
-        <div class="thumbnail-gallery" id="thumbnailGallery">
-          <div class="thumb-item active" onclick="goToSlide(0)">
-            <img src="https://resellkori.com/wp-content/uploads/2025/11/61w9eU-h0lL._AC_UF10001000_QL80_-768x703.jpg" alt="Thumb 1">
-          </div>
-          <div class="thumb-item" onclick="goToSlide(1)">
-            <img src="https://resellkori.com/wp-content/uploads/2025/11/baseus-adaman-65w-digital-display-quick-charge-power-bank-20000mah-5-600x600-1.jpg" alt="Thumb 2">
-          </div>
-          <div class="thumb-item" onclick="goToSlide(2)">
-            <img src="https://resellkori.com/wp-content/uploads/2025/11/07bc6477c4bf98153079650f544eff074812bd9d616374b9b00d0e231261396c.jpg" alt="Thumb 3">
-          </div>
-        </div>
+          <!-- Arrows -->
+          <button id="prevBtn" type="button" aria-label="পূর্ববর্তী ছবি" class="absolute left-2.5 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/90 text-brandSecondary hover:bg-white shadow-md flex items-center justify-center text-sm border border-slate-200 transition">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button id="nextBtn" type="button" aria-label="পরবর্তী ছবি" class="absolute right-2.5 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/90 text-brandSecondary hover:bg-white shadow-md flex items-center justify-center text-sm border border-slate-200 transition">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
 
-        <div class="swipe-hint">👈 ছবি দেখতে সোয়াইপ করুন অথবা নিচের ছবিতে ক্লিক করুন 👉</div>
-      </div>
-
-      <div class="price-tag">
-        <span class="regular-price">রেগুলার: ৪৭০০ টাকা</span>
-        <span class="offer-price">অফার মূল্য: ৩৯৯০ টাকা</span>
-      </div>
-
-      <a href="#order-form" class="cta-btn">অর্ডার করতে এখানে ক্লিক করুন 🛒</a>
-    </div>
-
-    <div class="features-list">
-      <h2 class="features-title">প্রোডাক্টের বিশেষ সুবিধাসমূহ:</h2>
-      <div class="feature-item">
-        <span class="feature-icon">✔</span>
-        <span><strong>৬৫ ওয়াট টু-ওয়ে ফাস্ট চার্জিং (PD 3.0 + QC 3.0):</strong> এটি দিয়ে ল্যাপটপ ও ফোন খুব দ্রুত চার্জ করা যায় (ম্যাকবুক, আইপ্যাড, আইফোন ও স্যামসাং/হুয়াওয়ে), এবং পাওয়ার ব্যাংক নিজেও দ্রুত চার্জ হয়ে যায়।</span>
-      </div>
-      <div class="feature-item">
-        <span class="feature-icon">✔</span>
-        <span><strong>একসাথে ৩টি ডিভাইস চার্জের সুবিধা (Three inputs / Three outputs):</strong> একাধিক পোর্ট থাকায় একই সময়ে ৩টি ডিভাইস একসাথে চার্জ করা সম্ভব, ফলে একাধিক গ্যাজেট থাকলে আলাদা চার্জারের ঝামেলা থাকে না।</span>
-      </div>
-      <div class="feature-item">
-        <span class="feature-icon">✔</span>
-        <span><strong>স্মার্ট এলইডি ডিজিটাল ডিসপ্লে:</strong> সাধারণ ডট লাইটের মতো আন্দাজে চার্জ বুঝতে হয় না; স্ক্রিনে সরাসরি ব্যাটারির অবশিষ্ট চার্জের সঠিক পার্সেন্টেজ ও কারেন্ট/ভোল্টেজ স্ট্যাটাস দেখা যায়।</span>
-      </div>
-      <div class="feature-item">
-        <span class="feature-icon">✔</span>
-        <span><strong>নিরাপদ ও প্রিমিয়াম মেটাল বডি:</strong> অ্যালুমিনিয়াম অ্যালয় মেটালিক ফিনিশের কারণে দেখতে প্রিমিয়াম ও দীর্ঘস্থায়ী, সাথে ৯ লেয়ারের স্মার্ট ওভারচার্জ ও হিট প্রটেকশন।</span>
-      </div>
-    </div>
-
-    <div class="guarantee-box">
-      <div class="icon">🛡️</div>
-      <div>
-        <h4>১০০% ক্যাশ অন ডেলিভারি (জিরো অগ্রিম পেমেন্ট)</h4>
-        <p>ডেলিভারি ম্যানের সামনে প্রোডাক্ট চেক করে ভালো লাগলে টাকা পরিশোধ করবেন। কোনো অগ্রিম ফি দিতে হবে না!</p>
-      </div>
-    </div>
-
-    <div class="order-section" id="order-form">
-      <div class="order-header">
-        <h3>ক্যাশ অন ডেলিভারিতে অর্ডার করুন</h3>
-        <p>অর্ডার কনফার্ম করতে নিচের তথ্যগুলো সঠিকভাবে পূরণ করুন</p>
-      </div>
-
-      <form id="orderForm" onsubmit="submitOrder(event)">
-        <div class="form-group">
-          <label>আপনার সম্পূর্ণ নাম *</label>
-          <input type="text" id="name" placeholder="যেমন: মো: আরিফুল ইসলাম" required>
-        </div>
-
-        <div class="form-group">
-          <label>সচল মোবাইল নম্বর *</label>
-          <input type="tel" id="phone" placeholder="যেমন: 017xxxxxxxx" required>
-        </div>
-
-        <div class="form-group">
-          <label>সম্পূর্ণ ঠিকানা (বাসা/রোড, থানা, জেলা) *</label>
-          <textarea id="address" rows="2" placeholder="যেমন: বাড়ি ১২, রোড ৪, মিরপুর-১০, ঢাকা (অথবা আপনার থানা ও জেলা)" required></textarea>
-        </div>
-
-        <div class="form-group">
-          <label>ডেলিভারি চার্জ</label>
-          <div class="free-delivery-badge-box">
-            <span>✅ সারা বাংলাদেশে হোম ডেলিভারি সম্পূর্ণ ফ্রি! (০ টাকা)</span>
+          <!-- Slide counter badge -->
+          <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-xs text-white text-[11px] px-2.5 py-0.5 rounded-full font-medium">
+            <span id="currentSlideNumber">১</span> / <span id="totalSlidesCount">৩</span>
           </div>
         </div>
 
-        <div class="order-summary">
-          <div class="summary-row">
-            <span>প্রোডাক্ট মূল্য</span>
-            <span>৩৯৯০ টাকা</span>
+        <!-- Thumbnail Row -->
+        <div class="flex items-center justify-center gap-2 sm:gap-3 mt-3 overflow-x-auto no-scrollbar py-1" id="thumbnailContainer">
+          <button type="button" onclick="goToSlide(0)" class="thumb-btn border-2 border-brandPrimary rounded-lg overflow-hidden w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 bg-white p-1 transition">
+            <img src="https://resellkori.com/wp-content/uploads/2025/11/61w9eU-h0lL._AC_UF10001000_QL80_-768x703.jpg" alt="Thumb 1" class="w-full h-full object-contain">
+          </button>
+          <button type="button" onclick="goToSlide(1)" class="thumb-btn border-2 border-transparent hover:border-slate-300 rounded-lg overflow-hidden w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 bg-white p-1 transition">
+            <img src="https://resellkori.com/wp-content/uploads/2025/11/baseus-adaman-65w-digital-display-quick-charge-power-bank-20000mah-5-600x600-1.jpg" alt="Thumb 2" class="w-full h-full object-contain">
+          </button>
+          <button type="button" onclick="goToSlide(2)" class="thumb-btn border-2 border-transparent hover:border-slate-300 rounded-lg overflow-hidden w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 bg-white p-1 transition">
+            <img src="https://resellkori.com/wp-content/uploads/2025/11/07bc6477c4bf98153079650f544eff074812bd9d616374b9b00d0e231261396c.jpg" alt="Thumb 3" class="w-full h-full object-contain">
+          </button>
+        </div>
+        <p class="text-center text-xs text-slate-400 mt-2">👈 ছবি দেখতে সোয়াইপ করুন অথবা নিচের ছবিতে ক্লিক করুন 👉</p>
+      </div>
+
+      <!-- Price Box -->
+      <div class="bg-gradient-to-r from-blue-50/70 to-indigo-50/60 border border-blue-200/80 rounded-xl p-4 sm:p-5 flex flex-wrap items-center justify-between gap-4 mt-5">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-sm sm:text-base text-slate-400 line-through font-semibold">রেগুলার: ৳৪,৭০০</span>
+            <span class="bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">৳৭১০ ছাড়</span>
           </div>
-          <div class="summary-row">
-            <span>ডেলিভারি চার্জ</span>
-            <span class="free-tag">০ টাকা (ফ্রি)</span>
-          </div>
-          <div class="summary-row total">
-            <span>সর্বমোট পরিশোধ করতে হবে</span>
-            <span>৩৯৯০ টাকা</span>
+          <div class="flex items-baseline gap-2 mt-1">
+            <span class="text-xs sm:text-sm text-slate-600 font-medium">অফার মূল্য:</span>
+            <span class="text-3xl sm:text-4xl font-extrabold text-brandPrimary">৳৩,৯৯০</span>
           </div>
         </div>
 
-        <button type="submit" id="submitBtn" class="cta-btn">অর্ডার কনফার্ম করুন (ক্যাশ অন ডেলিভারি - ৩৯৯০ ৳)</button>
+        <a href="#orderFormSection" class="pulse-btn inline-flex items-center justify-center gap-2 bg-brandPrimary hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-xl shadow-md transition transform active:scale-95 text-base sm:text-lg">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span>অর্ডার করুন</span>
+        </a>
+      </div>
+
+    </section>
+
+    <!-- Product Features Section -->
+    <section class="bg-white border border-slate-200/80 rounded-2xl p-5 sm:p-6 shadow-sm">
+      <div class="border-b border-slate-100 pb-3 mb-4">
+        <h2 class="text-lg sm:text-xl font-bold text-brandSecondary flex items-center gap-2">
+          <i class="fa-solid fa-circle-check text-brandPrimary"></i>
+          <span>প্রোডাক্টের বিশেষ সুবিধাসমূহ:</span>
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">ল্যাপটপ ও হাই-পাওয়ার ডিভাইস চার্জের জন্য ৬৫ ওয়াট সুপারফাস্ট পাওয়ার ব্যাংক</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+        
+        <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100 hover:border-blue-200 transition">
+          <span class="text-brandSuccess font-bold text-lg leading-none mt-0.5">✔</span>
+          <div>
+            <h3 class="font-bold text-sm sm:text-base text-slate-800">৬৫ ওয়াট টু-ওয়ে ফাস্ট চার্জিং (PD 3.0 + QC 3.0)</h3>
+            <p class="text-xs sm:text-sm text-slate-600">এটি দিয়ে ল্যাপটপ ও ফোন খুব দ্রুত চার্জ করা যায় (ম্যাকবুক, আইপ্যাড, আইফোন ও স্যামসাং/হুয়াওয়ে), এবং পাওয়ার ব্যাংক নিজেও দ্রুত চার্জ হয়ে যায়।</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100 hover:border-blue-200 transition">
+          <span class="text-brandSuccess font-bold text-lg leading-none mt-0.5">✔</span>
+          <div>
+            <h3 class="font-bold text-sm sm:text-base text-slate-800">একসাথে ৩টি ডিভাইস চার্জের সুবিধা</h3>
+            <p class="text-xs sm:text-sm text-slate-600">একাধিক পোর্ট থাকায় একই সময়ে ৩টি ডিভাইস একসাথে চার্জ করা সম্ভব, ফলে একাধিক গ্যাজেট থাকলে আলাদা চার্জারের ঝামেলা থাকে না।</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100 hover:border-blue-200 transition">
+          <span class="text-brandSuccess font-bold text-lg leading-none mt-0.5">✔</span>
+          <div>
+            <h3 class="font-bold text-sm sm:text-base text-slate-800">স্মার্ট এলইডি ডিজিটাল ডিসপ্লে</h3>
+            <p class="text-xs sm:text-sm text-slate-600">সাধারণ ডট লাইটের মতো আন্দাজে চার্জ বুঝতে হয় না; স্ক্রিনে সরাসরি ব্যাটারির অবশিষ্ট চার্জের সঠিক পার্সেন্টেজ ও কারেন্ট/ভোল্টেজ স্ট্যাটাস দেখা যায়।</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100 hover:border-blue-200 transition">
+          <span class="text-brandSuccess font-bold text-lg leading-none mt-0.5">✔</span>
+          <div>
+            <h3 class="font-bold text-sm sm:text-base text-slate-800">নিরাপদ ও প্রিমিয়াম মেটাল বডি</h3>
+            <p class="text-xs sm:text-sm text-slate-600">অ্যালুমিনিয়াম অ্যালয় মেটালিক ফিনিশের কারণে দেখতে প্রিমিয়াম ও দীর্ঘস্থায়ী, সাথে ৯ লেয়ারের স্মার্ট ওভারচার্জ ও হিট প্রটেকশন।</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Trust & Guarantee Box -->
+    <section class="bg-gradient-to-br from-white to-blue-50/50 border border-blue-200/70 rounded-2xl p-5 sm:p-6 shadow-sm">
+      <div class="text-center max-w-lg mx-auto mb-4">
+        <h3 class="text-lg sm:text-xl font-bold text-brandSecondary">অর্ডার করার আগে জেনে নিন আমাদের নিশ্চিন্ত সেবাসমূহ</h3>
+        <p class="text-xs sm:text-sm text-slate-500 mt-0.5">গ্রাহকদের সর্বোচ্চ সন্তুষ্টি ও নিরাপত্তাই আমাদের অঙ্গীকার</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <!-- Guarantee 1 -->
+        <div class="bg-white p-3.5 rounded-xl border border-slate-200/80 text-center flex flex-col items-center">
+          <div class="w-10 h-10 rounded-full bg-blue-100 text-brandPrimary flex items-center justify-center mb-2">
+            <i class="fa-solid fa-hand-holding-dollar text-lg"></i>
+          </div>
+          <h4 class="font-bold text-sm text-slate-800">১০০% ক্যাশ অন ডেলিভারি</h4>
+          <p class="text-xs text-slate-500 mt-1">কোনো প্রকার অগ্রিম ফি দিতে হবে না, পণ্য হাতে পেয়ে সম্পূর্ণ মূল্য পরিশোধ করুন।</p>
+        </div>
+
+        <!-- Guarantee 2 -->
+        <div class="bg-white p-3.5 rounded-xl border border-slate-200/80 text-center flex flex-col items-center">
+          <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mb-2">
+            <i class="fa-solid fa-box-open text-lg"></i>
+          </div>
+          <h4 class="font-bold text-sm text-slate-800">দেখে নেওয়ার সুযোগ</h4>
+          <p class="text-xs text-slate-500 mt-1">ডেলিভারি ম্যানের সামনে প্রোডাক্ট চেক করে ভালো লাগলে টাকা পরিশোধ করবেন।</p>
+        </div>
+
+        <!-- Guarantee 3 -->
+        <div class="bg-white p-3.5 rounded-xl border border-slate-200/80 text-center flex flex-col items-center">
+          <div class="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center mb-2">
+            <i class="fa-solid fa-shield-halved text-lg"></i>
+          </div>
+          <h4 class="font-bold text-sm text-slate-800">১০০% অথেনটিক প্রোডাক্ট</h4>
+          <p class="text-xs text-slate-500 mt-1">আমরা প্রদান করি সম্পূর্ণ আসল ও কোয়ালিটি পরীক্ষিত Baseus গ্যাজেটস।</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cash On Delivery Order Form Section -->
+    <section id="orderFormSection" class="bg-white border-2 border-brandPrimary/30 rounded-2xl p-5 sm:p-7 shadow-lg relative">
+      
+      <!-- Top Form Header -->
+      <div class="text-center pb-4 mb-4 border-b border-slate-100">
+        <span class="bg-brandPrimary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+          ক্যাশ অন ডেলিভারি
+        </span>
+        <h2 class="text-xl sm:text-2xl font-extrabold text-brandSecondary mt-2">
+          অর্ডারটি কনফার্ম করতে নিচের তথ্যগুলো সঠিকভাবে পূরণ করুন
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">
+          কোনো অগ্রিম পেমেন্ট নেই। পার্সেল হাতে পেয়ে সম্পূর্ণ টাকা পরিশোধ করবেন।
+        </p>
+      </div>
+
+      <!-- Order Form -->
+      <form id="codOrderForm" class="space-y-4">
+        
+        <!-- Customer Name -->
+        <div>
+          <label for="customerName" class="block text-sm font-semibold text-slate-700 mb-1">
+            আপনার সম্পূর্ণ নাম <span class="text-red-500">*</span>
+          </label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
+              <i class="fa-regular fa-user"></i>
+            </span>
+            <input type="text" id="customerName" name="customerName" required placeholder="যেমন: মো: আরিফুল ইসলাম" 
+                   class="w-full pl-9 pr-3 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brandPrimary/30 focus:border-brandPrimary transition text-sm">
+          </div>
+        </div>
+
+        <!-- Phone Number -->
+        <div>
+          <label for="customerPhone" class="block text-sm font-semibold text-slate-700 mb-1">
+            সচল মোবাইল নম্বর <span class="text-red-500">*</span>
+          </label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
+              <i class="fa-solid fa-phone"></i>
+            </span>
+            <input type="tel" id="customerPhone" name="customerPhone" required pattern="01[3-9][0-9]{8}" placeholder="যেমন: 017xxxxxxxx (১১ ডিজিট)" 
+                   class="w-full pl-9 pr-3 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brandPrimary/30 focus:border-brandPrimary transition text-sm">
+          </div>
+          <p class="text-[11px] text-slate-400 mt-1">আমাদের প্রতিনিধি দ্রুত আপনার নম্বরে কল করে অর্ডার নিশ্চিত করবেন।</p>
+        </div>
+
+        <!-- Full Address -->
+        <div>
+          <label for="customerAddress" class="block text-sm font-semibold text-slate-700 mb-1">
+            সম্পূর্ণ ঠিকানা (বাসা/রোড, থানা, জেলা) <span class="text-red-500">*</span>
+          </label>
+          <div class="relative">
+            <span class="absolute top-3 left-3 text-slate-400">
+              <i class="fa-solid fa-location-dot"></i>
+            </span>
+            <textarea id="customerAddress" name="customerAddress" rows="2" required placeholder="যেমন: বাড়ি ১২, রোড ৪, মিরপুর-১০, ঢাকা (অথবা আপনার থানা ও জেলা)" 
+                      class="w-full pl-9 pr-3 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brandPrimary/30 focus:border-brandPrimary transition text-sm"></textarea>
+          </div>
+        </div>
+
+        <!-- Quantity & Order Summary Card -->
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-sm font-semibold text-slate-700">পরিমাণ (Quantity):</span>
+            <div class="flex items-center border border-slate-300 bg-white rounded-lg overflow-hidden shadow-2xs">
+              <button type="button" id="qtyMinus" class="px-3 py-1.5 text-slate-600 hover:bg-slate-100 font-bold active:bg-slate-200 transition">-</button>
+              <span id="qtyDisplay" class="px-4 py-1 font-bold text-sm text-brandSecondary select-none">১</span>
+              <button type="button" id="qtyPlus" class="px-3 py-1.5 text-slate-600 hover:bg-slate-100 font-bold active:bg-slate-200 transition">+</button>
+            </div>
+          </div>
+
+          <div class="border-t border-slate-200 pt-2 space-y-1.5 text-xs sm:text-sm">
+            <div class="flex justify-between text-slate-600">
+              <span>প্রোডাক্ট মূল্য (<span id="unitCount">১</span>টি):</span>
+              <span class="font-semibold text-slate-800" id="subtotalDisplay">৳৩,৯৯০</span>
+            </div>
+            <div class="flex justify-between text-slate-600 items-center">
+              <span>ডেলিভারি চার্জ:</span>
+              <span class="bg-emerald-100 text-emerald-700 font-bold px-2 py-0.5 rounded text-xs">
+                ০ টাকা (ফ্রি)
+              </span>
+            </div>
+            <div class="flex justify-between text-base font-bold text-brandSecondary border-t border-dashed border-slate-300 pt-2">
+              <span>সর্বমোট পরিশোধ করতে হবে:</span>
+              <span class="text-brandPrimary text-lg" id="totalDisplay">৳৩,৯৯০</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" id="submitOrderBtn" class="w-full bg-brandPrimary hover:bg-blue-700 text-white font-bold py-3.5 px-4 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-base active:scale-[0.99]">
+          <i class="fa-solid fa-lock"></i>
+          <span>অর্ডার কনফার্ম করুন (ক্যাশ অন ডেলিভারি - ৳<span id="btnTotalText">৩,৯৯০</span>)</span>
+        </button>
+
+        <!-- Loading State Indicator -->
+        <div id="orderLoader" class="hidden text-center py-2 text-brandPrimary text-sm font-medium">
+          <i class="fa-solid fa-circle-notch fa-spin text-lg mr-2"></i>
+          <span>অর্ডার প্রসেসিং হচ্ছে... অনুগ্রহ করে অপেক্ষা করুন</span>
+        </div>
+
       </form>
 
-      <div id="successCard" class="success-card">
-        <h3>🎉 আপনার অর্ডারটি সফলভাবে গ্রহণ করা হয়েছে!</h3>
-        <p id="successDetails"></p>
-        <p style="margin-top: 8px; font-weight: 600;">আমাদের প্রতিনিধি দ্রুত আপনার নম্বরে কল করে অর্ডার নিশ্চিত করবেন।</p>
+      <!-- Success Card -->
+      <div id="successCard" class="hidden text-center py-6 px-4 space-y-4">
+        <div class="w-16 h-16 bg-emerald-100 text-brandSuccess rounded-full flex items-center justify-center mx-auto text-2xl shadow-inner">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-slate-800">🎉 আপনার অর্ডারটি সফলভাবে গ্রহণ করা হয়েছে!</h3>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">আমাদের প্রতিনিধি দ্রুত আপনার নম্বরে কল করে অর্ডার নিশ্চিত করবেন।</p>
+        </div>
+        
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 text-left text-xs sm:text-sm space-y-1.5 max-w-sm mx-auto">
+          <p><strong class="text-slate-700">অর্ডার নম্বর:</strong> <span id="summaryOrderNumber" class="font-mono text-brandPrimary">#ORV-8942</span></p>
+          <p><strong class="text-slate-700">নাম:</strong> <span id="summaryName"></span></p>
+          <p><strong class="text-slate-700">মোবাইল:</strong> <span id="summaryPhone"></span></p>
+          <p><strong class="text-slate-700">পরিমাণ:</strong> <span id="summaryQty"></span> টি</p>
+          <p><strong class="text-slate-700">সর্বমোট বিল:</strong> <span id="summaryTotal" class="font-bold text-brandSuccess"></span> (ক্যাশ অন ডেলিভারি)</p>
+        </div>
+
+        <button type="button" onclick="resetOrderForm()" class="inline-flex items-center gap-2 bg-slate-200 hover:bg-slate-300 text-slate-800 text-xs sm:text-sm font-semibold px-4 py-2 rounded-lg transition">
+          <i class="fa-solid fa-arrow-rotate-left"></i>
+          <span>আরেকটি অর্ডার করুন</span>
+        </button>
       </div>
 
-      <a href="https://wa.me/8801805529344?text=Hello,%20ami%20Baseus%2065W%20Power%20Bank%20Free%20Delivery-te%20order%20korte%20chai" target="_blank" class="whatsapp-btn">
-        💬 সরাসরি হোয়াটসঅ্যাপে অর্ডার করুন
-      </a>
+      <!-- Divider -->
+      <div class="relative flex py-4 items-center">
+        <div class="flex-grow border-t border-slate-200"></div>
+        <span class="flex-shrink mx-4 text-slate-400 text-xs font-semibold uppercase">অথবা সরাসরি হোয়াটসঅ্যাপে</span>
+        <div class="flex-grow border-t border-slate-200"></div>
+      </div>
+
+      <!-- Direct WhatsApp Order Button -->
+      <div>
+        <a id="whatsappOrderBtn" href="https://wa.me/8801805529344?text=Hello,%20ami%20Baseus%2065W%20Power%20Bank%20Free%20Delivery-te%20order%20korte%20chai" 
+           target="_blank" rel="noopener noreferrer"
+           class="w-full bg-[#25D366] hover:bg-[#20ba59] text-white font-bold py-3 px-4 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-sm sm:text-base">
+          <i class="fa-brands fa-whatsapp text-xl"></i>
+          <span>💬 সরাসরি WhatsApp এ অর্ডার করুন</span>
+        </a>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-brandSecondary text-slate-400 text-center py-6 px-4 mt-8 border-t border-slate-800 text-xs sm:text-sm space-y-2">
+    <div class="flex items-center justify-center gap-2 text-white font-bold tracking-wider text-base">
+      <span>ORVYN</span>
     </div>
+    <p>নিরাপদ অনলাইন কেনাকাটা এবং গুণগত মানের শতভাগ প্রতিশ্রুতি।</p>
+    <p class="text-slate-500 pt-2 border-t border-slate-800/80">© 2026 ORVYN. All Rights Reserved.</p>
+  </footer>
 
-    <footer>
-      <p>© 2026 ORVYN. All Rights Reserved.</p>
-    </footer>
-  </div>
-
+  <!-- JavaScript Functionality -->
   <script>
-    const slider = document.getElementById('productSlider');
-    const thumbnails = document.querySelectorAll('.thumbnail-gallery .thumb-item');
+    /* =========================================================
+       1. SLIDER LOGIC (Touch Swiping, Arrow Keys, Thumbnails)
+       ========================================================= */
+    const sliderTrack = document.getElementById('sliderTrack');
+    const sliderViewport = document.getElementById('sliderViewport');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const currentSlideEl = document.getElementById('currentSlideNumber');
+    const thumbBtns = document.querySelectorAll('.thumb-btn');
+    
+    const totalSlides = 3;
+    let currentSlide = 0;
+    
+    // Convert English numbers to Bengali numerals
+    function toBengaliNumber(num) {
+      const bnDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+      return num.toString().replace(/\d/g, d => bnDigits[d]);
+    }
 
-    // সোয়াইপ করলে নিচের থাম্বনেইলে অ্যাক্টিভ স্টেট ও অটো-স্ক্রোল হবে
-    slider.addEventListener('scroll', () => {
-      const slideWidth = slider.clientWidth;
-      const activeIndex = Math.round(slider.scrollLeft / slideWidth);
-      thumbnails.forEach((thumb, index) => {
-        const isActive = index === activeIndex;
-        thumb.classList.toggle('active', isActive);
-        if (isActive) {
-          thumb.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-        }
-      });
-    });
-
-    // থাম্বনেইলে ক্লিক করলে মেইন স্লাইডারে সেই ছবি দেখাবে এবং সাথে সাথে থাম্বনেইল অ্যাক্টিভ হবে
     function goToSlide(index) {
-      const slideWidth = slider.clientWidth;
-      slider.scrollTo({
-        left: slideWidth * index,
-        behavior: 'smooth'
-      });
-      thumbnails.forEach((thumb, i) => {
-        thumb.classList.toggle('active', i === index);
+      if (index < 0) {
+        currentSlide = totalSlides - 1;
+      } else if (index >= totalSlides) {
+        currentSlide = 0;
+      } else {
+        currentSlide = index;
+      }
+
+      sliderTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+      currentSlideEl.innerText = toBengaliNumber(currentSlide + 1);
+
+      // Update thumbnail borders
+      thumbBtns.forEach((btn, idx) => {
+        if (idx === currentSlide) {
+          btn.classList.add('border-brandPrimary');
+          btn.classList.remove('border-transparent');
+          btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        } else {
+          btn.classList.remove('border-brandPrimary');
+          btn.classList.add('border-transparent');
+        }
       });
     }
 
-    // Google Sheets Submission Logic
+    prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+    nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+
+    // Touch & Swipe Support
+    let startX = 0;
+    let endX = 0;
+    let isDragging = false;
+
+    sliderViewport.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      isDragging = true;
+    }, { passive: true });
+
+    sliderViewport.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      endX = e.touches[0].clientX;
+    }, { passive: true });
+
+    sliderViewport.addEventListener('touchend', () => {
+      if (!isDragging) return;
+      isDragging = false;
+      const diffX = startX - endX;
+      if (Math.abs(diffX) > 40 && endX !== 0) {
+        if (diffX > 0) {
+          goToSlide(currentSlide + 1);
+        } else {
+          goToSlide(currentSlide - 1);
+        }
+      }
+      startX = 0;
+      endX = 0;
+    });
+
+    // Mouse drag support for desktop
+    sliderViewport.addEventListener('mousedown', (e) => {
+      startX = e.clientX;
+      isDragging = true;
+    });
+
+    window.addEventListener('mouseup', (e) => {
+      if (!isDragging) return;
+      isDragging = false;
+      endX = e.clientX;
+      const diffX = startX - endX;
+      if (Math.abs(diffX) > 40) {
+        if (diffX > 0) {
+          goToSlide(currentSlide + 1);
+        } else {
+          goToSlide(currentSlide - 1);
+        }
+      }
+    });
+
+    /* =========================================================
+       2. REAL-TIME PRICE & QUANTITY CALCULATION
+       ========================================================= */
+    const UNIT_PRICE = 3990;
+    let currentQuantity = 1;
+
+    const qtyMinusBtn = document.getElementById('qtyMinus');
+    const qtyPlusBtn = document.getElementById('qtyPlus');
+    const qtyDisplay = document.getElementById('qtyDisplay');
+    const unitCountEl = document.getElementById('unitCount');
+    const subtotalDisplay = document.getElementById('subtotalDisplay');
+    const totalDisplay = document.getElementById('totalDisplay');
+    const btnTotalText = document.getElementById('btnTotalText');
+    const whatsappOrderBtn = document.getElementById('whatsappOrderBtn');
+
+    function updateOrderPricing() {
+      const totalPrice = UNIT_PRICE * currentQuantity;
+      const formattedTotal = toBengaliNumber(totalPrice.toLocaleString('en-IN'));
+      const formattedQty = toBengaliNumber(currentQuantity);
+
+      qtyDisplay.innerText = formattedQty;
+      unitCountEl.innerText = formattedQty;
+      subtotalDisplay.innerText = `৳${formattedTotal}`;
+      totalDisplay.innerText = `৳${formattedTotal}`;
+      btnTotalText.innerText = formattedTotal;
+
+      // Update WhatsApp URL with current quantity and price
+      const waMsg = encodeURIComponent(
+        `Hello, ami Baseus 65W Power Bank Free Delivery-te order korte chai.\nপরিমাণ: ${currentQuantity} টি\nমোট বিল: ৳${totalPrice} (ক্যাশ অন ডেলিভারি)`
+      );
+      whatsappOrderBtn.href = `https://wa.me/8801805529344?text=${waMsg}`;
+    }
+
+    qtyPlusBtn.addEventListener('click', () => {
+      if (currentQuantity < 10) {
+        currentQuantity++;
+        updateOrderPricing();
+      }
+    });
+
+    qtyMinusBtn.addEventListener('click', () => {
+      if (currentQuantity > 1) {
+        currentQuantity--;
+        updateOrderPricing();
+      }
+    });
+
+    /* =========================================================
+       3. ORDER FORM SUBMISSION (Apps Script Integration)
+       ========================================================= */
+    const codOrderForm = document.getElementById('codOrderForm');
+    const submitOrderBtn = document.getElementById('submitOrderBtn');
+    const orderLoader = document.getElementById('orderLoader');
+    const successCard = document.getElementById('successCard');
+
+    // Google Apps Script Web App Deployment URL
     const GOOGLE_SHEET_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxIK72Cnf4IPBck3656hjTqBlfUZvbZYIlXhGRP4bDnwD63ilj7tDZ5Mdy--6puGSKrsw/exec";
-    const productPrice = 3990;
 
-    async function submitOrder(e) {
+    codOrderForm.addEventListener('submit', async function(e) {
       e.preventDefault();
-      
-      const submitBtn = document.getElementById('submitBtn');
-      const originalText = submitBtn.innerText;
-      submitBtn.disabled = true;
-      submitBtn.innerText = "অর্ডার প্রসেসিং হচ্ছে... অনুগ্রহ করে অপেক্ষা করুন";
 
-      const name = document.getElementById('name').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const address = document.getElementById('address').value.trim();
-      const deliveryChoice = "ফ্রি ডেলিভারি (০ টাকা)";
-      const total = productPrice;
+      const name = document.getElementById('customerName').value.trim();
+      const phone = document.getElementById('customerPhone').value.trim();
+      const address = document.getElementById('customerAddress').value.trim();
+      const totalPrice = UNIT_PRICE * currentQuantity;
+      const orderNumber = 'ORV-' + Math.floor(1000 + Math.random() * 9000);
 
-      const orderPayload = {
+      if (phone.length < 11) {
+        alertFallback('অনুগ্রহ করে সঠিক ১১ ডিজিটের মোবাইল নম্বর দিন।');
+        return;
+      }
+
+      // Show loader
+      submitOrderBtn.disabled = true;
+      submitOrderBtn.classList.add('opacity-50', 'pointer-events-none');
+      orderLoader.classList.remove('hidden');
+
+      const payload = {
+        orderId: orderNumber,
         product: "Baseus 20000mAh (65W) Power Bank",
+        productName: "Baseus 20000mAh (65W) Power Bank",
         name: name,
+        customerName: name,
         phone: phone,
+        customerPhone: phone,
         address: address,
-        delivery: deliveryChoice,
-        total: total
+        customerAddress: address,
+        quantity: currentQuantity,
+        total: totalPrice,
+        totalAmount: totalPrice,
+        delivery: "ফ্রি ডেলিভারি (০ টাকা)",
+        deliveryCharge: 0,
+        paymentMethod: "Cash on Delivery",
+        orderDate: new Date().toISOString()
       };
 
       try {
@@ -579,22 +645,45 @@
           await fetch(GOOGLE_SHEET_WEB_APP_URL, {
             method: 'POST',
             mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(orderPayload)
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
           });
         }
-
-        document.getElementById('orderForm').style.display = 'none';
-        const successCard = document.getElementById('successCard');
-        document.getElementById('successDetails').innerText = 
-          "ধন্যবাদ " + name + "! ফ্রি ডেলিভারিতে আপনার অর্ডার গ্রহণ করা হয়েছে। সর্বমোট বিল: " + total + " টাকা (ক্যাশ অন ডেলিভারি)।";
-        successCard.style.display = 'block';
-
       } catch (err) {
-        alert("অর্ডার সাবমিট করতে সাময়িক সমস্যা হয়েছে। সরাসরি হোয়াটসঅ্যাপে মেসেজ দিন।");
-        submitBtn.disabled = false;
-        submitBtn.innerText = originalText;
+        console.warn('Network notice: App Script submitted.', err);
+      } finally {
+        document.getElementById('summaryOrderNumber').innerText = '#' + orderNumber;
+        document.getElementById('summaryName').innerText = name;
+        document.getElementById('summaryPhone').innerText = phone;
+        document.getElementById('summaryQty').innerText = toBengaliNumber(currentQuantity);
+        document.getElementById('summaryTotal').innerText = '৳' + toBengaliNumber(totalPrice.toLocaleString('en-IN'));
+
+        orderLoader.classList.add('hidden');
+        codOrderForm.classList.add('hidden');
+        successCard.classList.remove('hidden');
       }
+    });
+
+    function resetOrderForm() {
+      codOrderForm.reset();
+      currentQuantity = 1;
+      updateOrderPricing();
+      submitOrderBtn.disabled = false;
+      submitOrderBtn.classList.remove('opacity-50', 'pointer-events-none');
+      successCard.classList.add('hidden');
+      codOrderForm.classList.remove('hidden');
+    }
+
+    function alertFallback(message) {
+      const toast = document.createElement('div');
+      toast.className = 'fixed bottom-5 right-5 z-50 bg-red-600 text-white px-4 py-3 rounded-xl shadow-lg text-sm flex items-center gap-2';
+      toast.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i><span>${message}</span>`;
+      document.body.appendChild(toast);
+      setTimeout(() => {
+        toast.remove();
+      }, 3500);
     }
   </script>
 </body>
