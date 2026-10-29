@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fly Nova Pro Mini Drone - ORVYN</title>
+  
+  <!-- Google Fonts: Hind Siliguri -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandPrimary: '#1f6ec2',
+            brandSecondary: '#0f172a',
+            bgLight: '#f8fafc',
+            brandSuccess: '#16a34a',
+          },
+          fontFamily: {
+            bengali: ['"Hind Siliguri"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Hind Siliguri', sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      scroll-behavior: smooth;
+    }
+    
+    /* Hide scrollbar for slider thumbnails */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Slider transitions */
+    .slider-track {
+      display: flex;
+      transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+      touch-action: pan-y;
+      will-change: transform;
+    }
+
+    /* Pulsing animation for Order CTA */
+    @keyframes pulseGlow {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(31, 110, 194, 0.4);
+      }
+      50% {
+        box-shadow: 0 0 0 10px rgba(31, 110, 194, 0);
+      }
+    }
+    .pulse-btn {
+      animation: pulseGlow 2.5s infinite;
+    }
+  </style>
+</head>
+<body class="bg-bgLight text-brandSecondary antialiased">
+
+  <!-- Top Announcement Bar -->
+  <aside aria-label="Announcement" class="bg-brandSecondary text-white py-2 px-3 text-center text-xs sm:text-sm font-medium flex items-center justify-center gap-2 sticky top-0 z-50 shadow-sm">
+    <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+    <i class="fa-solid fa-truck-fast text-emerald-400"></i>
+    <span>🎁 ধামাকা অফার: সারা বাংলাদেশে ফ্রি হোম ডেলিভারি ও সম্পূর্ণ ক্যাশ অন ডেলিভারি সুবিধা!</span>
+  </aside>
+
+  <!-- Main Header -->
+  <header class="bg-white border-b border-slate-200 shadow-xs py-3 px-4">
+    <div class="max-w-4xl mx-auto flex items-center justify-between">
+      <a href="../index.html" class="brand-name text-2xl sm:text-3xl font-extrabold tracking-wider text-brandPrimary flex items-center gap-1.5 hover:opacity-90 transition">
+        <span>ORVYN</span>
+        <span class="w-2 h-2 rounded-full bg-brandPrimary"></span>
+      </a>
+      <span class="text-xs bg-blue-50 text-brandPrimary border border-blue-200 px-2.5 py-1 rounded-full font-semibold">
+        অফিসিয়াল স্টোর
+      </span>
+    </div>
+  </header>
+
+  <!-- Navigation / Back to Products Button -->
+  <nav aria-label="Breadcrumb" class="max-w-4xl mx-auto px-4 pt-3 pb-1">
+    <a href="../index.html" class="back-btn inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-600 hover:text-brandPrimary bg-white border border-slate-200 hover:border-brandPrimary px-3 py-1.5 rounded-lg shadow-2xs transition">
+      <i class="fa-solid fa-arrow-left text-xs"></i>
+      <span>সকল প্রোডাক্ট দেখুন</span>
+    </a>
+  </nav>
+
+  <!-- Main Content Container -->
+  <main class="max-w-4xl mx-auto px-4 py-4 space-y-6">
+
+    <!-- Hero Section -->
+    <section class="bg-white border border-slate-200/80 rounded-2xl p-4 sm:p-6 shadow-sm">
+      
+      <!-- Delivery Badge -->
+      <div class="flex items-center gap-2 mb-3">
+        <span class="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 border border-emerald-200 px-3 py-0.5 rounded-full text-xs font-bold tracking-wide">
+          <span>🚚</span> সারা বাংলাদেশে ডেলিভারি সম্পূর্ণ ফ্রি!
+        </span>
+        <span class="text-xs text-slate-500 font-medium">
+          <i class="fa-regular fa-clock"></i> সীমিত স্টক অফার
+        </span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="text-xl sm:text-3xl font-bold leading-snug text-brandSecondary mb-4">
+        Fly Nova Pro Mini Flying Drone Spinner – বুমেরাং ফ্লাইট ও আরজিবি লাইট সহ ম্যাজিকাল ড্রোন খেলনা!
+      </h1>
+
+      <!-- Swipeable Product Slider -->
+      <div class="relative w-full max-w-lg mx-auto select-none mb-4">
+        
+        <!-- Slider Viewport -->
+        <div id="sliderViewport" class="overflow-hidden rounded-xl border border-slate-100 bg-slate-50 relative aspect-square">
+          <div id="sliderTrack" class="slider-track h-full w-full">
+            <!-- Slide 1 -->
+            <div class="min-w-full h-full flex items-center justify-center p-3">
+              <img src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?w=800&auto=format&fit=crop&q=80" 
+                   alt="Fly Nova Pro Mini Drone 1" 
+                   class="w-full h-full object-contain rounded-lg pointer-events-none"
+                   onerror="this.src='https://placehold.co/600x600/f1f5f9/1f6ec2?text=Fly+Nova+Pro+1'">
+            </div>
+            <!-- Slide 2 -->
+            <div class="min-w-full h-full flex items-center justify-center p-3">
+              <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&auto=format&fit=crop&q=80" 
+                   alt="Fly Nova Pro Mini Drone 2" 
+                   class="w-full h-full object-contain rounded-lg pointer-events-none"
+                   onerror="this.src='https://placehold.co/600x600/f1f5f9/1f6ec2?text=Fly+Nova+Pro+2'">
+            </div>
+            <!-- Slide 3 -->
+            <div class="min-w-full h-full flex items-center justify-center p-3">
+              <img src="https://images.unsplash.com/photo-1524143986875-3b098d78b363?w=800&auto=format&fit=crop&q=80" 
+                   alt="Fly Nova Pro Mini Drone 3" 
+                   class="w-full h-full object-contain rounded-lg pointer-events-none"
+                   onerror="this.src='https://placehold.co/600x600/f1f5f9/1f6ec2?text=Fly+Nova+Pro+3'">
+            </div>
+          </div>
+
+          <!-- Arrows -->
+          <button id="prevBtn" type="button" aria-label="পূর্ববর্তী ছবি" class="absolute left-2.5 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/90 text-brandSecondary hover:bg-white shadow-md flex items-center justify-center text-sm border border-slate-200 transition">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button id="nextBtn" type="button" aria-label="পরবর্তী ছবি" class="absolute right-2.5 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/90 text-brandSecondary hover:bg-white shadow-md flex items-center justify-center text-sm border border-slate-200 transition">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+
+          <!-- Slide counter badge -->
+          <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-xs text-white text-[11px] px-2.5 py-0.5 rounded-full font-medium">
+            <span id="currentSlideNumber">১</span> / <span id="totalSlidesCount">৩</span>
+          </div>
+        </div>
+
+        <!-- Thumbnail Row -->
+        <div class="flex items-center justify-center gap-2 sm:gap-3 mt-3 overflow-x-auto no-scrollbar py-1" id="thumbnailContainer">
+          <button type="button" onclick="goToSlide(0)" class="thumb-btn border-2 border-brandPrimary rounded-lg overflow-hidden w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 bg-white p-1 transition">
+            <img src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?w=150&auto=format&fit=crop&q=80" alt="Thumb 1" class="w-full h-full object-contain">
+          </button>
+          <button type="button" onclick="goToSlide(1)" class="thumb-btn border-2 border-transparent hover:border-slate-300 rounded-lg overflow-hidden w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 bg-white p-1 transition">
+            <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=150&auto=format&fit=crop&q=80" alt="Thumb 2" class="w-full h-full object-contain">
+          </button>
+          <button type="button" onclick="goToSlide(2)" class="thumb-btn border-2 border-transparent hover:border-slate-300 rounded-lg overflow-hidden w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 bg-white p-1 transition">
+            <img src="https://images.unsplash.com/photo-1524143986875-3b098d78b363?w=150&auto=format&fit=crop&q=80" alt="Thumb 3" class="w-full h-full object-contain">
+          </button>
+        </div>
+        <p class="text-center text-xs text-slate-400 mt-2">👈 ছবি দেখতে সোয়াইপ করুন অথবা নিচের ছবিতে ক্লিক করুন 👉</p>
+      </div>
+
+      <!-- Price Box -->
+      <div class="bg-gradient-to-r from-blue-50/70 to-indigo-50/60 border border-blue-200/80 rounded-xl p-4 sm:p-5 flex flex-wrap items-center justify-between gap-4 mt-5">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-sm sm:text-base text-slate-400 line-through font-semibold">রেগুলার মূল্য: ৳১,০০০</span>
+            <span class="bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">৳১৫০ ছাড়</span>
+          </div>
+          <div class="flex items-baseline gap-2 mt-1">
+            <span class="text-xs sm:text-sm text-slate-600 font-medium">অফার মূল্য:</span>
+            <span class="text-3xl sm:text-4xl font-extrabold text-brandPrimary">৳৮৫০</span>
+          </div>
+        </div>
+
+        <a href="#orderFormSection" class="pulse-btn inline-flex items-center justify-center gap-2 bg-brandPrimary hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-xl shadow-md transition transform active:scale-95 text-base sm:text-lg">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span>অর্ডার করুন</span>
+        </a>
+      </div>
+
+    </section>
+
+    <!-- Product Features Section -->
+    <section class="bg-white border border-slate-200/80 rounded-2xl p-5 sm:p-6 shadow-sm">
+      <div class="border-b border-slate-100 pb-3 mb-4">
+        <h2 class="text-lg sm:text-xl font-bold text-brandSecondary flex items-center gap-2">
+          <i class="fa-solid fa-circle-check text-brandPrimary"></i>
+          <span>Fly Nova Pro ড্রোনের বিশেষ সুবিধাসমূহ:</span>
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">ছোট-বড় সবার জন্য সেরা ম্যাজিকাল ফ্লাইং স্পিনার গ্যাজেট</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+        
+        <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100 hover:border-blue-200 transition">
+          <span class="text-brandSuccess font-bold text-lg leading-none mt-0.5">✔</span>
+          <div>
+            <h3 class="font-bold text-sm sm:text-base text-slate-800">বুমেরাং ফ্লাইট ইফেক্ট (Boomerang Action)</h3>
+            <p class="text-xs sm:text-sm text-slate-600">বাতাসে ছুড়ে দিলে এটি নিজে নিজেই গোল হয়ে ঘুরে আবার আপনার হাতের কাছে ফিরে আসে, যা খেলাকে করে তোলে অত্যন্ত রোমাঞ্চকর।</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100 hover:border-blue-200 transition">
+          <span class="text-brandSuccess font-bold text-lg leading-none mt-0.5">✔</span>
+          <div>
+            <h3 class="font-bold text-sm sm:text-base text-slate-800">উজ্জ্বল ডায়নামিক RGB LED লাইটিং</h3>
+            <p class="text-xs sm:text-sm text-slate-600">আকাশে ওড়ার সময় চমৎকার নিয়ন আরজিবি আলো জ্বলে, বিশেষ করে অন্ধকার ঘরে বা রাতে দেখতে অসাধারণ লাগে।</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100 hover:border-blue-200 transition">
+          <span class="text-brandSuccess font-bold text-lg leading-none mt-0.5">✔</span>
+          <div>
+            <h3 class="font-bold text-sm sm:text-base text-slate-800">নিরাপদ ও টেকসই ড্রপ-প্রুফ খাঁচা ডিজাইন</h3>
+            <p class="text-xs sm:text-sm text-slate-600">উন্নত নরম ও ফ্লেক্সিবল ম্যাটেরিয়াল দিয়ে তৈরি। হাত কাটার কোনো ভয় নেই এবং নিচে আছাড় খেলেও সহজে ভাঙে না।</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100 hover:border-blue-200 transition">
+          <span class="text-brandSuccess font-bold text-lg leading-none mt-0.5">✔</span>
+          <div>
+            <h3 class="font-bold text-sm sm:text-base text-slate-800">ইনডোর ও আউটডোর ফ্রেন্ডলি</h3>
+            <p class="text-xs sm:text-sm text-slate-600">ঘরের ভেতরে পরিবারের সাথে কিংবা খোলা মাঠে বন্ধুদের সাথে ক্যাচ-ক্যাচ ও ট্রিক শট খেলার জন্য একদম উপযুক্ত।</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100 hover:border-blue-200 transition md:col-span-2">
+          <span class="text-brandSuccess font-bold text-lg leading-none mt-0.5">✔</span>
+          <div>
+            <h3 class="font-bold text-sm sm:text-base text-slate-800">সহজ USB রিচার্জেবল সিস্টেম</h3>
+            <p class="text-xs sm:text-sm text-slate-600">মাত্র ১৫-২০ মিনিটে যেকোনো পাওয়ার ব্যাংক, ল্যাপটপ বা চার্জার দিয়ে সহজে রিচার্জ করে নেওয়া যায়।</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Highlights Grid -->
+      <div class="mt-5 pt-4 border-t border-slate-100">
+        <h3 class="text-sm sm:text-base font-bold text-brandSecondary mb-3 flex items-center gap-2">
+          <i class="fa-solid fa-gamepad text-brandPrimary"></i>
+          <span>কেন এটি সবার প্রিয়:</span>
+        </h3>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs sm:text-sm text-slate-700">
+          <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-100 text-center font-medium">✨ হাতের জাদুকরী খেলনা</div>
+          <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-100 text-center font-medium">🎁 উপহারের জন্য সেরা চয়েস</div>
+          <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-100 text-center font-medium">🛡️ বাচ্চাদের জন্য নিরাপদ</div>
+          <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-100 text-center font-medium">🔋 দ্রুত চার্জিং সুবিধা</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust & Guarantee Box -->
+    <section class="bg-gradient-to-br from-white to-blue-50/50 border border-blue-200/70 rounded-2xl p-5 sm:p-6 shadow-sm">
+      <div class="text-center max-w-lg mx-auto mb-4">
+        <h3 class="text-lg sm:text-xl font-bold text-brandSecondary">অর্ডার করার আগে জেনে নিন আমাদের নিশ্চিন্ত সেবাসমূহ</h3>
+        <p class="text-xs sm:text-sm text-slate-500 mt-0.5">গ্রাহকদের সর্বোচ্চ সন্তুষ্টি ও নিরাপত্তাই আমাদের অঙ্গীকার</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <!-- Guarantee 1 -->
+        <div class="bg-white p-3.5 rounded-xl border border-slate-200/80 text-center flex flex-col items-center">
+          <div class="w-10 h-10 rounded-full bg-blue-100 text-brandPrimary flex items-center justify-center mb-2">
+            <i class="fa-solid fa-hand-holding-dollar text-lg"></i>
+          </div>
+          <h4 class="font-bold text-sm text-slate-800">১০০% ক্যাশ অন ডেলিভারি</h4>
+          <p class="text-xs text-slate-500 mt-1">জিরো অগ্রিম পেমেন্ট, পণ্য হাতে পেয়ে ডেলিভারি ম্যানের কাছে টাকা দিন।</p>
+        </div>
+
+        <!-- Guarantee 2 -->
+        <div class="bg-white p-3.5 rounded-xl border border-slate-200/80 text-center flex flex-col items-center">
+          <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mb-2">
+            <i class="fa-solid fa-box-open text-lg"></i>
+          </div>
+          <h4 class="font-bold text-sm text-slate-800">দেখে নেওয়ার সুযোগ</h4>
+          <p class="text-xs text-slate-500 mt-1">ডেলিভারি ম্যানের সামনে প্যাকেট চেক করে ভালো লাগলে টাকা পরিশোধ করুন।</p>
+        </div>
+
+        <!-- Guarantee 3 -->
+        <div class="bg-white p-3.5 rounded-xl border border-slate-200/80 text-center flex flex-col items-center">
+          <div class="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center mb-2">
+            <i class="fa-solid fa-shield-halved text-lg"></i>
+          </div>
+          <h4 class="font-bold text-sm text-slate-800">১০০% কোয়ালিটি চেক</h4>
+          <p class="text-xs text-slate-500 mt-1">আমরা প্রদান করি সম্পূর্ণ আসল ও নিখুঁতভাবে পরীক্ষিত গ্যাজেটস।</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cash On Delivery Order Form Section -->
+    <section id="orderFormSection" class="bg-white border-2 border-brandPrimary/30 rounded-2xl p-5 sm:p-7 shadow-lg relative">
+      
+      <!-- Top Form Header -->
+      <div class="text-center pb-4 mb-4 border-b border-slate-100">
+        <span class="bg-brandPrimary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+          ক্যাশ অন ডেলিভারি
+        </span>
+        <h2 class="text-xl sm:text-2xl font-extrabold text-brandSecondary mt-2">
+          অর্ডারটি কনফার্ম করতে নিচের তথ্যগুলো সঠিকভাবে পূরণ করুন
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">
+          কোনো অগ্রিম পেমেন্ট নেই। পার্সেল হাতে পেয়ে সম্পূর্ণ টাকা পরিশোধ করবেন।
+        </p>
+      </div>
+
+      <!-- Order Form -->
+      <form id="codOrderForm" class="space-y-4">
+        
+        <!-- Customer Name -->
+        <div>
+          <label for="customerName" class="block text-sm font-semibold text-slate-700 mb-1">
+            আপনার সম্পূর্ণ নাম <span class="text-red-500">*</span>
+          </label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
+              <i class="fa-regular fa-user"></i>
+            </span>
+            <input type="text" id="customerName" name="customerName" required placeholder="যেমন: মো: আরিফুল ইসলাম" 
+                   class="w-full pl-9 pr-3 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brandPrimary/30 focus:border-brandPrimary transition text-sm">
+          </div>
+        </div>
+
+        <!-- Phone Number -->
+        <div>
+          <label for="customerPhone" class="block text-sm font-semibold text-slate-700 mb-1">
+            সচল মোবাইল নম্বর <span class="text-red-500">*</span>
+          </label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
+              <i class="fa-solid fa-phone"></i>
+            </span>
+            <input type="tel" id="customerPhone" name="customerPhone" required pattern="01[3-9][0-9]{8}" placeholder="যেমন: 017xxxxxxxx (১১ ডিজিট)" 
+                   class="w-full pl-9 pr-3 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brandPrimary/30 focus:border-brandPrimary transition text-sm">
+          </div>
+          <p class="text-[11px] text-slate-400 mt-1">আমাদের প্রতিনিধি দ্রুত আপনার নম্বরে কল করে অর্ডার নিশ্চিত করবেন।</p>
+        </div>
+
+        <!-- Full Address -->
+        <div>
+          <label for="customerAddress" class="block text-sm font-semibold text-slate-700 mb-1">
+            সম্পূর্ণ ঠিকানা (বাসা/রোড, থানা, জেলা) <span class="text-red-500">*</span>
+          </label>
+          <div class="relative">
+            <span class="absolute top-3 left-3 text-slate-400">
+              <i class="fa-solid fa-location-dot"></i>
+            </span>
+            <textarea id="customerAddress" name="customerAddress" rows="2" required placeholder="যেমন: বাড়ি ১২, রোড ৪, মিরপুর-১০, ঢাকা (অথবা আপনার থানা ও জেলা)" 
+                      class="w-full pl-9 pr-3 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brandPrimary/30 focus:border-brandPrimary transition text-sm"></textarea>
+          </div>
+        </div>
+
+        <!-- Quantity & Order Summary Card -->
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-sm font-semibold text-slate-700">পরিমাণ (Quantity):</span>
+            <div class="flex items-center border border-slate-300 bg-white rounded-lg overflow-hidden shadow-2xs">
+              <button type="button" id="qtyMinus" class="px-3 py-1.5 text-slate-600 hover:bg-slate-100 font-bold active:bg-slate-200 transition">-</button>
+              <span id="qtyDisplay" class="px-4 py-1 font-bold text-sm text-brandSecondary select-none">১</span>
+              <button type="button" id="qtyPlus" class="px-3 py-1.5 text-slate-600 hover:bg-slate-100 font-bold active:bg-slate-200 transition">+</button>
+            </div>
+          </div>
+
+          <div class="border-t border-slate-200 pt-2 space-y-1.5 text-xs sm:text-sm">
+            <div class="flex justify-between text-slate-600">
+              <span>প্রোডাক্ট মূল্য (<span id="unitCount">১</span>টি):</span>
+              <span class="font-semibold text-slate-800" id="subtotalDisplay">৳৮৫০</span>
+            </div>
+            <div class="flex justify-between text-slate-600 items-center">
+              <span>ডেলিভারি চার্জ:</span>
+              <span class="bg-emerald-100 text-emerald-700 font-bold px-2 py-0.5 rounded text-xs">
+                ০ টাকা (ফ্রি)
+              </span>
+            </div>
+            <div class="flex justify-between text-base font-bold text-brandSecondary border-t border-dashed border-slate-300 pt-2">
+              <span>সর্বমোট পরিশোধ করতে হবে:</span>
+              <span class="text-brandPrimary text-lg" id="totalDisplay">৳৮৫০</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" id="submitOrderBtn" class="w-full bg-brandPrimary hover:bg-blue-700 text-white font-bold py-3.5 px-4 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-base active:scale-[0.99]">
+          <i class="fa-solid fa-lock"></i>
+          <span>অর্ডার কনফার্ম করুন (ক্যাশ অন ডেলিভারি - ৳<span id="btnTotalText">৮৫০</span>)</span>
+        </button>
+
+        <!-- Loading State Indicator -->
+        <div id="orderLoader" class="hidden text-center py-2 text-brandPrimary text-sm font-medium">
+          <i class="fa-solid fa-circle-notch fa-spin text-lg mr-2"></i>
+          <span>অর্ডার প্রসেসিং হচ্ছে... অনুগ্রহ করে অপেক্ষা করুন</span>
+        </div>
+
+      </form>
+
+      <!-- Success Card -->
+      <div id="successCard" class="hidden text-center py-6 px-4 space-y-4">
+        <div class="w-16 h-16 bg-emerald-100 text-brandSuccess rounded-full flex items-center justify-center mx-auto text-2xl shadow-inner">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-slate-800">🎉 আপনার অর্ডারটি সফলভাবে গ্রহণ করা হয়েছে!</h3>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">আমাদের প্রতিনিধি দ্রুত আপনার নম্বরে কল করে অর্ডার নিশ্চিত করবেন।</p>
+        </div>
+        
+        <div class="bg
