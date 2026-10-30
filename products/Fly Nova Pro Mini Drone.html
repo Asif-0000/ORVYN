@@ -204,11 +204,11 @@
         <div>
           <div class="flex items-center gap-2">
             <span class="text-sm sm:text-base text-slate-400 line-through font-semibold">রেগুলার: ৳১,০০০</span>
-            <span class="bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">৳১৫০ ছাড়</span>
+            <span class="bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">৳২০১ ছাড়</span>
           </div>
           <div class="flex items-baseline gap-2 mt-1">
             <span class="text-xs sm:text-sm text-slate-600 font-medium">অফার মূল্য:</span>
-            <span class="text-3xl sm:text-4xl font-extrabold text-brandPrimary">৳৮৫০</span>
+            <span class="text-3xl sm:text-4xl font-extrabold text-brandPrimary">৳৭৯৯</span>
           </div>
         </div>
 
@@ -402,7 +402,7 @@
           <div class="border-t border-slate-200 pt-2 space-y-1.5 text-xs sm:text-sm">
             <div class="flex justify-between text-slate-600">
               <span>প্রোডাক্ট মূল্য (<span id="unitCount">১</span>টি):</span>
-              <span class="font-semibold text-slate-800" id="subtotalDisplay">৳৮৫০</span>
+              <span class="font-semibold text-slate-800" id="subtotalDisplay">৳৭৯৯</span>
             </div>
             <div class="flex justify-between text-slate-600 items-center">
               <span>ডেলিভারি চার্জ:</span>
@@ -412,7 +412,7 @@
             </div>
             <div class="flex justify-between text-base font-bold text-brandSecondary border-t border-dashed border-slate-300 pt-2">
               <span>সর্বমোট পরিশোধ করতে হবে:</span>
-              <span class="text-brandPrimary text-lg" id="totalDisplay">৳৮৫০</span>
+              <span class="text-brandPrimary text-lg" id="totalDisplay">৳৭৯৯</span>
             </div>
           </div>
         </div>
@@ -420,7 +420,7 @@
         <!-- Submit Button -->
         <button type="submit" id="submitOrderBtn" class="w-full bg-brandPrimary hover:bg-blue-700 text-white font-bold py-3.5 px-4 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-base active:scale-[0.99]">
           <i class="fa-solid fa-lock"></i>
-          <span>অর্ডার কনফার্ম করুন (ক্যাশ অন ডেলিভারি - ৳<span id="btnTotalText">৮৫০</span>)</span>
+          <span>অর্ডার কনফার্ম করুন (ক্যাশ অন ডেলিভারি - ৳<span id="btnTotalText">৭৯৯</span>)</span>
         </button>
 
         <!-- Loading State Indicator -->
@@ -583,9 +583,9 @@
     });
 
     /* =========================================================
-       2. REAL-TIME PRICE & QUANTITY CALCULATION
+       2. REAL-TIME PRICE & QUANTITY CALCULATION (UPDATED TO 799)
        ========================================================= */
-    const UNIT_PRICE = 850;
+    const UNIT_PRICE = 799;
     let currentQuantity = 1;
 
     const qtyMinusBtn = document.getElementById('qtyMinus');
